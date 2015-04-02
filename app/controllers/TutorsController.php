@@ -10,7 +10,8 @@ class TutorsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$users = User::getTutors()->paginate(10);
+		return View::make('tutors.index',compact('users'));
 	}
 
 	/**

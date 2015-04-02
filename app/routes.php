@@ -17,7 +17,7 @@ Route::get('/', array('as' => 'home', function()
 }));
 
 # Tutors Controller
-Route::group(['before' => 'auth|adminUser'], function()
+Route::group(['before' => 'auth'], function()
 {
   Route::resource('tutors', 'TutorsController');
 });

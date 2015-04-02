@@ -23,4 +23,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	//$someUsers = User::where('votes', '>', 100)->paginate(15);
+
+	public static function getTutors()
+	{
+		return Sentry::findGroupByName("Tutors")->users();
+	}
+
 }
