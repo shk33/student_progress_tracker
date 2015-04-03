@@ -22,7 +22,7 @@ class TutorsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('tutors.create');
 	}
 
 	/**
@@ -32,8 +32,14 @@ class TutorsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		//
+	{		
+		if (User::createTutor(Input::all())) {
+			Session::flash('success', 'Tutor Creador exitósamente');
+			return Redirect::route('tutors.index');
+		}else{
+			Session::flash('error', 'Ocurrió un error. Valida los datos.');
+			return View::make('tutors.create');
+		}
 	}
 
 	/**
@@ -45,7 +51,6 @@ class TutorsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
 	}
 
 	/**

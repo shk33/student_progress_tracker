@@ -1,12 +1,3 @@
-
-@if ($edit) <!-- For edit a user -->
-{{ Form::model($user,array('route' => array($update_route, $user->id), 'method' => 'PUT' )) }}
-@else <!-- For create a new user -->
-
-{{ Form::open(array('action' => array($store_route), 'method' => 'POST' )) }}
-
-@endif
-
 <div class="panel-body">
 
     <!-- First Name -->
@@ -37,18 +28,18 @@
       {{$errors->first('email')}}
     </div>
 
+    <!-- Enrollment Number-->
+    <div class="form-group">
+      {{Form::label('enrollment_number', 'Matrícula',array('class' => "control-label"))}}
+      {{Form::text('enrollment_number', null,array('class' => 'form-control', 'placeholder' => 'Matrícula') )}}
+      {{$errors->first('Matrícula')}}
+    </div>
+
     <!-- Password -->
     <div class="form-group">
       {{Form::label('password', 'Contraseña',array('class' => "control-label"))}}
       {{Form::password('password', array('class' => 'form-control', 'placeholder' => 'Contraseña') )}}
       {{$errors->first('password')}}
-    </div>
-
-    <!-- Password Confirmation-->
-    <div class="form-group">
-      {{Form::label('password_confirmation', 'Confirmar Contraseña',array('class' => "control-label"))}}
-      {{Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirmar Contraseña') )}}
-      {{$errors->first('password_confirmation')}}
     </div>
 </div>
     
@@ -61,5 +52,3 @@
     </div>
   </div>
 </div>
-    
-{{ Form::close() }}

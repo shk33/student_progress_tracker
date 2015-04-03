@@ -23,11 +23,49 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	//$someUsers = User::where('votes', '>', 100)->paginate(15);
-
 	public static function getTutors()
 	{
-		return Sentry::findGroupByName("Tutors")->users();
+		return User::getTutorGroup()->users();
+	}
+
+	public static function createTutor($userData)
+	{
+	  if ($user = User::createUser($userData)) {
+	  	$tutorGroup = User::getTutorGroup();
+	  	$user->addGroup($tutorGroup);
+	  	return $user;
+	  }else{
+	  	return false;
+	  }
+	}
+
+	############################
+	# Private Functions
+	############################
+	private static function createUser($userData)
+	{
+		try{
+	    $user = Sentry::register(array(
+	      'first_name' => $userData['first_name'],
+	      'last_name'  => $userData['last_name'],
+	      'username'   => $userData['username'],
+	      'enrollment_number' => $userData['enrollment_number'],
+	      'email'      => $userData['email'],
+	      'password'   => $userData['password'],
+	      'activated'  => true,
+	    ));
+
+	    return $user;
+		}
+		catch (Exception $e)
+		{
+			return false;
+		}
+	}
+
+	private static function getTutorGroup()
+	{
+		return Sentry::findGroupByName("Tutors");
 	}
 
 }

@@ -79,3 +79,5 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+//Helpers 
+require app_path().'/helpers/ApplicationHelper.php';
