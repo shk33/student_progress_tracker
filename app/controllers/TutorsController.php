@@ -62,7 +62,8 @@ class TutorsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = Sentry::findUserById($id);
+		return View::make('tutors.edit', compact('user'));
 	}
 
 	/**
@@ -74,7 +75,15 @@ class TutorsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = Sentry::findUserById($id);
+		if (User::updateAttributes($user,Input::all())) {
+			Session::flash('success', 'Tutor actualizado exitósamente');
+			return Redirect::route('tutors.index');
+		}else{
+			Session::flash('error', 'Ocurrió un error. Valida los datos.');
+			return Redirect::route('tutors.edit', $id);
+		}
+
 	}
 
 	/**

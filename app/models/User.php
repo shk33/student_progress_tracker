@@ -39,6 +39,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	  }
 	}
 
+	public static function updateAttributes($user,$userData)
+	{
+    $user->first_name = $userData['first_name'];
+    $user->last_name  = $userData['last_name'];
+    $user->username   = $userData['username'];
+    $user->email      = $userData['email'];
+    $user->enrollment_number = $userData['enrollment_number'];
+    
+    if ($userData['password'] && !empty(trim($userData['password']))) {
+    	$user->password = $userData['password'];
+    }
+    try {
+	    if ($user->save()){
+	    	return $user;
+	    }
+	    else{
+	    	return false;
+	    }
+    } catch (Exception $e) {
+	   		return false;
+    }
+	}
+
 	############################
 	# Private Functions
 	############################

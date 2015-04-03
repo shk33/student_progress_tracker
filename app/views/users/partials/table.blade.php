@@ -16,11 +16,11 @@
       <td>{{{$user->username}}}</td>
       <td>
         <!-- View Link -->
-        <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href="" data-original-title="Ver" data-container="body">
+        <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href="{{ URL::route('tutors.show', $user->id) }}" data-original-title="Ver" data-container="body">
           <i class="fa fa-eye fa-2x"></i>
         </a>
         <!-- Edit Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="" data-original-title="Editar" data-container="body">
+        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href="{{ URL::route('tutors.edit', $user->id) }}" data-original-title="Editar" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Delete Link -->
