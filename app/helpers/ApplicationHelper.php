@@ -11,19 +11,6 @@
   */
   namespace ApplicationHelper;
   
-  function exist_messages($messages)
-  {
-    $exist_messages = "";
-    foreach ($messages as $type => $message) {
-      if ($message) {
-        $exist_messages = $type;
-        $message_type = $type;
-        break;
-      }
-    }
-    return $exist_messages;
-  }
-
   function getAlertType()
   {
     if (Session::get('success')) {
