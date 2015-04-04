@@ -21,3 +21,9 @@ Route::group(['before' => 'auth|adminGroup'], function()
 {
   Route::resource('tutors', 'TutorsController');
 });
+
+# Students Controller
+Route::group(['before' => 'auth|adminOrTutorGroup'], function()
+{
+  Route::resource('students', 'StudentsController');
+});

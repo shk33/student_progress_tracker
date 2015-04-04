@@ -43,7 +43,18 @@ Route::filter('adminGroup', function()
   $user = Sentry::getUser();
   $admin = Sentry::findGroupByName('Admins');
 
-  if (!$user->inGroup($admin)) return Redirect::to('login');
+  if (!$user->inGroup($admin)) 
+    return Redirect::to('login');
+});
+
+Route::filter('adminOrTutorGroup', function()
+{
+  $user = Sentry::getUser();
+  $admin = Sentry::findGroupByName('Admins');
+  $tutor = Sentry::findGroupByName('Tutors');
+
+  if (!$user->inGroup($admin) && !$user->inGroup($tutor)) 
+    return Redirect::to('login');
 });
 
 
