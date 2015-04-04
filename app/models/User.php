@@ -28,6 +28,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return User::getTutorGroup()->users();
 	}
 
+	public static function getStudents()
+	{
+		return User::getStudentGroup()->users();
+	}
+
 	public static function createTutor($userData)
 	{
 	  if ($user = User::createUser($userData)) {
@@ -89,6 +94,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	private static function getTutorGroup()
 	{
 		return Sentry::findGroupByName("Tutors");
+	}
+
+	private static function getStudentGroup()
+	{
+		return Sentry::findGroupByName("Students");
 	}
 
 }

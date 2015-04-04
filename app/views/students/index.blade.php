@@ -11,8 +11,8 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              Tutores
-              <a href="{{ URL::route('tutors.create') }}">
+              Estudiantes
+              <a href="{{ URL::route('students.create') }}">
                 <button class="btn btn-success mar-lft">
                   Nuevo
                 </button>
@@ -22,15 +22,16 @@
           </div>
           
           <div class="panel-body no-top-bot-pad">
-            @include('users.partials.pagination')
+              @include('users.partials.pagination')
           </div>
           
           <div class="panel-body">
-            @include('users.partials.table', array('userType' => ,$userType ))
+              @include('users.partials.table', 
+                        array('userType' => $userType ))
           </div>
     
           <div class="panel-body no-top-pad">
-            @include('users.partials.pagination')
+              @include('users.partials.pagination')
           </div>
 
         </div>

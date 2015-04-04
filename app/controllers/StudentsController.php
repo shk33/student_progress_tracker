@@ -10,7 +10,9 @@ class StudentsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$users = User::getStudents()->paginate(10);
+    $viewParams = array('userType' => 'students');
+    return View::make('students.index',compact('users'))->with($viewParams);
 	}
 
 	/**
