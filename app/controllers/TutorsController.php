@@ -51,6 +51,8 @@ class TutorsController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$user = User::find($id);
+		return View::make('tutors.show', compact('user'));
 	}
 
 	/**
@@ -95,8 +97,7 @@ class TutorsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		try
-		{
+		try{
 			$user = Sentry::findUserById($id);
 		  $user->delete();
 		  Session::flash('success', 'Tutor eliminado exitósamente');
