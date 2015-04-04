@@ -44,6 +44,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	  }
 	}
 
+	public static function createStudent($userData)
+	{
+	  if ($user = User::createUser($userData)) {
+	  	$studentGroup = User::getStudentGroup();
+	  	$user->addGroup($studentGroup);
+	  	return $user;
+	  }else{
+	  	return false;
+	  }
+	}
+
 	public static function updateAttributes($user,$userData)
 	{
     $user->first_name = $userData['first_name'];

@@ -11,11 +11,11 @@
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Editar Tutor: {{{ "$user->first_name $user->last_name" }}}
+              Editar Estudiante: {{{ "$user->first_name $user->last_name" }}}
             </h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutors.update',$user->id), 'method' => 'PUT' )) }}
+          {{ Form::open(array('action' => array('students.update',$user->id), 'method' => 'PUT' )) }}
             @include('users.partials.edit_form')
           {{ Form::close() }}
 

@@ -26,7 +26,8 @@
           </div>
           
           <div class="panel-body">
-            @include('users.partials.table', array('userType' => ,$userType ))
+           @include('users.partials.table', 
+                    array('userType' => $userType ))
           </div>
     
           <div class="panel-body no-top-pad">

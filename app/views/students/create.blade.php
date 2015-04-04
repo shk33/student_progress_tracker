@@ -10,10 +10,10 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">Crear Tutor</h3>
+            <h3 class="panel-title">Crear Alumno</h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutors.store'), 'method' => 'POST' )) }}
+          {{ Form::open(array('action' => array('students.store'), 'method' => 'POST' )) }}
             @include('users.partials.form')
           {{ Form::close() }}
 
@@ -23,6 +23,5 @@
     </div>
 
   </div>
-
 
 @stop
