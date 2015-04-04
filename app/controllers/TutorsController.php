@@ -95,7 +95,18 @@ class TutorsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		try
+		{
+			$user = Sentry::findUserById($id);
+		  $user->delete();
+		  Session::flash('success', 'Tutor eliminado exitósamente');
+		}
+		catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
+			Session::flash('error', 'Tutor no encontrado');
+		}
+		finally{
+			return Redirect::route('tutors.index');
+		}
 	}
 
 }
