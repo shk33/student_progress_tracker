@@ -8,4 +8,9 @@ class ScholarGroup extends \Eloquent {
 
   // Don't forget to fill this array
   protected $fillable = ['id', 'name', 'description', 'user_id'];
+
+  public function tutor()
+  {
+    return $this->belongsTo('User');
+  }
 }
