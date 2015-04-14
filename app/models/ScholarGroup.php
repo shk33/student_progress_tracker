@@ -3,7 +3,8 @@
 class ScholarGroup extends \Eloquent {
 	// Add your validation rules here
   public static $rules = [
-    'name' => 'required',
+    'name'    => 'required',
+    'user_id' => 'required',
   ];
 
   // Don't forget to fill this array
