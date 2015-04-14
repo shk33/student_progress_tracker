@@ -10,7 +10,8 @@ class ScholarGroupController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$scholarGroups = ScholarGroup::paginate(10);
+		return View::make('scholar_groups.index',compact('scholarGroups'));
 	}
 
 	/**

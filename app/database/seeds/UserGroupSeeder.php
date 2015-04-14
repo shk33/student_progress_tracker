@@ -22,11 +22,8 @@ class UserGroupSeeder extends Seeder {
       // Assign the groups to the users
       $studentUser->addGroup($studentGroup);
       
-      $tutorUser->addGroup($studentGroup);
       $tutorUser->addGroup($tutorGroup);
 
-      $adminUser->addGroup($studentGroup);
-      $adminUser->addGroup($tutorGroup);
       $adminUser->addGroup($adminGroup);
 
       //Asigns all students
@@ -40,7 +37,6 @@ class UserGroupSeeder extends Seeder {
       for ($i=0; $i <10 ; $i++) { 
         $user = Sentry::getUserProvider()
                 ->findByLogin("tutor{$i}@tutor{$i}.com");
-        $user->addGroup($studentGroup);
         $user->addGroup($tutorGroup);
       }
   }
