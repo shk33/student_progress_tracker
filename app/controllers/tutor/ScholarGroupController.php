@@ -122,9 +122,12 @@ class ScholarGroupController extends \BaseController {
   public function destroy($id)
   {
     $scholarGroup = \ScholarGroup::find($id);
-    $scholarGroup->delete();
-    \Session::flash('success', 'Grupo Eliminado');
-    return \Redirect::route('tutor.scholar-groups.index');
+    $userId = \Sentry::getUser()->id;
+    if ($scholarGroup->isUserOwner($userId)) {
+      $scholarGroup->delete();
+      \Session::flash('success', 'Grupo Eliminado');
+    }
+      return \Redirect::route('tutor.scholar-groups.index');
   }
 
 
