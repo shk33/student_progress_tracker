@@ -11,12 +11,12 @@
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Editar Estudiante: {{{ "$user->first_name $user->last_name" }}}
+              Editar Grupo: {{{ $scholarGroup->name }}}
             </h3>
           </div>
           
-          {{ Form::open(array('action' => array('students.update',$user->id), 'method' => 'PUT' )) }}
-            @include('users.partials.edit_form')
+          {{ Form::model($scholarGroup, array('route' => array('admin.scholar-groups.update', $scholarGroup->id), 'method' => 'PUT')) }}
+            @include('admin/scholar_groups.partials.form')
           {{ Form::close() }}
 
         </div>

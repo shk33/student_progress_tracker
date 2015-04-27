@@ -69,7 +69,9 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$scholarGroup = ScholarGroup::find($id);
+		$tutors = $this->createTutorsArray();
+		return View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
 	}
 
 	/**
@@ -81,7 +83,19 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$scholarGroup = ScholarGroup::find($id);
+		$validator = Validator::make(Input::all(), ScholarGroup::$rules);
+		if ($validator->fails()) {
+        $messages = $validator->messages();
+        return Redirect::route('admin.scholar-groups.edit', $scholarGroup->id)
+            ->withErrors($validator)
+            ->withInput(Input::all());
+
+    } else {
+    		$scholarGroup->update(Input::all());
+        Session::flash('success', 'Grupo editado exitósamente');
+        return Redirect::route('admin.scholar-groups.index');
+    }
 	}
 
 	/**
