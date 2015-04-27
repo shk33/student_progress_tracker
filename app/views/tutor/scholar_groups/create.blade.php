@@ -13,8 +13,8 @@
             <h3 class="panel-title">Crear Grupo</h3>
           </div>
           
-          {{ Form::open(array('action' => array('admin.scholar-groups.store'), 'method' => 'POST' )) }}
-            @include('admin/scholar_groups.partials.form')
+          {{ Form::open(array('action' => array('tutor.scholar-groups.store'), 'method' => 'POST' )) }}
+            @include('tutor/scholar_groups.partials.form')
           {{ Form::close() }}
 
         </div>

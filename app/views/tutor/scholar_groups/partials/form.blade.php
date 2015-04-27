@@ -34,18 +34,8 @@
     </div>
 
     <!-- Tutor Id -->
-    @if ($errors->has('user_id')) 
-      <div class="form-group has-error">
-    @else
       <div class="form-group">
-    @endif
-      {{Form::label('user_id', 'Tutor Encargado', array('class' => "control-label"))}}
-      {{Form::select('user_id', $tutors, null ,array('class' => "form-control"));}}
-      @if ($errors->has('user_id')) 
-        <small class="help-block">
-          {{ $errors->first('user_id') }}
-        </small>
-      @endif
+      {{Form::hidden('user_id', $userId);}}
     </div>
 </div>
     

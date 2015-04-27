@@ -23,8 +23,8 @@ class ScholarGroupController extends \BaseController {
    */
   public function create()
   {
-    $tutors = $this->createTutorsArray();
-    return \View::make('admin/scholar_groups.create',compact('tutors'));
+    $userId = \Sentry::getUser()->id;
+    return \View::make('tutor/scholar_groups.create', compact('userId'));
   }
 
   /**
@@ -35,10 +35,14 @@ class ScholarGroupController extends \BaseController {
    */
   public function store()
   {
+    if ($this->validateCorrectTutor()) {
+      return \Redirect::route('tutor.scholar-groups.index');
+    }
+    
     $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
     if ($validator->fails()) {
         $messages = $validator->messages();
-        return \Redirect::route('admin.scholar-groups.create')
+        return \Redirect::route('tutor.scholar-groups.create')
             ->withErrors($validator)
             ->withInput(\Input::all());
 
@@ -46,7 +50,7 @@ class ScholarGroupController extends \BaseController {
         $scholarGroup = new \ScholarGroup(\Input::all());
         $scholarGroup->save();
         \Session::flash('success', 'Grupo Creador exitósamente');
-        return \Redirect::route('admin.scholar-groups.index');
+        return \Redirect::route('tutor.scholar-groups.index');
     }
   }
 
@@ -73,7 +77,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $tutors = $this->createTutorsArray();
-    return \View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
+    return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','tutors'));
   }
 
   /**
@@ -89,14 +93,14 @@ class ScholarGroupController extends \BaseController {
     $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
     if ($validator->fails()) {
         $messages = $validator->messages();
-        return \Redirect::route('admin.scholar-groups.edit', $scholarGroup->id)
+        return \Redirect::route('tutor.scholar-groups.edit', $scholarGroup->id)
             ->withErrors($validator)
             ->withInput(\Input::all());
 
     } else {
         $scholarGroup->update(\Input::all());
         \Session::flash('success', 'Grupo editado exitósamente');
-        return \Redirect::route('admin.scholar-groups.index');
+        return \Redirect::route('tutor.scholar-groups.index');
     }
   }
 
@@ -112,18 +116,14 @@ class ScholarGroupController extends \BaseController {
     $scholarGroup = \ScholarGroup::find($id);
     $scholarGroup->delete();
     \Session::flash('success', 'Grupo Eliminado');
-    return \Redirect::route('admin.scholar-groups.index');
+    return \Redirect::route('tutor.scholar-groups.index');
   }
 
-  private function createTutorsArray()
+
+  private function validateCorrectTutor()
   {
-    //That 1000 is horrible i know
-    $users = \User::getTutors()->paginate(1000);
-    $tutors = [];
-    foreach ($users as $user) {
-      $tutors[$user->id] = "$user->first_name $user->last_name";
-    }
-    return $tutors;
+    $userId = \Sentry::getUser()->id;
+    return  $userId != \Input::all()['user_id'];
   }
 
 }

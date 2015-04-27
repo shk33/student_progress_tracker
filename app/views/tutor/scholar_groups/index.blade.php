@@ -12,7 +12,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               Grupos Escolares
-              <a href="{{ URL::route('admin.scholar-groups.create') }}">
+              <a href="{{ URL::route('tutor.scholar-groups.create') }}">
                 <button class="btn btn-success mar-lft">
                   Nuevo
                 </button>
@@ -25,7 +25,7 @@
           </div>
           
           <div class="panel-body">
-              @include('admin/scholar_groups.partials.table')
+              @include('tutor/scholar_groups.partials.table')
           </div>
     
           <div class="panel-body no-top-pad">
