@@ -1,5 +1,5 @@
-<?php
-class AdminScholarGroupController extends \BaseController {
+<?php namespace admin;
+class ScholarGroupController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,8 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function index()
 	{
-		$scholarGroups = ScholarGroup::paginate(10);
-		return View::make('admin/scholar_groups.index',compact('scholarGroups'));
+		$scholarGroups = \ScholarGroup::paginate(10);
+		return \View::make('admin/scholar_groups.index',compact('scholarGroups'));
 	}
 
 	/**
@@ -22,7 +22,7 @@ class AdminScholarGroupController extends \BaseController {
 	public function create()
 	{
 		$tutors = $this->createTutorsArray();
-		return View::make('admin/scholar_groups.create',compact('tutors'));
+		return \View::make('admin/scholar_groups.create',compact('tutors'));
 	}
 
 	/**
@@ -33,18 +33,18 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make(Input::all(), ScholarGroup::$rules);
+		$validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
 		if ($validator->fails()) {
         $messages = $validator->messages();
-        return Redirect::route('admin.scholar-groups.create')
+        return \Redirect::route('admin.scholar-groups.create')
             ->withErrors($validator)
-            ->withInput(Input::all());
+            ->withInput(\Input::all());
 
     } else {
-        $scholarGroup = new ScholarGroup(Input::all());
+        $scholarGroup = new \ScholarGroup(\Input::all());
         $scholarGroup->save();
-        Session::flash('success', 'Grupo Creador exitósamente');
-        return Redirect::route('admin.scholar-groups.index');
+        \Session::flash('success', 'Grupo Creador exitósamente');
+        return \Redirect::route('admin.scholar-groups.index');
     }
 	}
 
@@ -69,9 +69,9 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$scholarGroup = ScholarGroup::find($id);
+		$scholarGroup = \ScholarGroup::find($id);
 		$tutors = $this->createTutorsArray();
-		return View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
+		return \View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
 	}
 
 	/**
@@ -83,18 +83,18 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$scholarGroup = ScholarGroup::find($id);
-		$validator = Validator::make(Input::all(), ScholarGroup::$rules);
+		$scholarGroup = \ScholarGroup::find($id);
+		$validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
 		if ($validator->fails()) {
         $messages = $validator->messages();
-        return Redirect::route('admin.scholar-groups.edit', $scholarGroup->id)
+        return \Redirect::route('admin.scholar-groups.edit', $scholarGroup->id)
             ->withErrors($validator)
-            ->withInput(Input::all());
+            ->withInput(\Input::all());
 
     } else {
-    		$scholarGroup->update(Input::all());
-        Session::flash('success', 'Grupo editado exitósamente');
-        return Redirect::route('admin.scholar-groups.index');
+    		$scholarGroup->update(\Input::all());
+        \Session::flash('success', 'Grupo editado exitósamente');
+        return \Redirect::route('admin.scholar-groups.index');
     }
 	}
 
@@ -107,16 +107,16 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-    $scholarGroup = ScholarGroup::find($id);
+    $scholarGroup = \ScholarGroup::find($id);
     $scholarGroup->delete();
-    Session::flash('success', 'Grupo Eliminado');
-    return Redirect::route('admin.scholar-groups.index');
+    \Session::flash('success', 'Grupo Eliminado');
+    return \Redirect::route('admin.scholar-groups.index');
 	}
 
 	private function createTutorsArray()
 	{
 		//That 1000 is horrible i know
-		$users = User::getTutors()->paginate(1000);
+		$users = \User::getTutors()->paginate(1000);
 		$tutors = [];
 		foreach ($users as $user) {
 			$tutors[$user->id] = "$user->first_name $user->last_name";
