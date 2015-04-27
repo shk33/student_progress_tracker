@@ -41,12 +41,12 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 });
 
 //Tutor Routes
-Route::group(array('prefix' => 'tutor'), function()
+Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 {
   # Scholar Groups Controller
   Route::group(['before' => 'auth|tutorGroup'], function()
   {
-    Route::resource('scholar-groups', 'TutorScholarGroupController');
+    Route::resource('scholar-groups', 'ScholarGroupController');
   });
 
 });
