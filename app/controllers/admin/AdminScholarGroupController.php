@@ -107,7 +107,10 @@ class AdminScholarGroupController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+    $scholarGroup = ScholarGroup::find($id);
+    $scholarGroup->delete();
+    Session::flash('success', 'Grupo Eliminado');
+    return Redirect::route('admin.scholar-groups.index');
 	}
 
 	private function createTutorsArray()
