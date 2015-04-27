@@ -77,7 +77,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $userId = \Sentry::getUser()->id;
-    if ($scholarGroup->isOwner($userId)) {
+    if ($scholarGroup->isUserOwner($userId)) {
       return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','userId'));
     }
     return \Redirect::route('tutor.scholar-groups.index');
@@ -94,7 +94,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $userId = \Sentry::getUser()->id;
-    if ($scholarGroup->isOwner($userId) && $this->isCorrectTutor(\Input::all()['user_id'])) {
+    if ($scholarGroup->isUserOwner($userId) && $this->isCorrectTutor(\Input::all()['user_id'])) {
       $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
       if ($validator->fails()) {
           $messages = $validator->messages();
