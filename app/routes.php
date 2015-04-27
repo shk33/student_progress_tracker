@@ -28,8 +28,14 @@ Route::group(['before' => 'auth|adminOrTutorGroup'], function()
   Route::resource('students', 'StudentsController');
 });
 
-# Scholar Groups Controller
-Route::group(['before' => 'auth|adminOrTutorGroup'], function()
+
+//Admin Routes
+Route::group(array('prefix' => 'admin'), function()
 {
-  Route::resource('scholar-groups', 'ScholarGroupController');
+  # Scholar Groups Controller
+  Route::group(['before' => 'auth|adminGroup'], function()
+  {
+    Route::resource('scholar-groups', 'AdminScholarGroupController');
+  });
+
 });

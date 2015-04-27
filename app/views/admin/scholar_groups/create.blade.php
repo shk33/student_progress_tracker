@@ -10,11 +10,11 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">Crear Alumno</h3>
+            <h3 class="panel-title">Crear Grupo</h3>
           </div>
           
-          {{ Form::open(array('action' => array('students.store'), 'method' => 'POST' )) }}
-            @include('users.partials.form')
+          {{ Form::open(array('action' => array('admin.scholar-groups.store'), 'method' => 'POST' )) }}
+            @include('admin/scholar_groups.partials.form')
           {{ Form::close() }}
 
         </div>

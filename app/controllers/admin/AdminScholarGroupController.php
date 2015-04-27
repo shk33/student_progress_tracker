@@ -1,6 +1,5 @@
 <?php
-
-class ScholarGroupController extends \BaseController {
+class AdminScholarGroupController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -11,7 +10,7 @@ class ScholarGroupController extends \BaseController {
 	public function index()
 	{
 		$scholarGroups = ScholarGroup::paginate(10);
-		return View::make('scholar_groups.index',compact('scholarGroups'));
+		return View::make('admin/scholar_groups.index',compact('scholarGroups'));
 	}
 
 	/**
@@ -22,7 +21,8 @@ class ScholarGroupController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$tutors = $this->createTutorsArray();
+		return View::make('admin/scholar_groups.create',compact('tutors'));
 	}
 
 	/**
@@ -33,7 +33,19 @@ class ScholarGroupController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(), ScholarGroup::$rules);
+		if ($validator->fails()) {
+        $messages = $validator->messages();
+        return Redirect::route('admin.scholar-groups.create')
+            ->withErrors($validator)
+            ->withInput(Input::all());
+
+    } else {
+        $scholarGroup = new ScholarGroup(Input::all());
+        $scholarGroup->save();
+        Session::flash('success', 'Grupo Creador exitósamente');
+        return Redirect::route('admin.scholar-groups.index');
+    }
 	}
 
 	/**
@@ -82,6 +94,17 @@ class ScholarGroupController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	private function createTutorsArray()
+	{
+		//That 1000 is horrible i know
+		$users = User::getTutors()->paginate(1000);
+		$tutors = [];
+		foreach ($users as $user) {
+			$tutors[$user->id] = "$user->first_name $user->last_name";
+		}
+		return $tutors;
 	}
 
 }
