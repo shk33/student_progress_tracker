@@ -39,3 +39,14 @@ Route::group(array('prefix' => 'admin'), function()
   });
 
 });
+
+//Tutor Routes
+Route::group(array('prefix' => 'tutor'), function()
+{
+  # Scholar Groups Controller
+  Route::group(['before' => 'auth|tutorGroup'], function()
+  {
+    Route::resource('scholar-groups', 'TutorScholarGroupController');
+  });
+
+});

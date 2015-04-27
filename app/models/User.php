@@ -78,6 +78,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
 	}
 
+	public function scholarGroups()
+  {
+    return $this->hasMany('ScholarGroup');
+  }
+
 	############################
 	# Private Functions
 	############################
