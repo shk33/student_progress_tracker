@@ -22,6 +22,7 @@
           </div>
           
           <div class="panel-body no-top-bot-pad">
+            @include('tutor/scholar_groups.partials.pagination')
           </div>
           
           <div class="panel-body">
@@ -29,6 +30,7 @@
           </div>
     
           <div class="panel-body no-top-pad">
+            @include('tutor/scholar_groups.partials.pagination')
           </div>
 
         </div>

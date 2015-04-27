@@ -83,6 +83,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     return $this->hasMany('ScholarGroup');
   }
 
+  public function getScholarGroupsPaginated()
+{
+    return $this->scholarGroups()->paginate(10);
+}
+
 	############################
 	# Private Functions
 	############################

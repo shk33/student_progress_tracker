@@ -11,7 +11,7 @@ class ScholarGroupController extends \BaseController {
   {
     $user = \Sentry::getUser();
     $user = \User::find($user->id);
-    $scholarGroups = $user->scholarGroups;
+    $scholarGroups = $user->getScholarGroupsPaginated();
     return \View::make('tutor/scholar_groups.index',compact('scholarGroups'));
   }
 
