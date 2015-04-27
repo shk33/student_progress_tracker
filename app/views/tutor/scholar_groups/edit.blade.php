@@ -15,8 +15,8 @@
             </h3>
           </div>
           
-          {{ Form::model($scholarGroup, array('route' => array('admin.scholar-groups.update', $scholarGroup->id), 'method' => 'PUT')) }}
-            @include('admin/scholar_groups.partials.form')
+          {{ Form::model($scholarGroup, array('route' => array('tutor.scholar-groups.update', $scholarGroup->id), 'method' => 'PUT')) }}
+            @include('tutor/scholar_groups.partials.form')
           {{ Form::close() }}
 
         </div>

@@ -35,7 +35,7 @@ class ScholarGroupController extends \BaseController {
    */
   public function store()
   {
-    if ($this->validateCorrectTutor()) {
+    if (!$this->isCorrectTutor(\Input::all()['user_id'])) {
       return \Redirect::route('tutor.scholar-groups.index');
     }
     
@@ -76,8 +76,11 @@ class ScholarGroupController extends \BaseController {
   public function edit($id)
   {
     $scholarGroup = \ScholarGroup::find($id);
-    $tutors = $this->createTutorsArray();
-    return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','tutors'));
+    $userId = \Sentry::getUser()->id;
+    if ($scholarGroup->isOwner($userId)) {
+      return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','userId'));
+    }
+    return \Redirect::route('tutor.scholar-groups.index');
   }
 
   /**
@@ -90,18 +93,23 @@ class ScholarGroupController extends \BaseController {
   public function update($id)
   {
     $scholarGroup = \ScholarGroup::find($id);
-    $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
-    if ($validator->fails()) {
-        $messages = $validator->messages();
-        return \Redirect::route('tutor.scholar-groups.edit', $scholarGroup->id)
-            ->withErrors($validator)
-            ->withInput(\Input::all());
+    $userId = \Sentry::getUser()->id;
+    if ($scholarGroup->isOwner($userId) && $this->isCorrectTutor(\Input::all()['user_id'])) {
+      $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
+      if ($validator->fails()) {
+          $messages = $validator->messages();
+          return \Redirect::route('tutor.scholar-groups.edit', $scholarGroup->id)
+              ->withErrors($validator)
+              ->withInput(\Input::all());
 
-    } else {
-        $scholarGroup->update(\Input::all());
-        \Session::flash('success', 'Grupo editado exitósamente');
-        return \Redirect::route('tutor.scholar-groups.index');
+      } else {
+          $scholarGroup->update(\Input::all());
+          \Session::flash('success', 'Grupo editado exitósamente');
+          return \Redirect::route('tutor.scholar-groups.index');
+      }
     }
+
+    return \Redirect::route('tutor.scholar-groups.index');
   }
 
   /**
@@ -120,10 +128,10 @@ class ScholarGroupController extends \BaseController {
   }
 
 
-  private function validateCorrectTutor()
+  private function isCorrectTutor($tutorId)
   {
     $userId = \Sentry::getUser()->id;
-    return  $userId != \Input::all()['user_id'];
+    return  $userId == $tutorId;
   }
 
 }

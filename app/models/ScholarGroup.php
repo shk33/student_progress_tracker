@@ -14,4 +14,9 @@ class ScholarGroup extends \Eloquent {
   {
     return $this->belongsTo('User');
   }
+
+  public function isOwner($userId)
+  {
+    return $this->user->id == $userId;
+  }
 }
