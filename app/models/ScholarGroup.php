@@ -19,6 +19,10 @@ class ScholarGroup extends \Eloquent {
     return $this->belongsToMany('User', 'scholar_groups_users', 'scholar_group_id', 'user_id');
   }
 
+  public function blackboard() {
+    return $this->hasOne("Blackboard");
+  }
+
   public function isUserOwner($userId)
   {
     return $this->user->id == $userId;
