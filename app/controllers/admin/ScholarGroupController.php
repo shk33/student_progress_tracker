@@ -130,6 +130,20 @@ class ScholarGroupController extends \BaseController {
     return \Redirect::route('admin.scholar-groups.show', $scholarGroup->id);
   }
 
+  /**
+   * Show the table for adding new student at this Group.
+   * GET /scholargroup/{id}/add-students
+   *
+   * @return Response
+   */
+  public function add_student($id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $students = $scholarGroup->getStudentsNotInGroup();
+    return \View::make('admin/scholar_groups/add-student', 
+                        compact('scholarGroup', 'students'));
+  }
+
 	private function createTutorsArray()
 	{
 		//That 1000 is horrible i know

@@ -23,4 +23,10 @@ class ScholarGroup extends \Eloquent {
   {
     return $this->user->id == $userId;
   }
+
+  public function getStudentsNotInGroup()
+  {
+    $studentsNotInGroup = Group::getStudents()->diff($this->users); 
+    return $studentsNotInGroup;
+  }
 }

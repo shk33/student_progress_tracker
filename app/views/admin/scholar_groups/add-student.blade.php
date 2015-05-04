@@ -11,12 +11,7 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              {{ $scholarGroup->name }}
-              <a href="{{ URL::route('admin.scholar-groups.add-student', $scholarGroup->id) }}">
-                <button class="btn btn-success mar-lft">
-                  Agregar Alumno
-                </button>
-              </a>
+              Agregar alumnos al grupo: {{ $scholarGroup->name }}
             </h3>
 
           </div>
@@ -25,7 +20,7 @@
           </div>
           
           <div class="panel-body">
-           @include('admin.scholar_groups.partials.student-table')
+           @include('admin.scholar_groups.partials.available-student-table')
           </div>
     
           <div class="panel-body no-top-pad">
