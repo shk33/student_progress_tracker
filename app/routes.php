@@ -58,6 +58,18 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
   # Scholar Groups Controller
   Route::group(['before' => 'auth|tutorGroup'], function()
   {
+    Route::delete('scholar-groups/{id}/student/{student_id}', array(
+       'as' => 'tutor.scholar-groups.remove-student', 
+       'uses' => 'ScholarGroupController@removeStudent'));
+
+    Route::get('scholar-groups/{id}/add-students', array(
+       'as' => 'tutor.scholar-groups.add-student', 
+       'uses' => 'ScholarGroupController@addStudent'));
+
+    Route::post('scholar-groups/{id}/store-students/{student_id}', array(
+       'as' => 'tutor.scholar-groups.store-student', 
+       'uses' => 'ScholarGroupController@storeStudent'));
+
     Route::resource('scholar-groups', 'ScholarGroupController');
   });
 

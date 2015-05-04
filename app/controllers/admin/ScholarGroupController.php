@@ -57,7 +57,7 @@ class ScholarGroupController extends \BaseController {
 	 */
 	public function show($id)
 	{
-    $scholarGroup = \ScholarGroup::find($id);//->with('users');
+    $scholarGroup = \ScholarGroup::find($id);
 		$students     = $scholarGroup->users;
 		return \View::make('admin/scholar_groups.show',compact('scholarGroup','students'));
   }

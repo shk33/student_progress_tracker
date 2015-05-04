@@ -66,6 +66,14 @@ Route::filter('adminOrTutorGroup', function()
     return Redirect::to('login');
 });
 
+Route::filter('isTutorGroupOwner', function()
+{
+  $scholarGroup = \ScholarGroup::find((int)Request::segment(3));
+  $userId = \Sentry::getUser()->id;
+  if (!$scholarGroup->isUserOwner($userId)) {
+    return Redirect::route('tutor.scholar-groups.index');
+  }
+});
 
 Route::filter('auth.basic', function()
 {

@@ -1,6 +1,18 @@
 <?php namespace tutor;
 class ScholarGroupController extends \BaseController {
 
+  function __construct()
+  {
+    $this->beforeFilter('isTutorGroupOwner', array('only' => 
+          array('show', 
+                'edit', 
+                'update',
+                'destroy',
+                'removeStudent',
+                'addStudent',
+                'storeStudent')));
+  }
+
   /**
    * Display a listing of the resource.
    * GET /scholargroup
@@ -63,8 +75,10 @@ class ScholarGroupController extends \BaseController {
    */
   public function show($id)
   {
-    $scholarGroup = \ScholarGroup::find($id)->with('users');
-    $students = $scholarGroup->users;
+    $scholarGroup = \ScholarGroup::find($id);
+    $students     = $scholarGroup->users;
+    return \View::make('admin/scholar_groups.show',compact('scholarGroup','students'));
+
   }
 
   /**
@@ -78,10 +92,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $userId = \Sentry::getUser()->id;
-    if ($scholarGroup->isUserOwner($userId)) {
-      return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','userId'));
-    }
-    return \Redirect::route('tutor.scholar-groups.index');
+    return \View::make('tutor/scholar_groups.edit',compact('scholarGroup','userId'));
   }
 
   /**
@@ -95,7 +106,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $userId = \Sentry::getUser()->id;
-    if ($scholarGroup->isUserOwner($userId) && $this->isCorrectTutor(\Input::all()['user_id'])) {
+    if ($this->isCorrectTutor(\Input::all()['user_id'])) {
       $validator = \Validator::make(\Input::all(), \ScholarGroup::$rules);
       if ($validator->fails()) {
           $messages = $validator->messages();
@@ -123,12 +134,52 @@ class ScholarGroupController extends \BaseController {
   public function destroy($id)
   {
     $scholarGroup = \ScholarGroup::find($id);
-    $userId = \Sentry::getUser()->id;
-    if ($scholarGroup->isUserOwner($userId)) {
-      $scholarGroup->delete();
-      \Session::flash('success', 'Grupo Eliminado');
-    }
-      return \Redirect::route('tutor.scholar-groups.index');
+    $scholarGroup->delete();
+    \Session::flash('success', 'Grupo Eliminado');
+    return \Redirect::route('tutor.scholar-groups.index');
+  }
+
+  /**
+   * Remove the student from scholar group.
+   * DELETE /scholargroup/{id}/student/{studen_id}
+   *
+   * @param  int  $id, int student_id
+   * @return Response
+   */
+  public function removeStudent($id, $student_id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $scholarGroup->users()->detach($student_id);
+    \Session::flash('success', 'El alumno fue removido del grupo');
+    return \Redirect::route('tutor.scholar-groups.show', $scholarGroup->id);
+  }
+
+  /**
+   * Show the table for adding new student at this Group.
+   * GET /scholargroup/{id}/add-students
+   *
+   * @return Response
+   */
+  public function addStudent($id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $students = $scholarGroup->getStudentsNotInGroup();
+    return \View::make('tutor/scholar_groups/add-student', 
+                        compact('scholarGroup', 'students'));
+  }
+
+  /**
+   * Attach a new student to group.
+   * POST /scholargroup/{$id}/store-student/{student_id}
+   *
+   * @return Response
+   */
+  public function storeStudent($id, $student_id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $scholarGroup->users()->attach($student_id);
+    return \Redirect::route('tutor.scholar-groups.add-student', $id);
+    
   }
 
 
