@@ -18,7 +18,7 @@
           
           <div class="panel-body">
             <h3 class="panel-title">
-              Pizarra Virtual
+              Ecuaciones
             </h3>
             @include('admin.blackboards.partials.equation-table')
           </div>
