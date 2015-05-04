@@ -115,10 +115,25 @@ class ScholarGroupController extends \BaseController {
     return \Redirect::route('admin.scholar-groups.index');
 	}
 
+  /**
+   * Remove the student from scholar group.
+   * DELETE /scholargroup/{id}/student/{studen_id}
+   *
+   * @param  int  $id, int student_id
+   * @return Response
+   */
+  public function remove_student($id, $student_id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $scholarGroup->users()->detach($student_id);
+    \Session::flash('success', 'El alumno fue removido del grupo');
+    return \Redirect::route('admin.scholar-groups.show', $scholarGroup->id);
+  }
+
 	private function createTutorsArray()
 	{
 		//That 1000 is horrible i know
-		$users = \User::getTutors()->paginate(1000);
+    $users = \User::getTutors()->paginate(1000);
 		$tutors = [];
 		foreach ($users as $user) {
 			$tutors[$user->id] = "$user->first_name $user->last_name";

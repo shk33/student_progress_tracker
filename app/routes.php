@@ -35,6 +35,9 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
   # Scholar Groups Controller
   Route::group(['before' => 'auth|adminGroup'], function()
   {
+    Route::delete('scholar-groups/{id}/student/{student_id}', array(
+       'as' => 'admin.scholar-groups.remove-student', 
+       'uses' => 'ScholarGroupController@remove_student'));
     Route::resource('scholar-groups', 'ScholarGroupController');
   });
 

@@ -16,8 +16,8 @@
       <td>{{{$user->username}}}</td>
       <td>
         <!-- Delete Link -->
-        {{ Form::open(array("route" => array("tutors.destroy",$user->id), 'method' => 'DELETE')) }}
-          <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Eliminar" data-container="body">
+        {{ Form::open(array("route" => array("admin.scholar-groups.remove-student",$scholarGroup->id, $user->id), 'method' => 'DELETE')) }}
+          <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Remover del Grupo" data-container="body">
             <i class="fa fa-times fa-2x"></i>
           </button>
         {{ Form::close() }}
