@@ -75,6 +75,15 @@ Route::filter('isTutorGroupOwner', function()
   }
 });
 
+Route::filter('correctBlackboard', function()
+{
+  $scholarGroup = \ScholarGroup::find((int)Request::segment(3));
+  $blackboard   = \Blackboard::find((int)Request::segment(5));
+  if (!$scholarGroup->isItsBlackboard($blackboard)) {
+    return Redirect::route('home');
+  }
+});
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();

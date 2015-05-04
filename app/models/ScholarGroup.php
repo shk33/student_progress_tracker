@@ -28,6 +28,11 @@ class ScholarGroup extends \Eloquent {
     return $this->user->id == $userId;
   }
 
+  public function isItsBlackboard($blackboard)
+  {
+    return $this->blackboard->id == $blackboard->id;
+  }
+
   public function getStudentsNotInGroup()
   {
     $studentsNotInGroup = Group::getStudents()->diff($this->users); 
