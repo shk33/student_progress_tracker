@@ -15,7 +15,7 @@ class BlackboardController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($scholar_group_id, $id)
 	{
 		$blackboard = \Blackboard::find($id);
 		$equations = $blackboard->equations;

@@ -52,6 +52,9 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
     // Blackboards Routes
     Route::resource('scholar-groups.blackboards', 'BlackboardController',
       ['only' => ['show']]);
+
+    //Equations
+    Route::resource('blackboards.equations', 'EquationsController');
   });
 
 });
