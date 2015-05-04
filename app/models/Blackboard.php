@@ -14,4 +14,9 @@ class Blackboard extends \Eloquent {
     return $this->belongsTo('ScholarGroup');
   }
 
+  public function equations() {
+    return $this->hasMany("Equation");
+  }
+
+
 }
