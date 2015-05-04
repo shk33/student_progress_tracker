@@ -15,8 +15,8 @@
       <td>{{{$user->email}}}</td>
       <td>{{{$user->username}}}</td>
       <td>
-        <!-- Delete Link -->
-        {{ Form::open(array("route" => array("admin.scholar-groups.remove-student",$scholarGroup->id, $user->id), 'method' => 'POST')) }}
+        <!-- Add Link -->
+        {{ Form::open(array("route" => array("admin.scholar-groups.store-student",$scholarGroup->id, $user->id), 'method' => 'POST')) }}
           <button type="submit" class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" data-original-title="Agregar Alumno" data-container="body">
             <i class="fa fa-plus fa-2x"></i>
           </button>

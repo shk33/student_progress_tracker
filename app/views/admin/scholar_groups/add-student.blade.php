@@ -12,6 +12,11 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               Agregar alumnos al grupo: {{ $scholarGroup->name }}
+              <a href="{{ URL::route('admin.scholar-groups.show', $scholarGroup->id) }}">
+                <button class="btn btn-success mar-lft">
+                  Ver Detalles del Grupo
+                </button>
+              </a>
             </h3>
 
           </div>

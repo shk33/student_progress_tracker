@@ -122,7 +122,7 @@ class ScholarGroupController extends \BaseController {
    * @param  int  $id, int student_id
    * @return Response
    */
-  public function remove_student($id, $student_id)
+  public function removeStudent($id, $student_id)
   {
     $scholarGroup = \ScholarGroup::find($id);
     $scholarGroup->users()->detach($student_id);
@@ -136,7 +136,7 @@ class ScholarGroupController extends \BaseController {
    *
    * @return Response
    */
-  public function add_student($id)
+  public function addStudent($id)
   {
     $scholarGroup = \ScholarGroup::find($id);
     $students = $scholarGroup->getStudentsNotInGroup();
@@ -144,15 +144,29 @@ class ScholarGroupController extends \BaseController {
                         compact('scholarGroup', 'students'));
   }
 
-	private function createTutorsArray()
-	{
-		//That 1000 is horrible i know
+  /**
+   * Attach a new student to group.
+   * POST /scholargroup/{$id}/store-student/{student_id}
+   *
+   * @return Response
+   */
+  public function storeStudent($id, $student_id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $scholarGroup->users()->attach($student_id);
+    return \Redirect::route('admin.scholar-groups.add-student', $id);
+    
+  }
+
+  private function createTutorsArray()
+  {
+    //That 1000 is horrible i know
     $users = \User::getTutors()->paginate(1000);
-		$tutors = [];
-		foreach ($users as $user) {
-			$tutors[$user->id] = "$user->first_name $user->last_name";
-		}
-		return $tutors;
+    $tutors = [];
+    foreach ($users as $user) {
+      $tutors[$user->id] = "$user->first_name $user->last_name";
+    }
+    return $tutors;
 	}
 
 }

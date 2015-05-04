@@ -37,13 +37,16 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
   {
     Route::delete('scholar-groups/{id}/student/{student_id}', array(
        'as' => 'admin.scholar-groups.remove-student', 
-       'uses' => 'ScholarGroupController@remove_student'));
+       'uses' => 'ScholarGroupController@removeStudent'));
+
     Route::get('scholar-groups/{id}/add-students', array(
        'as' => 'admin.scholar-groups.add-student', 
-       'uses' => 'ScholarGroupController@add_student'));
+       'uses' => 'ScholarGroupController@addStudent'));
+
     Route::post('scholar-groups/{id}/store-students/{student_id}', array(
        'as' => 'admin.scholar-groups.store-student', 
-       'uses' => 'ScholarGroupController@store_student'));
+       'uses' => 'ScholarGroupController@storeStudent'));
+
     Route::resource('scholar-groups', 'ScholarGroupController');
   });
 
