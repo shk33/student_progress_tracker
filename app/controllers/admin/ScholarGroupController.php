@@ -57,21 +57,23 @@ class ScholarGroupController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
-	}
+    $scholarGroup = \ScholarGroup::find($id);//->with('users');
+		$students     = $scholarGroup->users;
+		return \View::make('admin/scholar_groups.show',compact('scholarGroup','students'));
+  }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /scholargroup/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		$scholarGroup = \ScholarGroup::find($id);
-		$tutors = $this->createTutorsArray();
-		return \View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
+  /**
+   * Show the form for editing the specified resource.
+   * GET /scholargroup/{id}/edit
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function edit($id)
+  {
+    $scholarGroup = \ScholarGroup::find($id);
+    $tutors = $this->createTutorsArray();
+    return \View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
 	}
 
 	/**

@@ -63,7 +63,8 @@ class ScholarGroupController extends \BaseController {
    */
   public function show($id)
   {
-    //
+    $scholarGroup = \ScholarGroup::find($id)->with('users');
+    $students = $scholarGroup->users;
   }
 
   /**
