@@ -4,9 +4,9 @@ class BlackboardController extends \BaseController {
 
 	function __construct()
   {
-    $this->beforeFilter('correctBlackboard', array('only' => 
-          array('show')));
     $this->beforeFilter('isTutorGroupOwner', array('only' => 
+          array('show')));
+    $this->beforeFilter('correctBlackboard', array('only' => 
           array('show')));
   }
 

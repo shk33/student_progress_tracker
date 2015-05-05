@@ -18,5 +18,10 @@ class Blackboard extends \Eloquent {
     return $this->hasMany("Equation");
   }
 
+  public function isUserOwner($userId)
+  {
+    return $this->scholarGroup->user->id == $userId;
+  }
+
 
 }

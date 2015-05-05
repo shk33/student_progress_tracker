@@ -16,9 +16,9 @@ class EquationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create($blackboard_id)
+	public function create($blackboardId)
 	{
-		$blackboard = \Blackboard::find($blackboard_id);
+		$blackboard = \Blackboard::find($blackboardId);
 		return \View::make('admin.equations.create',compact('blackboard'));
 	}
 
@@ -28,24 +28,24 @@ class EquationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($blackboard_id)
+	public function store($blackboardId)
 	{
 		$validator = \Validator::make(\Input::all(), \Equation::$rules);
 		if ($validator->fails()) {
         $messages = $validator->messages();
-        return \Redirect::route('admin.blackboards.equations.create', $blackboard_id)
+        return \Redirect::route('admin.blackboards.equations.create', $blackboardId)
             ->withErrors($validator)
             ->withInput(\Input::all());
 
     } else {
-        $blackboard = \Blackboard::find($blackboard_id);
+        $blackboard = \Blackboard::find($blackboardId);
         $equation   = new \Equation(\Input::all());
 
         $blackboard->equations()->save($equation);
         \Session::flash('success', 'Ecuación Creado exitósamente');
 
         return \Redirect::route('admin.scholar-groups.blackboards.show',
-    	                    [$blackboard_id, $blackboard->scholarGroup->id] );
+    	                    [$blackboardId, $blackboard->scholarGroup->id] );
     }
 
 	}
@@ -57,7 +57,7 @@ class EquationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($blackboard_id, $id)
+	public function show($blackboardId, $id)
 	{
 	}
 
@@ -68,9 +68,9 @@ class EquationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($blackboard_id, $id)
+	public function edit($blackboardId, $id)
 	{
-		$blackboard = \Blackboard::find($blackboard_id);
+		$blackboard = \Blackboard::find($blackboardId);
     $equation   = \Equation::find($id);
     return \View::make('admin.equations.edit',
     	     compact('blackboard','equation'));
@@ -83,22 +83,22 @@ class EquationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($blackboard_id, $id)
+	public function update($blackboardId, $id)
 	{
 		$validator = \Validator::make(\Input::all(), \Equation::$rules);
 		if ($validator->fails()) {
         $messages = $validator->messages();
-        return \Redirect::route('admin.blackboards.equations.edit', [$blackboard_id, $id])
+        return \Redirect::route('admin.blackboards.equations.edit', [$blackboardId, $id])
             ->withErrors($validator)
             ->withInput(\Input::all());
 
     } else {
 				$equation = \Equation::find($id);
-				$blackboard = \Blackboard::find($blackboard_id);
+				$blackboard = \Blackboard::find($blackboardId);
     		$equation->update(\Input::all());
         \Session::flash('success', 'Ecuación editado exitósamente');
         return \Redirect::route('admin.scholar-groups.blackboards.show',
-    	                    [$blackboard_id, $blackboard->scholarGroup->id] );
+    	                    [$blackboardId, $blackboard->scholarGroup->id] );
     }
 	}
 
@@ -109,16 +109,16 @@ class EquationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($blackboard_id, $id)
+	public function destroy($blackboardId, $id)
 	{
-		$blackboard = \Blackboard::find($blackboard_id);
+		$blackboard = \Blackboard::find($blackboardId);
 		$equation = \Equation::find($id);
 
     $equation->delete();
     \Session::flash('success', 'Ecuación Eliminada');
 
     return \Redirect::route('admin.scholar-groups.blackboards.show',
-    	[$blackboard_id, $blackboard->scholarGroup->id] );
+    	[$blackboardId, $blackboard->scholarGroup->id] );
 	}
 
 }

@@ -75,6 +75,15 @@ Route::filter('isTutorGroupOwner', function()
   }
 });
 
+Route::filter('isTutorBlackboardOwner', function()
+{
+  $blackboard = \Blackboard::find((int)Request::segment(3));
+  $userId = \Sentry::getUser()->id;
+  if (!$blackboard->isUserOwner($userId)) {
+    return Redirect::route('tutor.scholar-groups.index');
+  }
+});
+
 Route::filter('correctBlackboard', function()
 {
   $scholarGroup = \ScholarGroup::find((int)Request::segment(3));
