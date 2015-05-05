@@ -10,13 +10,11 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">
-              Editar Estudiante: {{{ "$user->first_name $user->last_name" }}}
-            </h3>
+            <h3 class="panel-title">Crear Alumno</h3>
           </div>
           
-          {{ Form::open(array('action' => array('students.update',$user->id), 'method' => 'PUT' )) }}
-            @include('users.partials.edit_form')
+          {{ Form::open(array('action' => array('tutor.students.store'), 'method' => 'POST' )) }}
+            @include('users.partials.form')
           {{ Form::close() }}
 
         </div>
@@ -25,6 +23,5 @@
     </div>
 
   </div>
-
 
 @stop

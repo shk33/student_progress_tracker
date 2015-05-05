@@ -13,7 +13,7 @@
             <h3 class="panel-title">Crear Alumno</h3>
           </div>
           
-          {{ Form::open(array('action' => array('students.store'), 'method' => 'POST' )) }}
+          {{ Form::open(array('action' => array('admin.students.store'), 'method' => 'POST' )) }}
             @include('users.partials.form')
           {{ Form::close() }}
 

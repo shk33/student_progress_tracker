@@ -16,18 +16,13 @@ Route::get('/', array('as' => 'home', function()
     return View::make('home');
 }));
 
-# Students Controller
-Route::group(['before' => 'auth|adminOrTutorGroup'], function()
-{
-  Route::resource('students', 'StudentsController');
-});
-
-
 //Admin Routes
 Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 {
   Route::group(['before' => 'auth|adminGroup'], function()
   {
+    //Students Managment Routes
+    Route::resource('students', 'StudentsController');
 
     // Tutor Managment Routes
     Route::resource('tutors', 'TutorsController');
@@ -77,6 +72,9 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
        'uses' => 'ScholarGroupController@storeStudent'));
 
     Route::resource('scholar-groups', 'ScholarGroupController');
+
+    // Students Managment Routes
+    Route::resource('students', 'StudentsController');
 
     // Blackboards Routes
     Route::resource('scholar-groups.blackboards', 'BlackboardController',
