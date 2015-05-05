@@ -12,7 +12,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               Tutores
-              <a href="{{ URL::route('tutors.create') }}">
+              <a href="{{ URL::route('admin.tutors.create') }}">
                 <button class="btn btn-success mar-lft">
                   Nuevo
                 </button>
@@ -26,8 +26,7 @@
           </div>
           
           <div class="panel-body">
-           @include('users.partials.table', 
-                    array('userType' => $userType ))
+           @include('admin.tutors.partials.table')
           </div>
     
           <div class="panel-body no-top-pad">

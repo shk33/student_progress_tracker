@@ -16,12 +16,6 @@ Route::get('/', array('as' => 'home', function()
     return View::make('home');
 }));
 
-# Tutors Controller
-Route::group(['before' => 'auth|adminGroup'], function()
-{
-  Route::resource('tutors', 'TutorsController');
-});
-
 # Students Controller
 Route::group(['before' => 'auth|adminOrTutorGroup'], function()
 {
@@ -34,6 +28,10 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 {
   Route::group(['before' => 'auth|adminGroup'], function()
   {
+
+    // Tutor Managment Routes
+    Route::resource('tutors', 'TutorsController');
+
     // Scholar Groups Routes
     Route::delete('scholar-groups/{id}/student/{student_id}', array(
        'as' => 'admin.scholar-groups.remove-student', 

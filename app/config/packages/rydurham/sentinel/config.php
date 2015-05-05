@@ -42,7 +42,7 @@ return array(
 
         'register'  => array(
             'route' => 'register',
-            'enabled' => false,
+            'enabled' => true,
         ),
 
         'resend'    => array(
@@ -52,7 +52,7 @@ return array(
 
         'forgot'    => array(
             'route' => 'forgot',
-            'enabled' => false,
+            'enabled' => true,
         ),
 
     ),
