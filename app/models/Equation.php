@@ -16,4 +16,9 @@ class Equation extends \Eloquent {
     return $this->belongsTo('Blackboard');
   }
 
+  public function belongsToBlackboard($blackboard)
+  {
+    return $this->blackboard->id == $blackboard->id;
+  }
+
 }

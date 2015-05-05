@@ -2,6 +2,14 @@
 
 class EquationsController extends \BaseController {
 
+	function __construct()
+  {
+    $this->beforeFilter('correctEquation', array('only' => 
+          array('edit', 
+                'update',
+                'destroy')));
+  }
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /equations/create

@@ -84,6 +84,15 @@ Route::filter('correctBlackboard', function()
   }
 });
 
+Route::filter('correctEquation', function()
+{
+  $blackboard = \Blackboard::find((int)Request::segment(3));
+  $equation   = \Equation::find((int)Request::segment(5));
+  if (!$equation->belongsToBlackboard($blackboard)) {
+    return Redirect::route('home');
+  }
+});
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
