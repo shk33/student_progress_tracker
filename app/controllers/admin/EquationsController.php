@@ -16,9 +16,10 @@ class EquationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($blackboard_id)
 	{
-		//
+		$blackboard = \Blackboard::find($blackboard_id);
+		return \View::make('admin.equations.create',compact('blackboard'));
 	}
 
 	/**
@@ -27,9 +28,26 @@ class EquationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($blackboard_id)
 	{
-		//
+		$validator = \Validator::make(\Input::all(), \Equation::$rules);
+		if ($validator->fails()) {
+        $messages = $validator->messages();
+        return \Redirect::route('admin.blackboards.equations.create', $blackboard_id)
+            ->withErrors($validator)
+            ->withInput(\Input::all());
+
+    } else {
+        $blackboard = \Blackboard::find($blackboard_id);
+        $equation   = new \Equation(\Input::all());
+
+        $blackboard->equations()->save($equation);
+        \Session::flash('success', 'Ecuación Creado exitósamente');
+
+        return \Redirect::route('admin.scholar-groups.blackboards.show',
+    	                    [$blackboard_id, $blackboard->scholarGroup->id] );
+    }
+
 	}
 
 	/**

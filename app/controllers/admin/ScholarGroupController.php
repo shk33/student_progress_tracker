@@ -43,7 +43,7 @@ class ScholarGroupController extends \BaseController {
     } else {
         $scholarGroup = new \ScholarGroup(\Input::all());
         $scholarGroup->save();
-        \Session::flash('success', 'Grupo Creador exitósamente');
+        \Session::flash('success', 'Grupo Creado exitósamente');
         return \Redirect::route('admin.scholar-groups.index');
     }
 	}

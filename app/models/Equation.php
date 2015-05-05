@@ -5,7 +5,6 @@ class Equation extends \Eloquent {
   public static $rules = [
     'name'    => 'required',
     'content' => 'required',
-    'blackboard_id' => 'required',
   ];
 
   // Don't forget to fill this array
