@@ -10,6 +10,17 @@ class ScholarGroup extends \Eloquent {
   // Don't forget to fill this array
   protected $fillable = ['id', 'name', 'description', 'user_id'];
 
+  public static function boot()
+  {
+      parent::boot();
+
+      ScholarGroup::created(function($scholarGroup)
+      {
+        $blackboard = new \Blackboard();
+        $scholarGroup->blackboard()->save($blackboard);
+      });
+  }
+
   public function user()
   {
     return $this->belongsTo('User');
