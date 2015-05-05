@@ -63,7 +63,7 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 //Tutor Routes
 Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 {
-  # Scholar Groups Controller
+  // Scholar Groups Controller
   Route::group(['before' => 'auth|tutorGroup'], function()
   {
     Route::delete('scholar-groups/{id}/student/{student_id}', array(
@@ -79,6 +79,14 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
        'uses' => 'ScholarGroupController@storeStudent'));
 
     Route::resource('scholar-groups', 'ScholarGroupController');
+
+    // Blackboards Routes
+    Route::resource('scholar-groups.blackboards', 'BlackboardController',
+      ['only' => ['show']]);
+
+    //Equations
+    Route::resource('blackboards.equations', 'EquationsController',
+      ['except' => ['index']]);
   });
 
 });

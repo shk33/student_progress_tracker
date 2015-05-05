@@ -1,10 +1,12 @@
-<?php namespace admin;
+<?php namespace tutor;
 
 class BlackboardController extends \BaseController {
 
 	function __construct()
   {
     $this->beforeFilter('correctBlackboard', array('only' => 
+          array('show')));
+    $this->beforeFilter('isTutorGroupOwner', array('only' => 
           array('show')));
   }
 
@@ -19,7 +21,7 @@ class BlackboardController extends \BaseController {
 	{
 		$blackboard = \Blackboard::find($id);
 		$equations = $blackboard->equations;
-		return \View::make('admin.blackboards.show',
+		return \View::make('tutor.blackboards.show',
 			     compact('blackboard','equations'));
 	}
 
