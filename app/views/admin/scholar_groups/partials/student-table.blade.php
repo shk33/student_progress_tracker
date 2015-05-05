@@ -21,7 +21,6 @@
             <i class="fa fa-times fa-2x"></i>
           </button>
         {{ Form::close() }}
-        </a>
       </td>
     </tr>
     @endforeach

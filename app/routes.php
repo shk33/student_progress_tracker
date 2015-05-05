@@ -54,7 +54,8 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
       ['only' => ['show']]);
 
     //Equations
-    Route::resource('blackboards.equations', 'EquationsController');
+    Route::resource('blackboards.equations', 'EquationsController',
+      ['except' => ['index']]);
   });
 
 });

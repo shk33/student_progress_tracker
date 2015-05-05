@@ -12,14 +12,15 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               Pizarra Virtual
+              <a href="{{ URL::route('admin.blackboards.equations.create', $blackboard->id) }}">
+                <button class="btn btn-success mar-lft">
+                  Crear Ecuación
+                </button>
+              </a>
             </h3>
-
           </div>
           
           <div class="panel-body">
-            <h3 class="panel-title">
-              Ecuaciones
-            </h3>
             @include('admin.blackboards.partials.equation-table')
           </div>
 
