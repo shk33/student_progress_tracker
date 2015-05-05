@@ -15,7 +15,7 @@
             </h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutors.update',$user->id), 'method' => 'PUT' )) }}
+          {{ Form::open(array('action' => array('admin.tutors.update',$user->id), 'method' => 'PUT' )) }}
             @include('users.partials.edit_form')
           {{ Form::close() }}
 

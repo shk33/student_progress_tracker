@@ -55,12 +55,6 @@
 
           </ul>
 
-          <div class="pad-ver">
-            <button class="btn btn-primary">
-              Lorem
-            </button>
-          </div>
-
         </div>
 
       </div>

@@ -78,7 +78,7 @@ class TutorsController extends \BaseController {
 	public function update($id)
 	{
 		$user = \Sentry::findUserById($id);
-		if (\User::updateAttributes($user,Input::all())) {
+		if (\User::updateAttributes($user,\Input::all())) {
 			\Session::flash('success', 'Tutor actualizado exitósamente');
 			return \Redirect::route('admin.tutors.index');
 		}else{
