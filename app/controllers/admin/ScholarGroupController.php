@@ -10,7 +10,7 @@ class ScholarGroupController extends \BaseController {
 	public function index()
 	{
 		$scholarGroups = \ScholarGroup::paginate(10);
-		return \View::make('admin/scholar_groups.index',compact('scholarGroups'));
+		return \View::make('admin.scholar_groups.index',compact('scholarGroups'));
 	}
 
 	/**
@@ -22,7 +22,7 @@ class ScholarGroupController extends \BaseController {
 	public function create()
 	{
 		$tutors = $this->createTutorsArray();
-		return \View::make('admin/scholar_groups.create',compact('tutors'));
+		return \View::make('admin.scholar_groups.create',compact('tutors'));
 	}
 
 	/**
@@ -59,7 +59,7 @@ class ScholarGroupController extends \BaseController {
 	{
     $scholarGroup = \ScholarGroup::find($id);
 		$students     = $scholarGroup->users;
-		return \View::make('admin/scholar_groups.show',compact('scholarGroup','students'));
+		return \View::make('admin.scholar_groups.show',compact('scholarGroup','students'));
   }
 
   /**
@@ -73,7 +73,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $tutors = $this->createTutorsArray();
-    return \View::make('admin/scholar_groups.edit',compact('scholarGroup','tutors'));
+    return \View::make('admin.scholar_groups.edit',compact('scholarGroup','tutors'));
 	}
 
 	/**
@@ -140,7 +140,7 @@ class ScholarGroupController extends \BaseController {
   {
     $scholarGroup = \ScholarGroup::find($id);
     $students = $scholarGroup->getStudentsNotInGroup();
-    return \View::make('admin/scholar_groups/add-student', 
+    return \View::make('admin.scholar_groups/add-student', 
                         compact('scholarGroup', 'students'));
   }
 

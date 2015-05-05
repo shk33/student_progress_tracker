@@ -15,7 +15,7 @@
             </h3>
           </div>
           
-          {{ Form::model($equation, array('route' => array('admin.scholar-groups.update', $blackboard->id,  $equation->id), 'method' => 'PUT')) }}
+          {{ Form::model($equation, array('route' => array('admin.blackboards.equations.update', $blackboard->id,  $equation->id), 'method' => 'PUT')) }}
             @include('admin.equations.partials.form')
           {{ Form::close() }}
 

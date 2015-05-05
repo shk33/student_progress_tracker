@@ -59,7 +59,6 @@ class EquationsController extends \BaseController {
 	 */
 	public function show($blackboard_id, $id)
 	{
-		//
 	}
 
 	/**
@@ -71,7 +70,10 @@ class EquationsController extends \BaseController {
 	 */
 	public function edit($blackboard_id, $id)
 	{
-		//
+		$blackboard = \Blackboard::find($blackboard_id);
+    $equation   = \Equation::find($id);
+    return \View::make('admin.equations.edit',
+    	     compact('blackboard','equation'));
 	}
 
 	/**
@@ -83,7 +85,21 @@ class EquationsController extends \BaseController {
 	 */
 	public function update($blackboard_id, $id)
 	{
-		//
+		$validator = \Validator::make(\Input::all(), \Equation::$rules);
+		if ($validator->fails()) {
+        $messages = $validator->messages();
+        return \Redirect::route('admin.blackboards.equations.edit', [$blackboard_id, $id])
+            ->withErrors($validator)
+            ->withInput(\Input::all());
+
+    } else {
+				$equation = \Equation::find($id);
+				$blackboard = \Blackboard::find($blackboard_id);
+    		$equation->update(\Input::all());
+        \Session::flash('success', 'Ecuación editado exitósamente');
+        return \Redirect::route('admin.scholar-groups.blackboards.show',
+    	                    [$blackboard_id, $blackboard->scholarGroup->id] );
+    }
 	}
 
 	/**
