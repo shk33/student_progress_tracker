@@ -17,12 +17,12 @@ return array(
 
         'users'     => array(
             'route' => 'users',
-            'enabled' => true,
+            'enabled' => false,
         ),
 
         'groups'    => array(
             'route' => 'groups',
-            'enabled' => true,
+            'enabled' => false,
         ),
 
         'sessions'  => array(
@@ -42,17 +42,17 @@ return array(
 
         'register'  => array(
             'route' => 'register',
-            'enabled' => true,
+            'enabled' => false,
         ),
 
         'resend'    => array(
             'route' => 'resend',
-            'enabled' => true,
+            'enabled' => false,
         ),
 
         'forgot'    => array(
             'route' => 'forgot',
-            'enabled' => true,
+            'enabled' => false,
         ),
 
     ),
@@ -116,7 +116,7 @@ return array(
     |
     */
 
-    'registration' => true,
+    'registration' => false,
 
     /*
     |--------------------------------------------------------------------------
