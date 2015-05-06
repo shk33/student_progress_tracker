@@ -36,7 +36,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><b>Pizarra Virtual</b></a>
+          <a class="navbar-brand" href="#">
+            <b>Pizarra Virtual</b>
+          </a>
         </div>
       </div>
     </div>
@@ -46,8 +48,8 @@
       <div class="row">
         <div class="col-lg-6">
           <h1>Haz de las matemáticas algo sencillo.</h1>
-          <a href="#">
-            <button type="submit" class="btn btn-warning btn-lg">Ingresar al Sistema</button>
+          <a href="{{ URL::route('Sentinel\login') }}">
+            <button class="btn btn-warning btn-lg">Ingresar al Sistema</button>
           </a>
         </div><!-- /col-lg-6 -->
         <div class="col-lg-6">
@@ -94,7 +96,7 @@
     <hr>
     <div class="row centered">
       <div class="col-lg-6 col-lg-offset-3">
-        <a href="#">
+        <a href="{{ URL::route('Sentinel\login') }}">
           <button type="submit" class="btn btn-warning btn-lg">Ingresar al Sistema</button>
         </a>
       </div>
