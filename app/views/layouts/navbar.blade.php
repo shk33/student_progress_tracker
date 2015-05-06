@@ -40,7 +40,7 @@
             <span class="pull-right">
             {{ HTML::image("images/av1.png", "Profile Picture",  $attributes = array('class' => 'img-circle img-user media-object')) }}
             </span>
-          <div class="username hidden-xs">Cambiar</div>
+          <div class="username hidden-xs">{{ Sentry::getUser()->first_name}}</div>
           </a>
           <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
