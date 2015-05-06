@@ -13,7 +13,7 @@
 
 Route::get('/', array('as' => 'home', function()
 {
-    return View::make('home');
+    return View::make('landing.home');
 }));
 
 //Admin Routes
