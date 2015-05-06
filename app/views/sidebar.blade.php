@@ -19,7 +19,7 @@
             <li>
               <a href="index.html">
                 <i class="fa fa-dashboard"></i>
-                <span class="menu-title"><strong>Estadśiticas</strong></span>
+                <span class="menu-title"><strong>Estadíticas</strong></span>
               </a>
             </li>
 
