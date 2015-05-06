@@ -62,7 +62,7 @@
 
               <!-- Dropdown list -->
               <li>
-                <a href="#">
+                <a href="{{ URL::route('Sentinel\logout') }}">
                   <i class="fa fa-sign-out fa-fw fa-lg"></i>
                   <span>Salir</span>
                 </a>
