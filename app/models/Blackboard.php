@@ -18,6 +18,11 @@ class Blackboard extends \Eloquent {
     return $this->hasMany("Equation");
   }
 
+  public function files()
+  {
+    return $this->hasMany("File");
+  }
+
   public function isUserOwner($userId)
   {
     return $this->scholarGroup->user->id == $userId;
