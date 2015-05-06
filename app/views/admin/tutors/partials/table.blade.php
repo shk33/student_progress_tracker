@@ -24,7 +24,7 @@
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Delete Link -->
-        {{ Form::open(array("route" => array("admin.tutors.destroy",$user->id), 'method' => 'DELETE')) }}
+        {{ Form::open(array("route" => array("admin.tutors.destroy",$user->id), 'method' => 'DELETE','class' => 'inline')) }}
           <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Eliminar" data-container="body">
             <i class="fa fa-times fa-2x"></i>
           </button>
