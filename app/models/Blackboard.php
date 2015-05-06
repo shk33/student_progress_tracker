@@ -18,9 +18,9 @@ class Blackboard extends \Eloquent {
     return $this->hasMany("Equation");
   }
 
-  public function files()
+  public function myfiles()
   {
-    return $this->hasMany("File");
+    return $this->hasMany("MyFile");
   }
 
   public function isUserOwner($userId)

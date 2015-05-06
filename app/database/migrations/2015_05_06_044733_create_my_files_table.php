@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFileTable extends Migration {
+class CreateMyFilesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateFileTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('files', function(Blueprint $table)
+		Schema::create('my_files', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('attachment_file_name')->nullable();
@@ -33,7 +33,7 @@ class CreateFileTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('files');
+		Schema::drop('my_files');
 	}
 
 }

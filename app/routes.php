@@ -51,8 +51,7 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
       ['except' => ['index']]);
 
     //Blackboard Files routes
-    Route::resource('blackboards.files', 'FilesController',
-      ['except' => ['index']]);
+    Route::resource('blackboards.my-files', 'MyFilesController');
   });
 
 });

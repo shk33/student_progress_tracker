@@ -2,7 +2,8 @@
 use Codesleeve\Stapler\ORM\StaplerableInterface;
 use Codesleeve\Stapler\ORM\EloquentTrait;
 
-class File extends \Eloquent implements StaplerableInterface {
+class MyFile extends \Eloquent implements StaplerableInterface {
+  use EloquentTrait;
   // Add your validation rules here
   public static $rules = [
     'blackboard_id' => 'required',
