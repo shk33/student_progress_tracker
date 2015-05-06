@@ -11,7 +11,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               Archivos
-              <a href="{{ URL::route('admin.blackboards.my-files.create') }}">
+              <a href="{{ URL::route('admin.blackboards.my-files.create',$blackboard->id) }}">
                 <button class="btn btn-success mar-lft"> Subir nuevo archivo
                 </button>
               </a>

@@ -10,11 +10,11 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">Crear Ecuación</h3>
+            <h3 class="panel-title">Subir Archivo</h3>
           </div>
           
-          {{ Form::open(array('action' => array('admin.blackboards.equations.store', $blackboard->id), 'method' => 'POST' )) }}
-            @include('admin.equations.partials.form')
+          {{ Form::open(array('action' => array('admin.blackboards.my-files.store', $blackboard->id), 'method' => 'POST' )) }}
+            @include('admin.my_files.partials.form')
           {{ Form::close() }}
 
         </div>

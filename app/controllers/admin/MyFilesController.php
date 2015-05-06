@@ -23,7 +23,8 @@ class MyFilesController extends \BaseController {
 	 */
 	public function create($blackboardId)
 	{
-		//
+		$blackboard = \Blackboard::find($blackboardId);
+		return \View::make('admin.my_files.create', compact('blackboard'));
 	}
 
 	/**
@@ -34,7 +35,11 @@ class MyFilesController extends \BaseController {
 	 */
 	public function store($blackboardId)
 	{
-		//
+		$blackboard = \Blackboard::find($blackboardId);
+		$myFile = \MyFile(\Input::all());
+		$blackboard->myFiles()->attach($myFile);
+		\Session::flash('success', 'Archivo subido exitósamente');
+    return \Redirect::route('admin.blackboards.my-files.index', $blackboard->id);
 	}
 
 	/**
