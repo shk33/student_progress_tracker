@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"rydurham/sentinel": "~1.4"
+		"rydurham/sentinel": "~1.4",
+		"codesleeve/laravel-stapler": "1.0.*"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
