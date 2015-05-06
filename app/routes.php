@@ -49,6 +49,10 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
     //Equations
     Route::resource('blackboards.equations', 'EquationsController',
       ['except' => ['index']]);
+
+    //Blackboard Files routes
+    Route::resource('blackboards.files', 'FilesController',
+      ['except' => ['index']]);
   });
 
 });
@@ -80,7 +84,7 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     Route::resource('scholar-groups.blackboards', 'BlackboardController',
       ['only' => ['show']]);
 
-    //Equations
+    //Blackboard Equations routes
     Route::resource('blackboards.equations', 'EquationsController',
       ['except' => ['index']]);
   });
