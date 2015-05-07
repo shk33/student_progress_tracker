@@ -36,8 +36,8 @@ class MyFilesController extends \BaseController {
 	public function store($blackboardId)
 	{
 		$blackboard = \Blackboard::find($blackboardId);
-		$myFile = \MyFile(\Input::all());
-		$blackboard->myFiles()->attach($myFile);
+		$myFile = new \MyFile(\Input::all());
+		$blackboard->myFiles()->save($myFile);
 		\Session::flash('success', 'Archivo subido exitósamente');
     return \Redirect::route('admin.blackboards.my-files.index', $blackboard->id);
 	}

@@ -13,7 +13,7 @@
             <h3 class="panel-title">Subir Archivo</h3>
           </div>
           
-          {{ Form::open(array('action' => array('admin.blackboards.my-files.store', $blackboard->id), 'method' => 'POST' )) }}
+          {{ Form::open(array('action' => array('admin.blackboards.my-files.store', $blackboard->id), 'method' => 'POST', 'files' => true )) }}
             @include('admin.my_files.partials.form')
           {{ Form::close() }}
 
