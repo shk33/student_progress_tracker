@@ -13,10 +13,6 @@
       <td>{{{ $equation->name }}}</td>
       <td>{{{ $equation->content }}}</td>
       <td>
-        <!-- View Link -->
-        <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.blackboards.equations.show", [$blackboard->id, $equation->id]) }}' data-original-title="Ver" data-container="body">
-          <i class="fa fa-eye fa-2x"></i>
-        </a>
         <!-- Edit Link -->
         <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.blackboards.equations.edit", [$blackboard->id, $equation->id]) }}'data-original-title="Editar" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
