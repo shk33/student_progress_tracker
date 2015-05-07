@@ -11,13 +11,9 @@
     <tr>
       <td>{{{ "Hardcoded" }}}</td>
       <td>
-        <!-- View Link -->
-        <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.blackboards.my-files.show", [$blackboard->id, $file->id]) }}' data-original-title="Ver" data-container="body">
-          <i class="fa fa-eye fa-2x"></i>
-        </a>
-        <!-- Edit Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.blackboards.my-files.edit", [$blackboard->id, $file->id]) }}'data-original-title="Editar" data-container="body">
-          <i class="fa fa-pencil fa-2x"></i>
+        <!-- Download Link -->
+        <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ $file->attachment->url()  }}' data-original-title="Descargar" data-container="body" target="_blank">
+          <i class="fa fa-download fa-2x"></i>
         </a>
         <!-- Delete Link -->
         {{ Form::open(array("route" => array("tutor.blackboards.my-files.destroy", $blackboard->id, $file->id), 'method' => 'DELETE','class' => 'inline')) }}
