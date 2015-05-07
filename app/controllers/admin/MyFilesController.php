@@ -43,42 +43,6 @@ class MyFilesController extends \BaseController {
 	}
 
 	/**
-	 * Display the specified resource.
-	 * GET /files/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($blackboardId,$id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /files/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($blackboardId,$id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /files/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($blackboardId,$id)
-	{
-		//
-	}
-
-	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /files/{id}
 	 *
@@ -87,7 +51,13 @@ class MyFilesController extends \BaseController {
 	 */
 	public function destroy($blackboardId,$id)
 	{
-		//
+		$myFile = \MyFile::find($id);
+		$myFile->attachment = STAPLER_NULL;
+		$myFile->save();
+		$myFile->delete();
+		\Session::flash('success', 'Archivo Eliminado');
+    return \Redirect::route('admin.blackboards.my-files.index', $blackboardId);
+
 	}
 
 }
