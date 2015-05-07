@@ -9,7 +9,7 @@
   <tbody>
     @foreach($myFiles as $file)
     <tr>
-      <td>{{{ "Hardcoded" }}}</td>
+      <td>{{{ $file->attachment_file_name }}}</td>
       <td>
         <!-- Download Link -->
         <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ $file->attachment->url()  }}' data-original-title="Descargar" data-container="body" target="_blank">
