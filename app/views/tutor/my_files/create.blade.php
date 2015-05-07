@@ -10,13 +10,11 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">
-              Editar Ecuación
-            </h3>
+            <h3 class="panel-title">Subir Archivo</h3>
           </div>
           
-          {{ Form::model($equation, array('route' => array('admin.blackboards.equations.update', $blackboard->id,  $equation->id), 'method' => 'PUT')) }}
-            @include('admin.equations.partials.form')
+          {{ Form::open(array('action' => array('tutor.blackboards.my-files.store', $blackboard->id), 'method' => 'POST', 'files' => true )) }}
+            @include('tutor.my_files.partials.form')
           {{ Form::close() }}
 
         </div>
@@ -25,6 +23,5 @@
     </div>
 
   </div>
-
 
 @stop

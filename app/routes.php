@@ -86,6 +86,9 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     //Blackboard Equations routes
     Route::resource('blackboards.equations', 'EquationsController',
       ['except' => ['index', 'show']]);
+
+    //Blackboard Files routes
+    Route::resource('blackboards.my-files', 'MyFilesController');
   });
 
 });

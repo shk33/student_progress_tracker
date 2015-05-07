@@ -13,7 +13,7 @@
     <tr>
       <td>{{{ $group->name }}}</td>
       <td>{{{ $group->description }}}</td>
-      <td>{{ link_to_route('tutors.show',$group->user->first_name, $group->user->id) }}</td>
+      <td>{{ $group->user->first_name, $group->user->id }}</td>
       <td>
         <!-- View Link -->
         <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.scholar-groups.show", $group->id) }}' data-original-title="Ver" data-container="body">
