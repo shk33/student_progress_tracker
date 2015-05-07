@@ -92,3 +92,15 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
   });
 
 });
+
+///General Routes
+Route::group(array('prefix' => 'general', 'namespace' => 'general'), function()
+{
+  // Scholar Groups Controller
+  Route::group(['before' => 'auth'], function()
+  {
+    //Blackboard Files routes
+    Route::resource('blackboards', 'BlackboardController');
+  });
+
+});
