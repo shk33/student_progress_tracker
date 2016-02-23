@@ -41,7 +41,7 @@ class StudentsController extends \BaseController {
 			$student->save();
 
 			return \Redirect::route('tutor.students.index')
-				->with('success', 'Estudiante Creador exitósamente');
+				->with('success', 'Estudiante Creado exitósamente');
 		}
 		else {
 			return \Redirect::route('tutor.students.create')
