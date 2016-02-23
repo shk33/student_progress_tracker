@@ -111,17 +111,11 @@ class StudentsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		try{
-			$user = \Sentry::findUserById($id);
-		  $user->delete();
-		  \Session::flash('success', 'Estudiante eliminado exitósamente');
-		}
-		catch (\Cartalyst\Sentry\Users\UserNotFoundException $e){
-			\Session::flash('error', 'Estudiante no encontrado');
-		}
-		finally{
-			return \Redirect::route('tutor.students.index');
-		}
+		$user = \User::find($id);
+	  $user->delete();
+
+		return \Redirect::route('tutor.students.index')
+			->with('success', 'Estudiante eliminado exitósamente');
 	}
 
 }
