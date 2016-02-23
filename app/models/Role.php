@@ -21,9 +21,4 @@ class Role extends \Eloquent {
     return Role::where('name','=',Role::STUDENT_ROLE)->get()->first();
   }
 
-  public function user()
-  {
-    return $this->belongsTo('User');
-  }
-
 }
