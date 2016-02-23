@@ -22,4 +22,9 @@ class Question extends \Eloquent {
   {
     return $this->belongsTo('StudentTest', 'student_test_id');
   }
+
+  public function options()
+  {
+    return $this->hasMany('Option', 'question_id');
+  }
 }
