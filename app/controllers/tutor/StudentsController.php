@@ -32,13 +32,23 @@ class StudentsController extends \BaseController {
 	 */
 	public function store()
 	{
-		if (\User::createStudent(\Input::all())) {
-			\Session::flash('success', 'Estudiante Creador exitósamente');
-			return \Redirect::route('tutor.students.index');
-		}else{
-			\Session::flash('error', 'Ocurrió un error. Valida los datos.');
-			return \View::make('tutor.students.create');
+		$student = new \User();
+
+		// attempt validation
+		if ($student->validate(\Input::all())) {
+			$student->fill(\Input::all());
+			$student->role_id = \Role::getStudentRole()->id;
+			$student->save();
+
+			return \Redirect::route('tutor.students.index')
+				->with('success', 'Estudiante Creador exitósamente');
 		}
+		else {
+			return \Redirect::route('tutor.students.create')
+				->with('error','Ocurrió un error. Favor de Llenar todos los campos obligatorios')
+				->withErrors($student->errors);
+		}
+
 	}
 
 	/**

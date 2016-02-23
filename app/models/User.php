@@ -7,7 +7,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, ModelValidationTrait;
 
 	/**
 	 * The database table used by the model.
@@ -24,30 +24,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = array('password', 'remember_token');
 
 	// Add your validation rules here
-  public static $rules = [];
+  public static $rules = [
+  	'first_name' => 'required',
+  	'last_name'  => 'required',
+  	'username'   => 'required|unique',
+  	'email'      => 'required|email',
+    'password'   => 'required|confirmed',
+  ];
 
   // Don't forget to fill this array
   protected $fillable = ['email','password','first_name','last_name','role_id'];
 
-	public static function getTutors()
-	{
-		return User::getTutorGroup()->users();
-	}
-
 	public static function getStudents()
 	{
 		return User::where('role_id','=',Role::getStudentRole()->id);
-	}
-
-	public static function createTutor($userData)
-	{
-	  if ($user = User::createUser($userData)) {
-	  	$tutorGroup = User::getTutorGroup();
-	  	$user->addGroup($tutorGroup);
-	  	return $user;
-	  }else{
-	  	return false;
-	  }
 	}
 
 	public static function createStudent($userData)

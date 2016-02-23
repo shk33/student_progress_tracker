@@ -42,7 +42,6 @@
             <div id="content-container">
                 <!-- Alerts -->
                 @include('layouts.alert')
-                
                 <!-- Main Content -->
                 @yield('content');
                 
