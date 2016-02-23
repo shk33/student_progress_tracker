@@ -15,4 +15,8 @@ class StudentTest extends \Eloquent {
 
   // Don't forget to fill this array
   protected $fillable = ["name","type"];
+
+  public function questions(){
+    return $this->hasMany('Question', 'student_test_id');
+  }
 }
