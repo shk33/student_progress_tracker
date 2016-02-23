@@ -36,7 +36,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public static function getStudents()
 	{
-		return User::getStudentGroup()->users();
+		return User::where('role_id','=',Role::getStudentRole()->id);
 	}
 
 	public static function createTutor($userData)

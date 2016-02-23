@@ -35,7 +35,17 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-  if (!Sentry::check()) return Redirect::guest('login');
+  if (Auth::guest())
+  {
+    if (Request::ajax())
+    {
+      return Response::make('Unauthorized', 401);
+    }
+    else
+    {
+      return Redirect::guest('login');
+    }
+  }
 });
 
 Route::filter('adminGroup', function()
@@ -49,11 +59,11 @@ Route::filter('adminGroup', function()
 
 Route::filter('tutorGroup', function()
 {
-  $user = Sentry::getUser();
-  $admin = Sentry::findGroupByName('Tutors');
+  $user = Auth::user();
+  $teacherRole = Role::getTeacherRole();
 
-  if (!$user->inGroup($admin)) 
-    return Redirect::to('login');
+  if ($user->role->id != $teacherRole->id) 
+    return Redirect::route('home');
 });
 
 Route::filter('adminOrTutorGroup', function()

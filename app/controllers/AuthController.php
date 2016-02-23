@@ -11,17 +11,11 @@ class AuthController extends BaseController {
 		if(Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')))){
 
 			switch(Auth::user()->role->name){
-				case 'Admin':
-					return Redirect::to('/admin/photos');	
+				case Role::TEACHER_ROLE:
+					return Redirect::route('tutor.students.index');	
 					break;
-				case 'Partner':
+				case Role::STUDENT_ROLE:
 					return Redirect::to('/photos');
-					break;
-				case 'Partner Plus':
-					return Redirect::to('/photos');
-					break;
-				case 'Customer':
-					return Redirect::route('customerPanel');
 					break;
 			}
 		}else{

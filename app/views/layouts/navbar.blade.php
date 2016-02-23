@@ -10,7 +10,7 @@
       <a href="index.html" class="navbar-brand">
         {{ HTML::image("images/logo.png", "Nifty Admin",  $attributes = array('class' => 'brand-icon')) }}
         <span class="brand-title">
-          <span class="brand-text">Pizarra Virtual</span>
+          <span class="brand-text">Sistema</span>
         </span>
       </a>
     </div>
@@ -40,7 +40,7 @@
             <span class="pull-right">
             {{ HTML::image("images/av1.png", "Profile Picture",  $attributes = array('class' => 'img-circle img-user media-object')) }}
             </span>
-          <div class="username hidden-xs">{{ Sentry::getUser()->first_name}}</div>
+          <div class="username hidden-xs">{{ Auth::user()->first_name}}</div>
           </a>
           <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -62,7 +62,7 @@
 
               <!-- Dropdown list -->
               <li>
-                <a href="{{ URL::route('Sentinel\logout') }}">
+                <a href="{{ URL::route('logout') }}">
                   <i class="fa fa-sign-out fa-fw fa-lg"></i>
                   <span>Salir</span>
                 </a>

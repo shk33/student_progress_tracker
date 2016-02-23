@@ -18,46 +18,47 @@ Route::get('/', array('as' => 'home', function()
 
 Route::get('/login', array('as' => 'login' ,'uses' => 'AuthController@login'));
 Route::post('/auth', array('as' => 'auth' , 'uses' => 'AuthController@auth'));
+Route::get('/logout', array('as' => 'logout' , 'uses' => 'AuthController@logout'));
 
 //Admin Routes
-Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
-{
-  Route::group(['before' => 'auth|adminGroup'], function()
-  {
-    //Students Managment Routes
-    Route::resource('students', 'StudentsController');
+// Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
+// {
+//   Route::group(['before' => 'auth|adminGroup'], function()
+//   {
+//     //Students Managment Routes
+//     Route::resource('students', 'StudentsController');
 
-    // Tutor Managment Routes
-    Route::resource('tutors', 'TutorsController');
+//     // Tutor Managment Routes
+//     Route::resource('tutors', 'TutorsController');
 
-    // Scholar Groups Routes
-    Route::delete('scholar-groups/{id}/student/{student_id}', array(
-       'as' => 'admin.scholar-groups.remove-student', 
-       'uses' => 'ScholarGroupController@removeStudent'));
+//     // Scholar Groups Routes
+//     Route::delete('scholar-groups/{id}/student/{student_id}', array(
+//        'as' => 'admin.scholar-groups.remove-student', 
+//        'uses' => 'ScholarGroupController@removeStudent'));
 
-    Route::get('scholar-groups/{id}/add-students', array(
-       'as' => 'admin.scholar-groups.add-student', 
-       'uses' => 'ScholarGroupController@addStudent'));
+//     Route::get('scholar-groups/{id}/add-students', array(
+//        'as' => 'admin.scholar-groups.add-student', 
+//        'uses' => 'ScholarGroupController@addStudent'));
 
-    Route::post('scholar-groups/{id}/store-students/{student_id}', array(
-       'as' => 'admin.scholar-groups.store-student', 
-       'uses' => 'ScholarGroupController@storeStudent'));
+//     Route::post('scholar-groups/{id}/store-students/{student_id}', array(
+//        'as' => 'admin.scholar-groups.store-student', 
+//        'uses' => 'ScholarGroupController@storeStudent'));
 
-    Route::resource('scholar-groups', 'ScholarGroupController');
+//     Route::resource('scholar-groups', 'ScholarGroupController');
 
-    // Blackboards Routes
-    Route::resource('scholar-groups.blackboards', 'BlackboardController',
-      ['only' => ['show']]);
+//     // Blackboards Routes
+//     Route::resource('scholar-groups.blackboards', 'BlackboardController',
+//       ['only' => ['show']]);
 
-    //Equations
-    Route::resource('blackboards.equations', 'EquationsController',
-      ['except' => ['index']]);
+//     //Equations
+//     Route::resource('blackboards.equations', 'EquationsController',
+//       ['except' => ['index']]);
 
-    //Blackboard Files routes
-    Route::resource('blackboards.my-files', 'MyFilesController');
-  });
+//     //Blackboard Files routes
+//     Route::resource('blackboards.my-files', 'MyFilesController');
+//   });
 
-});
+// });
 
 //Tutor Routes
 Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()

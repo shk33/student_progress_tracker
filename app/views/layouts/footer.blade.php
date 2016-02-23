@@ -4,10 +4,10 @@
   <!-- Visible when the footer is static position -->
   <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <div class="hide-fixed pull-right pad-rgt">
-      Made with <i class="fa fa-heart"></i> by <a class="text-primary" href="https://github.com/shk33">Miguel Coronel</a>
+      Made with <i class="fa fa-heart"></i>
   </div>
 
-  <p class="pad-lft">© 2015 Pizarra Virtual- UADY</p>
+  <p class="pad-lft">© 2016 Juega, Aprende y Divierte con Linux- UADY</p>
 
 
 
