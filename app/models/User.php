@@ -32,6 +32,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     'password'   => 'required|confirmed',
   ];
 
+
   // Don't forget to fill this array
   protected $fillable = ['email','password','first_name','last_name','username','enrollment_number','role_id'];
 
@@ -40,39 +41,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return User::where('role_id','=',Role::getStudentRole()->id);
 	}
 
-	public static function createStudent($userData)
-	{
-	  if ($user = User::createUser($userData)) {
-	  	$studentGroup = User::getStudentGroup();
-	  	$user->addGroup($studentGroup);
-	  	return $user;
-	  }else{
-	  	return false;
-	  }
-	}
-
-	public static function updateAttributes($user,$userData)
-	{
-    $user->first_name = $userData['first_name'];
-    $user->last_name  = $userData['last_name'];
-    $user->username   = $userData['username'];
-    $user->email      = $userData['email'];
-    $user->enrollment_number = $userData['enrollment_number'];
-    
-    if ($userData['password'] && !empty(trim($userData['password']))) {
-    	$user->password = $userData['password'];
-    }
-    try {
-	    if ($user->save()){
-	    	return $user;
-	    }
-	    else{
-	    	return false;
-	    }
-    } catch (Exception $e) {
-	   		return false;
-    }
-	}
+  public static function getUpdateRules($id)
+  {
+    return [
+      'first_name' => 'required',
+      'last_name'  => 'required',
+      'username'   => 'required|unique:users,username,'.$id,
+      'email'      => 'email',
+    ];
+  }
 
 	public function scholarGroups()
   {

@@ -86,14 +86,20 @@ class StudentsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = \Sentry::findUserById($id);
-		if (\User::updateAttributes($user,\Input::all())) {
-			\Session::flash('success', 'Estudiante actualizado exitósamente');
-			return \Redirect::route('tutor.students.index');
-		}else{
-			\Session::flash('error', 'Ocurrió un error. Valida los datos.');
-			return \Redirect::route('tutor.students.edit', $id);
+		$user      = \User::find($id);
+		$validator  = \Validator::make(\Input::all(), \User::getUpdateRules($id));
+
+		if ($validator->fails()) {
+		    return \Redirect::route('tutor.students.edit', $id)
+		    	->with('error','Ocurrió un Error. Valida los datos')
+		    	->withErrors($validator->messages());
 		}
+
+		$user->fill(\Input::all());
+		$user->save();
+
+		return \Redirect::route('tutor.students.index')
+			->with('success','Estudiante actualizado exitósamente');
 	}
 
 	/**
