@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddEnrollmentNumberToUsersTable extends Migration {
+class SeedRoles extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,14 @@ class AddEnrollmentNumberToUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('users', function($table)
-		{
-		    $table->string('enrollment_number')->nullable();;
-		});
+		$roles = [
+			['name' => Role::TEACHER_ROLE],
+			['name' => Role::STUDENT_ROLE],
+		];
+		foreach ($roles as $role) {
+			$role = new Role($role);
+			$role->save();
+		}
 	}
 
 	/**
@@ -25,10 +29,7 @@ class AddEnrollmentNumberToUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function($table)
-		{
-		    $table->dropColumn('enrollment_number');
-		});
+		Role::truncate();
 	}
 
 }

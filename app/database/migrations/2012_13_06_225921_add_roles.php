@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateScholarGroupsUsersTable extends Migration {
+class AddRoles extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +11,10 @@ class CreateScholarGroupsUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('scholar_groups_users', function(Blueprint $table)
+		Schema::create('roles', function($table)
 		{
 			$table->increments('id');
-			$table->integer('scholar_group_id');
-    	$table->integer('user_id');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}
@@ -28,7 +26,7 @@ class CreateScholarGroupsUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('scholar_groups_users');
+		Schema::drop('roles');
 	}
 
 }

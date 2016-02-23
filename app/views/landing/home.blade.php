@@ -48,7 +48,7 @@
       <div class="row">
         <div class="col-lg-6">
           <h1>Haz de las matemáticas algo sencillo.</h1>
-          <a href="{{ URL::route('Sentinel\login') }}">
+          <a href="{{ URL::route('login') }}">
             <button class="btn btn-warning btn-lg">Ingresar al Sistema</button>
           </a>
         </div><!-- /col-lg-6 -->
@@ -96,7 +96,7 @@
     <hr>
     <div class="row centered">
       <div class="col-lg-6 col-lg-offset-3">
-        <a href="{{ URL::route('Sentinel\login') }}">
+        <a href="{{ URL::route('login') }}">
           <button type="submit" class="btn btn-warning btn-lg">Ingresar al Sistema</button>
         </a>
       </div>

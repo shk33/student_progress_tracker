@@ -16,6 +16,9 @@ Route::get('/', array('as' => 'home', function()
     return View::make('landing.home');
 }));
 
+Route::get('/login', array('as' => 'login' ,'uses' => 'AuthController@login'));
+Route::post('/auth', array('as' => 'auth' , 'uses' => 'AuthController@auth'));
+
 //Admin Routes
 Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 {
