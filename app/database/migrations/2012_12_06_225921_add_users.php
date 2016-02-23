@@ -16,6 +16,7 @@ class AddUsers extends Migration {
 			$table->increments('id');
 			$table->string('email');
 			$table->string('password');
+			$table->string('username');
 			$table->string('first_name')->nullable();
 			$table->string('last_name')->nullable();
 			$table->integer('role_id')->unsigned();
@@ -26,7 +27,7 @@ class AddUsers extends Migration {
 			// We'll need to ensure that MySQL uses the InnoDB engine to
 			// support the indexes, other engines aren't affected.
 			$table->engine = 'InnoDB';
-			$table->unique('email');
+			$table->unique('username');
 		});
 	}
 
