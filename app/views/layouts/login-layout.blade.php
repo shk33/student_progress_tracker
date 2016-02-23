@@ -1,7 +1,7 @@
 <html lang="en" class=" overthrow-enabled"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pizarra Virtual</title>
+    <title>Sistema de Progreso Estudiantil</title>
 
     <!-- Bootstrap Core -->
     {{ HTML::style('css/bootstrap.min.css') }}
@@ -27,7 +27,7 @@
     <div class="cls-header cls-header-lg">
       <div class="cls-brand">
         <a class="box-inline" href="index.html">
-          <span class="brand-title">Pizarra<span class="text-thin">Virtual</span></span>
+          <span class="brand-title">Sistema de Progreso Estudiantil<span class="text-thin">Virtual</span></span>
         </a>
       </div>
     </div>

@@ -19,6 +19,7 @@ class AddUsers extends Migration {
 			$table->string('username');
 			$table->string('first_name');
 			$table->string('last_name');
+			$table->string('remember_token');
 			$table->string('enrollment_number')->nullable();
 			$table->integer('role_id')->unsigned();
 			$table->foreign('role_id')->references('id')
