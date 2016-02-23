@@ -1,7 +1,7 @@
 <html lang="en" class=" overthrow-enabled"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pizarra Virtual</title>
+    <title>Sistema de Progreso Estudiantil</title>
 
     <!-- Bootstrap Core -->
     {{ HTML::style('css/bootstrap.min.css') }}
