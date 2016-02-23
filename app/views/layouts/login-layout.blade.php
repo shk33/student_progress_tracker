@@ -27,7 +27,7 @@
     <div class="cls-header cls-header-lg">
       <div class="cls-brand">
         <a class="box-inline" href="index.html">
-          <span class="brand-title">Sistema de Progreso Estudiantil<span class="text-thin">Virtual</span></span>
+          <span class="brand-title">Sistema de <span class="text-thin">Progreso Estudiantil</span></span>
         </a>
       </div>
     </div>

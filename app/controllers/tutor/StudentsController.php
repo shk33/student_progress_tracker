@@ -73,7 +73,7 @@ class StudentsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = \Sentry::findUserById($id);
+		$user = \User::find($id);
 		return \View::make('tutor.students.edit', compact('user'));
 	}
 

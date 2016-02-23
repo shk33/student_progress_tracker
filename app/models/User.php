@@ -33,7 +33,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   ];
 
   // Don't forget to fill this array
-  protected $fillable = ['email','password','first_name','last_name','role_id'];
+  protected $fillable = ['email','password','first_name','last_name','username','enrollment_number','role_id'];
 
 	public static function getStudents()
 	{
@@ -91,40 +91,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function role(){
 		return $this->belongsTo('Role', 'role_id');
-	}
-
-	############################
-	# Private Functions
-	############################
-	private static function createUser($userData)
-	{
-		try{
-	    $user = Sentry::register(array(
-	      'first_name' => $userData['first_name'],
-	      'last_name'  => $userData['last_name'],
-	      'username'   => $userData['username'],
-	      'enrollment_number' => $userData['enrollment_number'],
-	      'email'      => $userData['email'],
-	      'password'   => $userData['password'],
-	      'activated'  => true,
-	    ));
-
-	    return $user;
-		}
-		catch (Exception $e)
-		{
-			return false;
-		}
-	}
-
-	private static function getTutorGroup()
-	{
-		return Sentry::findGroupByName("Tutors");
-	}
-
-	private static function getStudentGroup()
-	{
-		return Sentry::findGroupByName("Students");
 	}
 
 }
