@@ -2,7 +2,7 @@
 
 ## Instalación
 
-Asegurarse de tener instalado Composer
+Asegurarse de tener instalado Composer.
 
 Clonar el repositorio
 ```
