@@ -38,7 +38,7 @@ php artisan migrate
 
 Seedear la base de datos con usuarios de ejemplo
 ```
-php artisan db:migrate
+php artisan db:seed
 ```
 
 Levantar el servidor (Normalmente puedes tirar el código en un XAMP o WAMP) pero para desarrollar prefiero un simple
