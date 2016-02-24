@@ -58,6 +58,8 @@ Usuario de prueba estudiante (No implementado su panel aún)
 username: student
 password: password
 ```
-## Contribuir
+## Tema Utilizado
+Este es el tema que se usa [Nifty Theme](http://www.themeon.net/nifty/v2.3/index.html)
 
+## Contribuir
 Sólo no trabajen directamente sobre master, hagan sus propias ramas

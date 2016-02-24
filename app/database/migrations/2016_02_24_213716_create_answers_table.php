@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOptionsTable extends Migration {
+class CreateAnswersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,19 @@ class CreateOptionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('options', function(Blueprint $table)
+		Schema::create('answers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('text');
 			$table->boolean('is_correct')->default(false);
-			$table->integer('question_id')->unsigned();
-			$table->foreign('question_id')->references('id')
-				->on('questions');
+
+			$table->integer('taken_test_id')->unsigned();
+			$table->foreign('taken_test_id')->references('id')
+				->on('taken_tests');
+
+			$table->integer('option_id')->unsigned();
+			$table->foreign('option_id')->references('id')
+				->on('options');
+
 			$table->timestamps();
 		});
 	}
@@ -31,7 +36,7 @@ class CreateOptionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('options');
+		Schema::drop('answers');
 	}
 
 }
