@@ -51,6 +51,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     ];
   }
 
+  public function isTeacher()
+  {
+    $user = Auth::user();
+    $teacherRole = Role::getTeacherRole();
+
+    return $user->role->id == $teacherRole->id ;
+  }
+
 	public function role(){
 		return $this->belongsTo('Role', 'role_id');
 	}

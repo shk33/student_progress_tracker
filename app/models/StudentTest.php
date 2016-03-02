@@ -1,6 +1,7 @@
 <?php
 
 class StudentTest extends \Eloquent {
+  use ModelValidationTrait;
   /**
    * The database table used by the model.
    *

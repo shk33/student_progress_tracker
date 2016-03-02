@@ -51,7 +51,9 @@
             <!-- END OF CONTENT CONTAINER -->
 
             <!--SIDEBAR-->
-            @include('layouts.sidebar')
+            @if (Auth::user()->isTeacher())
+                @include('layouts.sidebar')
+            @endif
             <!--===================================================-->
 
         </div>

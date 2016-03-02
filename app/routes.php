@@ -83,6 +83,9 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     // Students Managment Routes
     Route::resource('students', 'StudentsController');
 
+    // Tests Managments
+    Route::resource('tests', 'StudentTestsController');
+
     // Blackboards Routes
     Route::resource('scholar-groups.blackboards', 'BlackboardController',
       ['only' => ['show']]);

@@ -18,9 +18,16 @@
             <!-- Menu list item -->
             <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <li>
-              <a href="index.html">
-                <i class="fa fa-dashboard"></i>
-                <span class="menu-title"><strong>Estadísticas</strong></span>
+              <a href="{{route('tutor.students.index')}}">
+                <i class="fa fa-users"></i>
+                <span class="menu-title"><strong>Estudiantes</strong></span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{{route('tutor.tests.index')}}">
+                <i class="fa fa-file"></i>
+                <span class="menu-title"><strong>Pruebas</strong></span>
               </a>
             </li>
 

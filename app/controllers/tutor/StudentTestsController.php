@@ -1,0 +1,122 @@
+<?php namespace tutor;
+
+class StudentTestsController extends \BaseController {
+
+	/**
+	 * Display a listing of the resource.
+	 * GET /test
+	 *	 * @return Response
+	 */
+	public function index()
+	{
+		$tests = \StudentTest::paginate(10);
+    return \View::make('tutor.tests.index',compact('tests'));
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 * GET /test/create
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return \View::make('tutor.tests.create');
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 * POST /test
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		$test = new \StudentTest();
+
+		// attempt validation
+		if ($test->validate(\Input::all())) {
+			$test->fill(\Input::all());
+			$test->type = 'Image';
+			$test->save();
+
+			return \Redirect::route('tutor.tests.index')
+				->with('success', 'Prueba Creada exitósamente');
+		}
+		else {
+			return \Redirect::route('tutor.tests.create')
+				->with('error','Ocurrió un error. Favor de Llenar todos los campos obligatorios')
+				->withErrors($test->errors);
+		}
+
+	}
+
+	/**
+	 * Display the specified resource.
+	 * GET /test/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$test = \StudentTest::find($id);
+		return \View::make('tutor.tests.show', compact('test'));
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 * GET /test/{id}/edit
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		$test = \StudentTest::find($id);
+		return \View::make('tutor.tests.edit', compact('test'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 * PUT /test/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$test = \StudentTest::find($id);
+
+		if ($test->validate(\Input::all())) {
+			$test->fill(\Input::all());
+			$test->type = 'Image';
+			$test->save();
+
+			return \Redirect::route('tutor.tests.index')
+				->with('success', 'Prueba Editada exitósamente');
+		}
+		else {
+			return \Redirect::route('tutor.tests.create')
+				->with('error','Ocurrió un error. Favor de Llenar todos los campos obligatorios')
+				->withErrors($test->errors);
+		}
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 * DELETE /test/{id}
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$StudentTest = \StudentTest::find($id);
+	  $StudentTest->delete();
+
+		return \Redirect::route('tutor.tests.index')
+			->with('success', 'Examen eliminado exitósamente');
+	}
+
+}
