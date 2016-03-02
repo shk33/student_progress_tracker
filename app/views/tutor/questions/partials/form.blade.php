@@ -29,6 +29,22 @@
       <span class="text-danger">{{$errors->first('optionC')}}</span>
     </div>
 
+    <h4>Selecciona cuál opción es la correcta</h4>
+    <div class="form-group">
+      {{Form::label('option_correct', 'Opción A', array('class' => "control-label"))}}
+      {{Form::radio('option_correct', 'A') }}
+    </div>
+
+    <div class="form-group">
+      {{Form::label('option_correct', 'Opción B', array('class' => "control-label"))}}
+      {{Form::radio('option_correct', 'B') }}
+    </div>
+
+    <div class="form-group">
+      {{Form::label('option_correct', 'Opción C', array('class' => "control-label"))}}
+      {{Form::radio('option_correct', 'C') }}
+    </div>
+
 </div>
     
 <div class="panel-footer">

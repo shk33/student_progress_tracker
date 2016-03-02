@@ -13,7 +13,14 @@
       <td>{{{$question->text}}}</td>
       <td>
         @foreach ($question->options as $option)
-          {{$option->name}}) {{$option->text}} <br> 
+          @if ($option->is_correct)
+            <b>{{$option->name}}) {{$option->text}} 
+            (Respuesta Correcta)</b>
+            <br> 
+          @else
+            {{$option->name}}) {{$option->text}} 
+            <br>
+          @endif  
         @endforeach
       </td>
       <td>

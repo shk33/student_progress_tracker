@@ -41,9 +41,9 @@ class QuestionsController extends \BaseController {
 			$question->fill(\Input::all());
 			$question->save();
 
-			$optionA = ['text' => \Input::get('optionA'),'name' => 'A', 'question_id' => $question->id];
-			$optionB = ['text' => \Input::get('optionB'),'name' => 'B', 'question_id' => $question->id];
-			$optionC = ['text' => \Input::get('optionC'),'name' => 'C', 'question_id' => $question->id];
+			$optionA = ['text' => \Input::get('optionA'),'name' => 'A', 'question_id' => $question->id, 'is_correct' => \Input::get('option_correct') == 'A'];
+			$optionB = ['text' => \Input::get('optionB'),'name' => 'B', 'question_id' => $question->id, 'is_correct' => \Input::get('option_correct') == 'B'];
+			$optionC = ['text' => \Input::get('optionC'),'name' => 'C', 'question_id' => $question->id, 'is_correct' => \Input::get('option_correct') == 'C'];
 
 			$options = [$optionA, $optionB, $optionC];
 
@@ -52,6 +52,8 @@ class QuestionsController extends \BaseController {
 					$opt = \Option::create($option);
 				}
 			}
+
+
 
 			return \Redirect::route('tutor.tests.questions.index',$id)
 				->with('success', 'Pregunta Creada exitósamente');
