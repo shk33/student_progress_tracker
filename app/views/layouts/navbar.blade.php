@@ -53,15 +53,6 @@
 
               <!-- Dropdown list -->
               <li>
-                <a href="#">
-                  <i class="fa fa-user fa-fw fa-lg"></i>
-                  <span class="text-nowrap">Perfil</span>
-                </a>
-              </li>
-
-
-              <!-- Dropdown list -->
-              <li>
                 <a href="{{ URL::route('logout') }}">
                   <i class="fa fa-sign-out fa-fw fa-lg"></i>
                   <span>Salir</span>
