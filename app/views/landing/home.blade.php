@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    @include('commons.meta')
 
-    <title>Pizarra Virtual</title>
+    <title>Sistema de Progreso Estudiantil</title>
 
     <!-- Bootstrap Core -->
     {{ HTML::style('css/bootstrap.min.css') }}
@@ -37,7 +38,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <b>Pizarra Virtual</b>
+            <b>Sistema de Progreso Estudiantil</b>
           </a>
         </div>
       </div>
@@ -47,7 +48,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h1>Haz de las matemáticas algo sencillo.</h1>
+          <h1>Sistema de Progreso Estudiantil.</h1>
           <a href="{{ URL::route('login') }}">
             <button class="btn btn-warning btn-lg">Ingresar al Sistema</button>
           </a>
@@ -64,8 +65,7 @@
   <div class="container">
     <div class="row mt centered">
       <div class="col-lg-6 col-lg-offset-3">
-        <h1>Las matemáticas<br/>Al fin de una forma fácil.</h1>
-        <h3>Un entorno colaborativo que facilita el aprendizaje de las matemáticas.</h3>
+        <h1>Sistema de Progreso Estudiantil</h1>
       </div>
     </div><!-- /row -->
     
@@ -78,15 +78,15 @@
 
       <div class="col-lg-4">
         {{ HTML::image("images/landing/ser02.png", "Ser", $attributes = array('width' => '180')) }}
-        <h4>2 - Comunícate fácilmente</h4>
-        <p>Tendrás a tu disposición una forma fácil de comunicarte con tus compañeros, tutores e incluso administradores del sitio.</p>
+        <h4>2 - Control</h4>
+        <p>Sigue el progreso de tus estudiantes.</p>
 
       </div><!--/col-lg-4 -->
 
       <div class="col-lg-4">
         {{ HTML::image("images/landing/ser03.png", "Ser", $attributes = array('width' => '180')) }}
-        <h4>3 - Verificador de Ecuaciones</h4>
-        <p> Tendrás a tu disposición un poderoso verificador de ecuaciones que te dirá si tus cálculos matemáticos son correctos o no , si encontramos algún error en tus ecuaciones te propondremos posibles errores comunes que  pudiste haber cometido.</p>
+        <h4>3 - Exámenes</h4>
+        <p> Realiza exámenes online.</p>
 
       </div><!--/col-lg-4 -->
     </div><!-- /row -->

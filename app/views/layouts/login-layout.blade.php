@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema de Progreso Estudiantil</title>
-
+    @include('commons.meta')
     <!-- Bootstrap Core -->
     {{ HTML::style('css/bootstrap.min.css') }}
 
