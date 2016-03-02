@@ -14,7 +14,7 @@ class Option extends \Eloquent {
   ];
 
   // Don't forget to fill this array
-  protected $fillable = ["text","question_id"];
+  protected $fillable = ["text","name","is_correct","question_id"];
 
 
   public function question()

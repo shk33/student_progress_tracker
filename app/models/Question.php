@@ -1,6 +1,7 @@
 <?php
 
 class Question extends \Eloquent {
+  use ModelValidationTrait;
   /**
    * The database table used by the model.
    *
@@ -10,12 +11,11 @@ class Question extends \Eloquent {
   
 	// Add your validation rules here
   public static $rules = [
-    'name'    => 'required',
     'text'    => 'required',
   ];
 
   // Don't forget to fill this array
-  protected $fillable = ["name","text","test_id"];
+  protected $fillable = ["name","text","student_test_id"];
 
 
   public function studentTest()

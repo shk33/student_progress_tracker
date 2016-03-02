@@ -86,6 +86,9 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     // Tests Managments
     Route::resource('tests', 'StudentTestsController');
 
+    // Test-Questions
+    Route::resource('tests.questions', 'QuestionsController');
+
     // Blackboards Routes
     Route::resource('scholar-groups.blackboards', 'BlackboardController',
       ['only' => ['show']]);
@@ -94,8 +97,6 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     Route::resource('blackboards.equations', 'EquationsController',
       ['except' => ['index', 'show']]);
 
-    //Blackboard Files routes
-    Route::resource('blackboards.my-files', 'MyFilesController');
   });
 
 });

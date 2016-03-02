@@ -20,8 +20,8 @@
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Questions Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.edit", $test->id) }}'data-original-title="Gestionar Preguntas del Examen" data-container="body">
-          <i class="fa fa-file fa-2x"></i>
+        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.index", $test->id) }}'data-original-title="Gestionar Preguntas del Examen" data-container="body">
+          <i class="fa fa-question fa-2x"></i>
         </a>
         <!-- Delete Link -->
         {{ Form::open(array("route" => array("tutor.tests.destroy",$test->id), 'method' => 'DELETE','class' => 'inline')) }}
