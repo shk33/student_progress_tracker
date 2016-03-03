@@ -10,7 +10,7 @@ class QuestionsController extends \BaseController {
 	public function index($id)
 	{
 		$test = \StudentTest::find($id);
-		$questions = \Question::paginate(10);
+		$questions = $test->questions()->paginate(10);
     return \View::make('tutor.questions.index',compact('questions','test'));
 	}
 
