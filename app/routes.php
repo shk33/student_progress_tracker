@@ -20,95 +20,31 @@ Route::get('/login', array('as' => 'login' ,'uses' => 'AuthController@login'));
 Route::post('/auth', array('as' => 'auth' , 'uses' => 'AuthController@auth'));
 Route::get('/logout', array('as' => 'logout' , 'uses' => 'AuthController@logout'));
 
-//Admin Routes
-// Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
-// {
-//   Route::group(['before' => 'auth|adminGroup'], function()
-//   {
-//     //Students Managment Routes
-//     Route::resource('students', 'StudentsController');
-
-//     // Tutor Managment Routes
-//     Route::resource('tutors', 'TutorsController');
-
-//     // Scholar Groups Routes
-//     Route::delete('scholar-groups/{id}/student/{student_id}', array(
-//        'as' => 'admin.scholar-groups.remove-student', 
-//        'uses' => 'ScholarGroupController@removeStudent'));
-
-//     Route::get('scholar-groups/{id}/add-students', array(
-//        'as' => 'admin.scholar-groups.add-student', 
-//        'uses' => 'ScholarGroupController@addStudent'));
-
-//     Route::post('scholar-groups/{id}/store-students/{student_id}', array(
-//        'as' => 'admin.scholar-groups.store-student', 
-//        'uses' => 'ScholarGroupController@storeStudent'));
-
-//     Route::resource('scholar-groups', 'ScholarGroupController');
-
-//     // Blackboards Routes
-//     Route::resource('scholar-groups.blackboards', 'BlackboardController',
-//       ['only' => ['show']]);
-
-//     //Equations
-//     Route::resource('blackboards.equations', 'EquationsController',
-//       ['except' => ['index']]);
-
-//     //Blackboard Files routes
-//     Route::resource('blackboards.my-files', 'MyFilesController');
-//   });
-
-// });
-
 //Tutor Routes
 Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 {
   // Scholar Groups Controller
   Route::group(['before' => 'auth|tutorGroup'], function()
   {
-    Route::delete('scholar-groups/{id}/student/{student_id}', array(
-       'as' => 'tutor.scholar-groups.remove-student', 
-       'uses' => 'ScholarGroupController@removeStudent'));
-
-    Route::get('scholar-groups/{id}/add-students', array(
-       'as' => 'tutor.scholar-groups.add-student', 
-       'uses' => 'ScholarGroupController@addStudent'));
-
-    Route::post('scholar-groups/{id}/store-students/{student_id}', array(
-       'as' => 'tutor.scholar-groups.store-student', 
-       'uses' => 'ScholarGroupController@storeStudent'));
-
-    Route::resource('scholar-groups', 'ScholarGroupController');
-
     // Students Managment Routes
     Route::resource('students', 'StudentsController');
 
     // Tests Managments
     Route::resource('tests', 'StudentTestsController');
+    // Activate and Deactivate Tests
+    Route::get('/students_tests/{tests}/activate', array('as' => 'tutor.tests.activate' ,'uses' => 'StudentTestsController@activate'));
+    Route::get('/students_tests/{tests}/deactivate', array('as' => 'tutor.tests.deactivate' ,'uses' => 'StudentTestsController@deactivate'));
 
     // Test-Questions
     Route::resource('tests.questions', 'QuestionsController');
-
-    // Blackboards Routes
-    Route::resource('scholar-groups.blackboards', 'BlackboardController',
-      ['only' => ['show']]);
-
-    //Blackboard Equations routes
-    Route::resource('blackboards.equations', 'EquationsController',
-      ['except' => ['index', 'show']]);
-
   });
 
 });
 
 ///General Routes
-Route::group(array('prefix' => 'general', 'namespace' => 'general'), function()
+Route::group(array('prefix' => 'general', 'namespace' => 'general', 'before' => 'auth'), function()
 {
-  // Scholar Groups Controller
-  Route::group(['before' => 'auth'], function()
-  {
-    //Blackboard Files routes
-    Route::resource('blackboards', 'BlackboardController');
-  });
+  //Take Test
+  Route::resource('blackboards', 'BlackboardController');
 
 });

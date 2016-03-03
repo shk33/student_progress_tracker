@@ -53,15 +53,34 @@ class StudentTestsController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /test/{id}
+	 * GET /test/{id}/activate
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function activate($id)
 	{
 		$test = \StudentTest::find($id);
-		return \View::make('tutor.tests.show', compact('test'));
+		$test->is_active = true;
+		$test->save();
+		return \Redirect::route('tutor.tests.index')
+			->with('success','Examen Activado');
+	}
+
+	/**
+	 * Display the specified resource.
+	 * GET /test/{id}/activate
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function deactivate($id)
+	{
+		$test = \StudentTest::find($id);
+		$test->is_active = false;
+		$test->save();
+		return \Redirect::route('tutor.tests.index')
+			->with('success','Examen Desactivado');
 	}
 
 	/**

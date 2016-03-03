@@ -15,7 +15,7 @@ class AuthController extends BaseController {
 					return Redirect::route('tutor.students.index');	
 					break;
 				case Role::STUDENT_ROLE:
-					return Redirect::to('/photos');
+					return Redirect::route('/photos');
 					break;
 			}
 		}else{
