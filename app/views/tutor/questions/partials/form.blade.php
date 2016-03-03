@@ -47,7 +47,7 @@
 
     <div class="form-group">
       {{Form::label('image', 'Subir imagen de ayuda para la pregunta', array('class' => "control-label"))}}
-      <input type="file" name="image" id="image" class="form-control underline" required>
+      <input type="file" name="image" id="image" class="form-control underline">
     </div>
 
 </div>

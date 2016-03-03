@@ -13,7 +13,7 @@
             <h3 class="panel-title">Crear Pregunta del Examen {{$test->name}}</h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutor.tests.questions.store',$test->id), 'method' => 'POST', 'enctype' => 'multipart/form-data' )) }}
+          {{ Form::open(array('action' => array('tutor.tests.questions.store',$test->id), 'method' => 'POST', 'enctype' => 'multipart/form-data')) }}
             @include('tutor.questions.partials.form')
           {{ Form::close() }}
 

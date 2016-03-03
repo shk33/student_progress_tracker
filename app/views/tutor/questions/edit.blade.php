@@ -15,7 +15,7 @@
             </h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutor.tests.questions.update',$test->id, $question->id), 'method' => 'PUT' )) }}
+          {{ Form::open(array('action' => array('tutor.tests.questions.update',$test->id, $question->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data' )) }}
             @include('tutor.questions.partials.edit_form')
           {{ Form::close() }}
 

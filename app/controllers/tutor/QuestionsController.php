@@ -55,15 +55,15 @@ class QuestionsController extends \BaseController {
 
 			// Upload Image
 			if(\Input::file()){
-          $image = \Input::file('image');
-          $filename   = time() . '.' . $image->getClientOriginalExtension();
-          $question_folder_path = public_path('images/questions/');
-          $image->move($question_folder_path, $filename);
+        $image = \Input::file('image');
+        $filename   = time() . '.' . $image->getClientOriginalExtension();
+        $question_folder_path = public_path('images/questions/');
+        $image->move($question_folder_path, $filename);
 
-          $image_path = public_path('images/questions/' . $filename);
-          $question->image = $image_path;
-          $question->save();
-        }
+        $image_path = public_path('images/questions/' . $filename);
+        $question->image = $image_path;
+        $question->save();
+      }
 
 			return \Redirect::route('tutor.tests.questions.index',$id)
 				->with('success', 'Pregunta Creada exitósamente');
@@ -146,6 +146,18 @@ class QuestionsController extends \BaseController {
 				}
 				
 			}
+
+			// Upload Image
+			if(\Input::file()){
+        $image = \Input::file('image');
+        $filename   = time() . '.' . $image->getClientOriginalExtension();
+        $question_folder_path = public_path('images/questions/');
+        $image->move($question_folder_path, $filename);
+
+        $image_path = 'images/questions/' . $filename;
+        $question->image = $image_path;
+        $question->save();
+      }
 			
 			return \Redirect::route('tutor.tests.questions.index',$id)
 				->with('success', 'Pregunta Editada exitósamente');
