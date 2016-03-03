@@ -53,6 +53,8 @@
             <!--SIDEBAR-->
             @if (Auth::user()->isTeacher())
                 @include('layouts.sidebar')
+            @else
+                @include('layouts.student_sidebar')
             @endif
             <!--===================================================-->
 

@@ -44,7 +44,7 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 ///General Routes
 Route::group(array('prefix' => 'general', 'namespace' => 'general', 'before' => 'auth'), function()
 {
-  //Take Test
-  Route::resource('blackboards', 'BlackboardController');
+  // Student Tests
+  Route::resource('tests', 'StudentTestsController',['only' => 'index']);
 
 });
