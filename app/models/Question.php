@@ -18,6 +18,17 @@ class Question extends \Eloquent {
   protected $fillable = ["name","text","student_test_id"];
 
 
+  public function getOptionByName($name)
+  {
+    $option = $this->options()->where('name','=',$name)->first();
+    return $option != null?$option:new Question(['text' => '', 'is_correct' => false]);
+  }
+
+  public function hasOptionByName($name)
+  {
+    return $this->options()->where('name','=',$name)->first() != null;
+  }
+
   public function studentTest()
   {
     return $this->belongsTo('StudentTest', 'student_test_id');

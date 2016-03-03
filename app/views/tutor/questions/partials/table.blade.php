@@ -25,11 +25,11 @@
       </td>
       <td>
         <!-- Edit Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.edit", $question->id) }}'data-original-title="Editar Pregunta" data-container="body">
+        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.edit", [$test->id, $question->id]) }}'data-original-title="Editar Pregunta" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Delete Link -->
-        {{ Form::open(array("route" => array("tutor.tests.questions.destroy",$question->id), 'method' => 'DELETE','class' => 'inline')) }}
+        {{ Form::open(array("route" => array("tutor.tests.questions.destroy",$test->id,$question->id), 'method' => 'DELETE','class' => 'inline')) }}
           <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Eliminar" data-container="body">
             <i class="fa fa-times fa-2x"></i>
           </button>

@@ -11,12 +11,12 @@
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Cambiar Nombre de la Prueba: {{ $test->name }}
+              Modificar Pregunta:
             </h3>
           </div>
           
-          {{ Form::open(array('action' => array('tutor.tests.update',$test->id), 'method' => 'PUT' )) }}
-            @include('tutor.tests.partials.edit_form')
+          {{ Form::open(array('action' => array('tutor.tests.questions.update',$test->id, $question->id), 'method' => 'PUT' )) }}
+            @include('tutor.questions.partials.edit_form')
           {{ Form::close() }}
 
         </div>
