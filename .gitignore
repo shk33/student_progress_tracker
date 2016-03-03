@@ -9,3 +9,6 @@ Thumbs.db
 /public/system/*
 
 !/public/system/.keep
+
+/public/images/questions/*
+!/public/images/questions/.gitkeep

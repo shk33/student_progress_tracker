@@ -29,7 +29,7 @@
       <span class="text-danger">{{$errors->first('optionC')}}</span>
     </div>
 
-    <h4>Selecciona cuál opción es la correcta</h4>
+    {{Form::label('option_correct', 'Selecciona cuál opción es la correcta', array('class' => "control-label"))}}
     <div class="form-group">
       {{Form::label('option_correct', 'Opción A', array('class' => "control-label"))}}
       {{Form::radio('option_correct', 'A') }}
@@ -43,6 +43,11 @@
     <div class="form-group">
       {{Form::label('option_correct', 'Opción C', array('class' => "control-label"))}}
       {{Form::radio('option_correct', 'C') }}
+    </div>
+
+    <div class="form-group">
+      {{Form::label('image', 'Subir imagen de ayuda para la pregunta', array('class' => "control-label"))}}
+      <input type="file" name="image" id="image" class="form-control underline" required>
     </div>
 
 </div>
