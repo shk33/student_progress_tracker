@@ -1,5 +1,5 @@
 <?php namespace tutor;
-
+use Illuminate\Support\Facades\Input;
 class StudentsController extends \BaseController {
 
 	/**
@@ -8,10 +8,19 @@ class StudentsController extends \BaseController {
 	 *	 * @return Response
 	 */
 	public function index()
-	{
-		$users = \User::getStudents()->paginate(10);
-    return \View::make('tutor.students.index',compact('users'));
-	}
+	{        
+            if ( isset ( $_GET['search'] ) )
+            {
+               
+                $name= Input::get("search");
+                $users = \User::getStudentsByName($name)->paginate(10);
+            }else
+            {
+                $users = \User::getStudents()->paginate(10);
+            }
+            
+            return \View::make('tutor.students.index',compact('users'));
+        }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -20,7 +29,7 @@ class StudentsController extends \BaseController {
 	 * @return Response
 	 */
 	public function create()
-	{
+	{       
 		return \View::make('tutor.students.create');
 	}
 
@@ -37,7 +46,6 @@ class StudentsController extends \BaseController {
 		// attempt validation
 		if ($student->validate(\Input::all())) {
 			$student->fill(\Input::all());
-			$student->password = \Hash::make($student->password);
 			$student->role_id = \Role::getStudentRole()->id;
 			$student->save();
 
@@ -60,9 +68,9 @@ class StudentsController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id)
-	{
-		$user = \User::find($id);
-		return \View::make('tutor.students.show', compact('user'));
+	{     
+            $user = \User::find($id);
+            return \View::make('tutor.students.show', compact('user'));
 	}
 
 	/**

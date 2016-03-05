@@ -23,6 +23,8 @@ Route::get('/logout', array('as' => 'logout' , 'uses' => 'AuthController@logout'
 //Student Route
 Route::get('/board',array('as'=>'board','uses'=> 'StudentController@board'));
 
+
+
 //Admin Routes
 // Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 // {
@@ -63,6 +65,8 @@ Route::get('/board',array('as'=>'board','uses'=> 'StudentController@board'));
 
 // });
 
+
+
 //Tutor Routes
 Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 {
@@ -80,11 +84,18 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     Route::post('scholar-groups/{id}/store-students/{student_id}', array(
        'as' => 'tutor.scholar-groups.store-student', 
        'uses' => 'ScholarGroupController@storeStudent'));
+    
 
     Route::resource('scholar-groups', 'ScholarGroupController');
 
     // Students Managment Routes
     Route::resource('students', 'StudentsController');
+    
+    Route::get('search', array(
+       'as' => 'tutor.students.partials.search', 
+       'uses' => 'StudentsController@index'));
+    
+    
 
     // Blackboards Routes
     Route::resource('scholar-groups.blackboards', 'BlackboardController',

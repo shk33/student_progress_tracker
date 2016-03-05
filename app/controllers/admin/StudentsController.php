@@ -12,6 +12,7 @@ class StudentsController extends \BaseController {
 		$users = \User::getStudents()->paginate(10);
     return \View::make('admin.students.index',compact('users'));
 	}
+       
 
 	/**
 	 * Show the form for creating a new resource.

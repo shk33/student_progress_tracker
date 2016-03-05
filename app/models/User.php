@@ -37,17 +37,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   protected $fillable = ['email','password','first_name','last_name','username','enrollment_number','role_id'];
 
 	public static function getStudents()
-	{
+	{       
 		return User::where('role_id','=',Role::getStudentRole()->id);
 	}
-	
-
-	public static function getStudentsByName($name){
+        
+       
+        public static function getStudentsByName($name){
                 //$users = User::where('first_name','=',$name);
                 
  		return User::where('first_name','=',$name);
 	}
-
+       
 
   public static function getUpdateRules($id)
   {

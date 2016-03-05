@@ -24,7 +24,10 @@
           <div class="panel-body no-top-bot-pad">
               @include('users.partials.pagination')
           </div>
-          
+              @include('tutor.students.partials.search')
+          <div>
+              
+          </div>
           <div class="panel-body">
               @include('tutor.students.partials.table')
           </div>

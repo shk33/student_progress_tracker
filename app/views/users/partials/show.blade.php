@@ -7,14 +7,14 @@
 <div id="page-content">
   
   <div class="row">
-
+    
     <div class="col-md-12 col-lg-12">
 
       <div class="panel text-center">
 
         <div class="panel-body bg-primary">
           {{ HTML::image("images/av1.png", "Avatar",  $attributes = array('class' => 'img-lg img-circle img-border')) }}
-
+          
           <h4 class="text-thin">{{{"$user->first_name $user->last_name"}}}</h4>
           <p class="text-bold">
           </p>

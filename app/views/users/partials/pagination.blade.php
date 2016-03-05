@@ -2,7 +2,7 @@
 
   <div class="pull-left pagination-detail">
     <span class="pagination-info">
-      Total: 10 registros
+      
     </span>
   </div>
 
