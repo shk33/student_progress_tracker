@@ -40,6 +40,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return User::where('role_id','=',Role::getStudentRole()->id);
 	}
+	
+
+	public static function getStudentsByName($name){
+                //$users = User::where('first_name','=',$name);
+                
+ 		return User::where('first_name','=',$name);
+	}
+
 
   public static function getUpdateRules($id)
   {

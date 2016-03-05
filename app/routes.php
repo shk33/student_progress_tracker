@@ -20,6 +20,9 @@ Route::get('/login', array('as' => 'login' ,'uses' => 'AuthController@login'));
 Route::post('/auth', array('as' => 'auth' , 'uses' => 'AuthController@auth'));
 Route::get('/logout', array('as' => 'logout' , 'uses' => 'AuthController@logout'));
 
+//Student Route
+Route::get('/board',array('as'=>'board','uses'=> 'StudentController@board'));
+
 //Admin Routes
 // Route::group(array('prefix' => 'admin', 'namespace' => 'admin'), function()
 // {

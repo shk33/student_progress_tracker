@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"codesleeve/laravel-stapler": "1.0.*"
+		"codesleeve/laravel-stapler": "1.0.*",
+		"symfony/var-dumper": "^3.0"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",

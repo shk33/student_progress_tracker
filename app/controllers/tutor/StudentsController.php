@@ -37,6 +37,7 @@ class StudentsController extends \BaseController {
 		// attempt validation
 		if ($student->validate(\Input::all())) {
 			$student->fill(\Input::all());
+			$student->password = \Hash::make($student->password);
 			$student->role_id = \Role::getStudentRole()->id;
 			$student->save();
 
