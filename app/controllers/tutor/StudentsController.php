@@ -47,6 +47,7 @@ class StudentsController extends \BaseController {
 		if ($student->validate(\Input::all())) {
 			$student->fill(\Input::all());
 			$student->role_id = \Role::getStudentRole()->id;
+			$student->password = \Hash::make($student->password);
 			$student->save();
 
 			return \Redirect::route('tutor.students.index')
