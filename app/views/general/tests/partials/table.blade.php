@@ -13,7 +13,7 @@
       <td>
         </a>
         <!-- Start Test -->
-        {{ Form::open(array("route" => array("tutor.tests.destroy",$test->id), 'method' => 'POST','class' => 'inline')) }}
+        {{ Form::open(array("route" => array("general.tests.taken-tests.store",$test->id), 'method' => 'POST','class' => 'inline')) }}
             <button type="submit" class="btn btn-primary">Comenzar Prueba</button>
         {{ Form::close() }}
     </tr>

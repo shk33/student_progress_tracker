@@ -12,6 +12,9 @@
     <!-- Admin Core -->
     {{ HTML::style('css/nifty.min.css') }}
 
+    <!-- Application css -->
+    {{ HTML::style('/css/app.css') }}
+
     <!-- Roboto Font -->
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300,500" rel="stylesheet" type="text/css">
 

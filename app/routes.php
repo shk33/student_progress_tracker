@@ -47,4 +47,7 @@ Route::group(array('prefix' => 'general', 'namespace' => 'general', 'before' => 
   // Student Tests
   Route::resource('tests', 'StudentTestsController',['only' => 'index']);
 
+  // Taken Tests
+  Route::resource('tests.taken-tests', 'TakenTestsController');
+
 });
