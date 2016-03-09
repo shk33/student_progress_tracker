@@ -34,8 +34,7 @@ class TakenTestsController extends \BaseController {
 			$takenTest = \TakenTest::create(["student_test_id" => $id, "user_id" => $user->id]);
 		}
 
-
-		return \Redirect::route('general.tests.taken-tests.show',[$id,$takenTest->id])
+		return \Redirect::route('general.taken-tests.questions.show',[$takenTest->id, 1])
 						->with('success', 'Prueba Iniciada');
 
 	}
