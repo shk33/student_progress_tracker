@@ -148,7 +148,7 @@ class QuestionsController extends \BaseController {
 			}
 
 			// Upload Image
-			if(\Input::file()){
+			if(\Input::file('image')){
         $image = \Input::file('image');
         $filename   = time() . '.' . $image->getClientOriginalExtension();
         $question_folder_path = public_path('images/questions/');
