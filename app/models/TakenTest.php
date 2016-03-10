@@ -15,6 +15,18 @@ class TakenTest extends \Eloquent {
   // Don't forget to fill this array
   protected $fillable = ["student_test_id","user_id"];
 
+  public function getScore()
+  {
+    $numberOfCorrectAnswers = 0;
+
+    foreach ($this->answers as $answer) {
+      if ($answer->is_correct) {
+        $numberOfCorrectAnswers++;
+      }
+    }
+
+    return $numberOfCorrectAnswers;
+  }
 
   public function getAnsweredQuestion($question)
   {
