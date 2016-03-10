@@ -49,7 +49,8 @@ Route::group(array('prefix' => 'general', 'namespace' => 'general', 'before' => 
 
   // Taken Tests
   Route::resource('tests.taken-tests', 'TakenTestsController');
-  
+  Route::get('/taken-tests/{taken_tests}/completed', array('as' => 'general.taken-tests.completed' ,'uses' => 'TakenTestsController@completed'));
+
   // Questions
   Route::resource('taken-tests.questions', 'QuestionsController');
   Route::post('/taken-tests/{taken_tests}/questions/{questions}/answer', array('as' => 'general.taken-tests.questions.answer' ,'uses' => 'QuestionsController@answer'));

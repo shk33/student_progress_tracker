@@ -22,4 +22,10 @@ class TakenTestsController extends \BaseController {
 
 	}
 
+	public function completed($id)
+	{
+		$takenTest = \TakenTest::find($id);
+		return \View::make('general.taken-tests.completed');
+	}
+
 }

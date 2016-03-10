@@ -11,6 +11,10 @@ class QuestionsController extends \BaseController {
 	{
 		$takenTest = \TakenTest::find($takenTestId);
 		$test      = $takenTest->student_test;
+		if ($questionIndex >$test->questions()->count() ) {
+			return \Redirect::route('general.taken-tests.completed',$takenTestId)
+							->with('success','Examen Completado');
+		}
 		$question  = $test->questions[$questionIndex -1];
 
 		return \View::make('general.taken-tests.show',

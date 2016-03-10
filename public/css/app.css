@@ -33,3 +33,7 @@ body{
 #mainnav-container{
   position: fixed;
 }
+
+.btn {
+  font-size: 16px;
+}
