@@ -52,5 +52,6 @@ Route::group(array('prefix' => 'general', 'namespace' => 'general', 'before' => 
   
   // Questions
   Route::resource('taken-tests.questions', 'QuestionsController');
+  Route::post('/taken-tests/{taken_tests}/questions/{questions}/answer', array('as' => 'general.taken-tests.questions.answer' ,'uses' => 'QuestionsController@answer'));
 
 });

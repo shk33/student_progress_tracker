@@ -28,9 +28,6 @@
             </blockquote>
           </div>
 
-          <iframe src="http://docs.google.com/gview?url=http://path.com/to/your/pdf.pdf&embedded=true" 
-style="width:600px; height:500px;" frameborder="0"></iframe>
-          
           <div class="bord-top">
             <div class="panel">
               <div class="panel-heading">
@@ -41,7 +38,7 @@ style="width:600px; height:500px;" frameborder="0"></iframe>
 
               <!--Horizontal Form-->
               <!--===================================================-->
-              <form class="form-horizontal" method="POST" route>
+              <form class="form-horizontal" method="POST" action={{route('general.taken-tests.questions.answer',[$takenTest->id,$questionIndex])}}>
                 <div class="panel-body">
                   <div class="form-group pad-ver">
                     <div class="col-md-offset-1 col-md-11">
@@ -50,7 +47,7 @@ style="width:600px; height:500px;" frameborder="0"></iframe>
                         @foreach ($question->options as $option)
                         <div class="radio">
                           <label class="form-radio form-icon active form-text">
-                            <input type="radio" name="answer_question_{{$question->id}}"> 
+                            <input type="radio" checked="checked" name="question_{{$question->id}}" value={{$option->id}}> 
                             {{$option->text}}
                           </label>
                         </div>

@@ -24,6 +24,16 @@ class Question extends \Eloquent {
     return $option != null?$option:new Question(['text' => '', 'is_correct' => false]);
   }
 
+  public function isCorrectOption($option)
+  {
+    return $this->getCorrectOption()->id == $option->id;
+  }
+
+  public function getCorrectOption()
+  {
+    return $this->options()->where('is_correct','=',1)->first();
+  }
+
   public function hasOptionByName($name)
   {
     return $this->options()->where('name','=',$name)->first() != null;

@@ -16,6 +16,11 @@ class TakenTest extends \Eloquent {
   protected $fillable = ["student_test_id","user_id"];
 
 
+  public function getAnsweredQuestion($question)
+  {
+    return $this->answers()->where('question_id' ,'=', $question->id)->first();
+  }
+
   public function studentTest()
   {
     return $this->belongsTo('StudentTest', 'student_test_id');
@@ -28,7 +33,7 @@ class TakenTest extends \Eloquent {
 
   public function answers()
   {
-    return $this->hasMany('Answer', 'answer_id');
+    return $this->hasMany('Answer');
   }
 
 }

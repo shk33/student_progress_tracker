@@ -9,11 +9,10 @@ class Answer extends \Eloquent {
   protected $table = 'answers';
   
 	// Add your validation rules here
-  public static $rules = [
-  ];
+  public static $rules = [];
 
   // Don't forget to fill this array
-  protected $fillable = ["taken_test_id_id","option_id"];
+  protected $fillable = ["taken_test_id","option_id","question_id","is_correct"];
 
 
   public function selectedOption()
