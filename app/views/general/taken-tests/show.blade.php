@@ -47,7 +47,7 @@
                         @foreach ($question->options as $option)
                         <div class="radio">
                           <label class="form-radio form-icon active form-text">
-                            <input type="radio" checked="checked" name="question_{{$question->id}}" value={{$option->id}}> 
+                            <input type="radio" checked="checked" name="question_{{$questionIndex}}" value={{$option->id}}> 
                             {{$option->text}}
                           </label>
                         </div>

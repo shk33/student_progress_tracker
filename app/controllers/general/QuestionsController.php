@@ -24,7 +24,6 @@ class QuestionsController extends \BaseController {
 		$question  = $test->questions[$questionIndex -1];
 
 		$selectedOption = \Option::find(\Input::get("question_$questionIndex"));
-
 		$answer = $takenTest->getAnsweredQuestion($question);
 
 		if ($answer) {
