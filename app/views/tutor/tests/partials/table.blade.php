@@ -38,6 +38,10 @@
         <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.index", $test->id) }}'data-original-title="Gestionar Preguntas del Examen" data-container="body">
           <i class="fa fa-question fa-2x"></i>
         </a>
+        <!-- Stats Link -->
+        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.stats", $test->id) }}'data-original-title="Resultados" data-container="body">
+          <i class="fa fa-bar-chart fa-2x"></i>
+        </a>
         <!-- Delete Link -->
         {{ Form::open(array("route" => array("tutor.tests.destroy",$test->id), 'method' => 'DELETE','class' => 'inline')) }}
           <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Eliminar" data-container="body">

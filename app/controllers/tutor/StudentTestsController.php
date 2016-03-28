@@ -84,6 +84,23 @@ class StudentTestsController extends \BaseController {
 	}
 
 	/**
+	 * Display the specified resource.
+	 * GET /test/{id}/activate
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function stats($id)
+	{
+		$test = \StudentTest::find($id);
+		$takenTests = $test->getTakenTestsOrderedByScore();
+		$maxScore   = $test->questions()->count();
+
+		return \View::make('general.taken-tests.completed',
+						compact('takenTest','test','takenTests','maxScore'));
+	}
+
+	/**
 	 * Show the form for editing the specified resource.
 	 * GET /test/{id}/edit
 	 *

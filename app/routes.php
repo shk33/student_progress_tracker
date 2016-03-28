@@ -34,6 +34,7 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     // Activate and Deactivate Tests
     Route::get('/students_tests/{tests}/activate', array('as' => 'tutor.tests.activate' ,'uses' => 'StudentTestsController@activate'));
     Route::get('/students_tests/{tests}/deactivate', array('as' => 'tutor.tests.deactivate' ,'uses' => 'StudentTestsController@deactivate'));
+    Route::get('/students_tests/{tests}/stats', array('as' => 'tutor.tests.stats' ,'uses' => 'StudentTestsController@stats'));
 
     // Test-Questions
     Route::resource('tests.questions', 'QuestionsController');
