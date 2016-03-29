@@ -61,7 +61,9 @@ class StudentsController extends \BaseController {
 	public function show($id)
 	{
 		$user = \User::find($id);
-		return \View::make('tutor.students.show', compact('user'));
+		$taken_tests = $user->takenTests()->with('answers')->get();
+		
+		return \View::make('tutor.students.show', compact('user','taken_tests'));
 	}
 
 	/**

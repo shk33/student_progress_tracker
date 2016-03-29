@@ -20,6 +20,11 @@ class Answer extends \Eloquent {
     return $this->belongsTo('Option', 'option_id');
   }
 
+  public function question()
+  {
+    return $this->belongsTo('Question', 'question_id');
+  }
+
   public function takenTest()
   {
     return $this->belongsTo('TakenTest', 'taken_test_id');
