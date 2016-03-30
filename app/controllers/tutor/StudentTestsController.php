@@ -96,7 +96,7 @@ class StudentTestsController extends \BaseController {
 		$takenTests = $test->getTakenTestsOrderedByScore();
 		$maxScore   = $test->questions()->count();
 
-		return \View::make('general.taken-tests.completed',
+		return \View::make('tutor.tests.stats',
 						compact('takenTest','test','takenTests','maxScore'));
 	}
 

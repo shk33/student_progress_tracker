@@ -18,6 +18,20 @@ class Question extends \Eloquent {
   protected $fillable = ["name","text","student_test_id"];
 
 
+  public function countCorrectTimesAnswered()
+  {
+    $correctOptionId = $this->getCorrectOption()->id;
+    return Answer::where('option_id','=',$correctOptionId)
+      ->where('is_correct','=',1)
+      ->count();
+  }
+
+  public function countTimesAnswered()
+  {
+    return Answer::where('question_id','=',$this->id)
+      ->count();
+  }
+
   public function getOptionByName($name)
   {
     $option = $this->options()->where('name','=',$name)->first();
@@ -33,6 +47,10 @@ class Question extends \Eloquent {
   {
     return $this->options()->where('is_correct','=',1)->first();
   }
+
+  /*
+  * Relationships
+  */
 
   public function hasOptionByName($name)
   {
