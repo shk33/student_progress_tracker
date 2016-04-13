@@ -7,6 +7,11 @@
       <span class="text-danger">{{$errors->first('name')}}</span>
     </div>
 
+    <!-- PDF Presentation -->
+    <div class="form-group">
+      {{Form::label('presentation', 'Subir presentación', array('class' => "control-label"))}}
+      <input type="file" name="presentation" accept="application/pdf" id="presentation" class="form-control underline">
+    </div>
 </div>
     
 

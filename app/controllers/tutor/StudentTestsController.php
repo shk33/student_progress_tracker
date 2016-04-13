@@ -40,6 +40,18 @@ class StudentTestsController extends \BaseController {
 			$test->type = 'Image';
 			$test->save();
 
+			// Upload Image
+			if(\Input::file('presentation')){
+        $presentation = \Input::file('presentation');
+        $filename   = time() . '.' . $presentation->getClientOriginalExtension();
+        $presentations_folder_path = public_path('tests/presentations/');
+        $presentation->move($presentations_folder_path, $filename);
+
+        $presentation_path = 'tests/presentations/' . $filename;
+        $test->presentation = $presentation_path;
+        $test->save();
+      }
+
 			return \Redirect::route('tutor.tests.index')
 				->with('success', 'Prueba Creada exitósamente');
 		}

@@ -12,3 +12,6 @@ Thumbs.db
 
 /public/images/questions/*
 !/public/images/questions/.gitkeep
+
+/public/tests/presentations/*
+!/public/tests/presentations/.gitkeep
