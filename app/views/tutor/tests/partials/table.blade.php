@@ -31,7 +31,7 @@
           </a>
         @endif
         <!-- Edit Link -->
-        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.edit", $test->id) }}'data-original-title="Editar Nombre del Examen" data-container="body">
+        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.edit", $test->id) }}'data-original-title="Editar Datos del Examen" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Questions Link -->

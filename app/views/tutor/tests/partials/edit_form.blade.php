@@ -7,6 +7,11 @@
       {{$errors->first('name')}}
     </div>
 
+    <div class="form-group">
+      {{Form::label('presentation', 'Cambiar presentación', array('class' => "control-label"))}}
+      <input type="file" name="presentation" accept="application/pdf" id="presentation" class="form-control underline">
+    </div>
+
 </div>
     
 <div class="panel-footer">
