@@ -5,10 +5,10 @@
     <h3>Diapositiva (Obligatorio)</h3>
     <div class="form-group ">
       {{Form::label('slide_text', 'Texto de la Diapositiva', array('class' => "control-label"))}}
-      {{Form::textarea('slide_text',null, array('class' => 'form-control', 'placeholder' => 'Texto de la Diapositiva') )}}
+      {{Form::textarea('slide_text',$question->slide_text, array('class' => 'form-control', 'placeholder' => 'Texto de la Diapositiva') )}}
     </div>
     @if ($question->slide_image)
-      {{Form::label('slide_image', 'Imagen Actual de Diapositiva', array('class' => "control-label"))}}
+      <b>{{Form::label('slide_image', 'Imagen Actual de Diapositiva', array('class' => "control-label"))}}</b>
       <img class="img-responsive thumbnail" src="{{asset($question->slide_image)}}" alt="Image">
     @endif
     <div class="form-group">
@@ -62,11 +62,11 @@
     </div>
 
     @if ($question->image)
-      {{Form::label('image', 'Imagen Actual de ayuda', array('class' => "control-label"))}}
+      <b>{{Form::label('image', 'Imagen Actual para la Pregunta', array('class' => "control-label"))}}</b>
       <img class="img-responsive thumbnail" src="{{asset($question->image)}}" alt="Image">
     @endif
     <div class="form-group">
-      {{Form::label('image', 'Subir imagen de ayuda para la pregunta', array('class' => "control-label"))}}
+      {{Form::label('image', 'Cambiar imagen de la pregunta (Dejar en blanco si no se desea modificar la imagen)', array('class' => "control-label"))}}
       <input type="file" name="image" id="image" class="form-control underline">
     </div>
 
@@ -76,7 +76,6 @@
   <div class="row">
     <div class="col-sm-3 col-sm-offset-9">
     {{Form::button('Guardar',array('class' => 'btn btn-lg btn-info btn-labeled fa fa-save fa-lg', 'type' => 'submit'))}}
-    {{Form::button('Limpiar',array('class' => 'btn btn-lg btn-warning btn-labeled fa fa-repeat fa-lg', 'type' => 'reset'))}}
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">
-              Modificar Pregunta:
+              Modificar Diapositiva:
             </h3>
           </div>
           
