@@ -11,10 +11,10 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              Preguntas del Examen {{$test->name}}
+              Diapositivas de {{$test->name}}
               <a href="{{ URL::route('tutor.tests.questions.create',$test->id) }}">
                 <button class="btn btn-success mar-lft">
-                  Nueva Pregunta
+                  Crear Nueva Diapositiva
                 </button>
               </a>
             </h3>

@@ -11,11 +11,11 @@ class Question extends \Eloquent {
   
 	// Add your validation rules here
   public static $rules = [
-    'text'    => 'required',
+    'slide_text'    => 'required',
   ];
 
   // Don't forget to fill this array
-  protected $fillable = ["name","text","student_test_id"];
+  protected $fillable = ["slide_text","name","text","student_test_id"];
 
 
   public function countCorrectTimesAnswered()

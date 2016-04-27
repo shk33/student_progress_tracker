@@ -65,6 +65,18 @@ class QuestionsController extends \BaseController {
         $question->save();
       }
 
+      // Upload Slide Image
+			if(\Input::file('slide_image')){
+        $slide_image = \Input::file('slide_image');
+        $filename   = time() . 'S.' . $slide_image->getClientOriginalExtension();
+        $question_folder_path = public_path('images/questions/');
+        $slide_image->move($question_folder_path, $filename);
+
+        $image_path = 'images/questions/' . $filename;
+        $question->slide_image = $image_path;
+        $question->save();
+      }
+
 			return \Redirect::route('tutor.tests.questions.index',$id)
 				->with('success', 'Pregunta Creada exitósamente');
 		}

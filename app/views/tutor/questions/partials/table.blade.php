@@ -1,6 +1,7 @@
 <table class="table table-bordered table-hover mar-no">
   <thead>
     <tr>
+      <th>Texto de Diapositiva</th>
       <th>Pregunta</th>
       <th>Opciones</th>
       <th>Acciones</th>
@@ -10,6 +11,7 @@
   <tbody>
     @foreach($questions as $question)
     <tr>
+      <td>{{{$question->slide_text}}}</td>
       <td>{{{$question->text}}}</td>
       <td>
         @foreach ($question->options as $option)
@@ -25,7 +27,7 @@
       </td>
       <td>
         <!-- Edit Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.edit", [$test->id, $question->id]) }}'data-original-title="Editar Pregunta" data-container="body">
+        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.edit", [$test->id, $question->id]) }}'data-original-title="Editar Diapositiva" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Delete Link -->
