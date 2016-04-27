@@ -27,7 +27,7 @@
             <li>
               <a href="{{route('tutor.tests.index')}}">
                 <i class="fa fa-file"></i>
-                <span class="menu-title"><strong>Pruebas</strong></span>
+                <span class="menu-title"><strong>Presentaciones</strong></span>
               </a>
             </li>
         </div>

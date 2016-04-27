@@ -21,21 +21,21 @@
       <td>
         @if ($test->is_active)
           <!-- Deactivate Link -->
-          <a class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.deactivate", $test->id) }}' data-original-title="Desactivar Prueba" data-container="body">
+          <a class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.deactivate", $test->id) }}' data-original-title="Desactivar Presentación" data-container="body">
             <i class="fa fa-circle fa-2x"></i>
           </a>
         @else
           <!-- Activate Link -->
-          <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.activate", $test->id) }}' data-original-title="Activar Prueba" data-container="body">
+          <a class="btn btn-xs btn-mint add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.activate", $test->id) }}' data-original-title="Activar Presentación" data-container="body">
             <i class="fa fa-circle fa-2x"></i>
           </a>
         @endif
         <!-- Edit Link -->
-        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.edit", $test->id) }}'data-original-title="Editar Datos del Examen" data-container="body">
+        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.edit", $test->id) }}'data-original-title="Editar Datos de la Presentación" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
         <!-- Questions Link -->
-        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.index", $test->id) }}'data-original-title="Gestionar Preguntas del Examen" data-container="body">
+        <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.questions.index", $test->id) }}'data-original-title="Gestionar Diapositivas" data-container="body">
           <i class="fa fa-question fa-2x"></i>
         </a>
         <!-- Stats Link -->

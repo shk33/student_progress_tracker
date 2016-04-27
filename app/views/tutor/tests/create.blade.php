@@ -10,7 +10,7 @@
         
         <div class="panel">
           <div class="panel-heading">
-            <h3 class="panel-title">Crear Examen</h3>
+            <h3 class="panel-title">Crear Presentación</h3>
           </div>
           
           {{ Form::open(array('action' => array('tutor.tests.store'), 'method' => 'POST' , 'enctype' => 'multipart/form-data' )) }}

@@ -11,10 +11,10 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              Pruebas
+              Presentaciones
               <a href="{{ URL::route('tutor.tests.create') }}">
                 <button class="btn btn-success mar-lft">
-                  Nuevo
+                  Crear Nueva Presentación
                 </button>
               </a>
             </h3>

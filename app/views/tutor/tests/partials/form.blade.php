@@ -2,16 +2,11 @@
 
     <!-- Test Name -->
     <div class="form-group ">
-      {{Form::label('name', 'Nombre del Examen *', array('class' => "control-label"))}}
+      {{Form::label('name', 'Nombre de la Presentación *', array('class' => "control-label"))}}
       {{Form::text('name',null, array('class' => 'form-control', 'placeholder' => 'Nombres') )}}
       <span class="text-danger">{{$errors->first('name')}}</span>
     </div>
 
-    <!-- PDF Presentation -->
-    <div class="form-group">
-      {{Form::label('presentation', 'Subir presentación', array('class' => "control-label"))}}
-      <input type="file" name="presentation" accept="application/pdf" id="presentation" class="form-control underline">
-    </div>
 </div>
     
 
