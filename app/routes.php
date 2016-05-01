@@ -38,6 +38,8 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 
     // Test-Questions
     Route::resource('tests.questions', 'QuestionsController');
+    // Start Presentation
+    Route::resource('tests.presentations', 'PresentationsController');
   });
 
 });

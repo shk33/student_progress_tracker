@@ -19,6 +19,10 @@
         @endif
       </td>
       <td>
+        <!-- Presentar Link -->
+        <a class="btn btn-xs btn-success add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.presentations.show", [$test->id,1]) }}'data-original-title="Iniciar Presentación" data-container="body">
+          <i class="fa fa-eye fa-2x"></i>
+        </a>
         @if ($test->is_active)
           <!-- Deactivate Link -->
           <a class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.tests.deactivate", $test->id) }}' data-original-title="Desactivar Presentación" data-container="body">
