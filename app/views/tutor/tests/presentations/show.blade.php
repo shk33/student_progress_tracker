@@ -64,6 +64,7 @@
                 <div class="panel-heading">
                   <h3 class="panel-title">
                     Opciones
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Mostrar Respuesta</button>
                   </h3>
                 </div>
                 <div class="panel-body">
@@ -91,6 +92,31 @@
       @endif
     </div>
   </div>
+@stop
 
+@section('modals')
+ @if ($question->text)
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title">Respuesta Correcta</h1>
+        </div>
+        <div class="modal-body">
+          <h2>
+            {{$question->getCorrectOption()->text}}
+          </h2>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  @endif
 @stop

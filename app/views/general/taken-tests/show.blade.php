@@ -6,6 +6,38 @@
   <div id="page-content">
 
     <div class="row">
+    <!-- Presentation -->
+      <div class="col-md-12 col-lg-12">
+        <div class="panel">
+          <div class="pad-all">
+            <div class="media mar-btm">
+              <div class="media-body">
+                <p class="text-lg text-semibold mar-no">
+                  <h1> Diapostiva #{{$questionIndex}} </h1>
+                </p>
+              </div>
+            </div>
+            @if ($question->slide_image)
+              <div class="img-holder img-responsive">
+                <img alt="Image" src="/{{$question->slide_image}}">
+              </div>
+            @endif
+            <br>
+            <blockquote class="">
+              {{$question->slide_text}}
+            </blockquote>
+          </div>
+          <div class="panel-footer text-center">
+            @if ($questionIndex != 1 )
+              <a href='{{ URL::route("general.taken-tests.questions.show", [$takenTest->id,$questionIndex -1 ]) }}' style="width:30%;font-size:20px;display:inline-block;" class="btn btn-info btn-lg">Anterior Diapostiva</a>
+            @endif
+            <a href='{{ URL::route("general.taken-tests.questions.show", [$takenTest->id,$questionIndex + 1 ]) }}' style="width:30%;font-size:20px;display:inline-block;" class="btn btn-info btn-lg">Siguiente Diapostiva</a>
+          </div>
+        </div>
+      </div>
+
+    @if ($question->text)
+    <div class="row">
       <div class="col-md-12 col-lg-12">
 
         <div class="panel">
@@ -67,11 +99,9 @@
             </div>
           </div>
         </div>
-
-        
-
       </div>
     </div>
+    @endif
 
   </div>
 

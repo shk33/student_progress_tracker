@@ -62,6 +62,8 @@
         @include('layouts.footer')
     
     </div>
+
+    @yield('modals');
 <!--===================================================-->
 <!-- END OF CONTAINER -->
 

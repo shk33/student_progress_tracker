@@ -29,6 +29,11 @@ class StudentTest extends \Eloquent {
     
   }
 
+  public function countQuestions()
+  {
+    return $this->questions()->where('text','<>','')->count();
+  }
+
   public function questions(){
     return $this->hasMany('Question', 'student_test_id');
   }

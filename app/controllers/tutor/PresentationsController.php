@@ -37,7 +37,7 @@ class PresentationsController extends \BaseController {
 	{
 		$test  = \StudentTest::find($testId);
 		$takenTests = $test->getTakenTestsOrderedByScore();
-		$maxScore   = $test->questions()->count();
+		$maxScore   = $test->countQuestions();
 
 		return \View::make('general.taken-tests.completed',
 						compact('test','takenTests','maxScore'));

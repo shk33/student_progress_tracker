@@ -27,7 +27,7 @@ class TakenTestsController extends \BaseController {
 		$takenTest  = \TakenTest::find($id);
 		$test       = $takenTest->student_test;
 		$takenTests = $test->getTakenTestsOrderedByScore();
-		$maxScore   = $test->questions()->count();
+		$maxScore   = $test->countQuestions();
 
 		return \View::make('general.taken-tests.completed',
 						compact('takenTest','test','takenTests','maxScore'));
