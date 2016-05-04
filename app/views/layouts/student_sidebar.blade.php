@@ -23,24 +23,6 @@
                 <span class="menu-title"><strong>Pruebas</strong></span>
               </a>
             </li>
-
-
-            <li class="list-divider"></li>
-
-
-            <!-- Category name -->
-            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <li class="list-header">Otra Categoría</li>
-
-
-            <!-- Menu list item-->
-            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-            <li>
-              <a href="#">
-                <i class="fa fa-briefcase"></i>
-                <span class="menu-title">UI Elements</span>
-              </a>
-            </li>
         </div>
       </div>
     </div>

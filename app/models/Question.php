@@ -43,6 +43,13 @@ class Question extends \Eloquent {
     return $this->getCorrectOption()->id == $option->id;
   }
 
+  public function resetAnswers()
+  {
+    foreach ($this->options as $option) {
+      $option->answers()->delete();
+    }
+  }
+
   public function getCorrectOption()
   {
     return $this->options()->where('is_correct','=',1)->first();

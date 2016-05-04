@@ -22,6 +22,8 @@
     <!--Page load progress bar -->
     {{ HTML::script('js/pace.min.js') }}
 
+    {{ HTML::script('js/canvasjs.min.js') }}
+
     <style type="text/css">
         .jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}
     </style>

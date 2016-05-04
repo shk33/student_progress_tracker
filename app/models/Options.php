@@ -16,9 +16,18 @@ class Option extends \Eloquent {
   // Don't forget to fill this array
   protected $fillable = ["text","name","is_correct","question_id"];
 
+  public function countTimesAnswered()
+  {
+    return Answer::where('option_id','=', $this->id)->count();
+  }
 
   public function question()
   {
     return $this->belongsTo('Question', 'question_id');
+  }
+
+  public function answers()
+  {
+    return $this->hasMany('Answer', 'option_id');
   }
 }

@@ -39,9 +39,11 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
 
     // Test-Questions
     Route::resource('tests.questions', 'QuestionsController');
+    
     // Start Presentation
-    Route::resource('tests.presentations', 'PresentationsController');
+    Route::get('tests/{tests}/presentation/{presentations}/reset', array('as' => 'tests.presentations.reset' ,'uses' => 'PresentationsController@reset'));
     Route::get('tests/{tests}/presentation/ended', array('as' => 'tests.presentations.ended' ,'uses' => 'PresentationsController@ended'));
+    Route::resource('tests.presentations', 'PresentationsController');
   });
 
 });

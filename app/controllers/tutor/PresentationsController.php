@@ -33,6 +33,15 @@ class PresentationsController extends \BaseController {
 		return \View::make('tutor.tests.presentations.show', compact('test','question','questionIndex'));
 	}
 
+	public function reset($testId, $questionIndex)
+	{
+		$test     = \StudentTest::find($testId);
+		$question = $test->questions[$questionIndex -1];
+		$question->resetAnswers();
+
+		return \Redirect::route('tutor.tests.presentations.show',[$testId, $questionIndex])->with('success','Nueva Oportunidad');
+	}
+
 	public function ended($testId)
 	{
 		$test  = \StudentTest::find($testId);

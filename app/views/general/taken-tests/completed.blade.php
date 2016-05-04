@@ -13,7 +13,7 @@
           <div class="media mar-btm">
             <div class="media-body">
               <h3 class="panel-title">
-                Examen Completado
+                Presentación Completado
               </h3>
             </div>
           </div>
@@ -24,7 +24,14 @@
     <div class="col-lg-12">
       <div class="panel">
         <div class="panel-heading">
-          <h3 class="panel-title">Resultados</h3>
+          <h3 class="panel-title">
+            Resultados
+            <a href="{{ Request::url() }}">
+              <button class="btn btn-success mar-lft">
+                Actualizar Resultados
+              </button>
+            </a>
+          </h3>
         </div>
         <div class="panel-body">
           <!-- Timeline -->
@@ -43,8 +50,54 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="col-lg-12">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Estadísticas
+          </h3>
+        </div>
+        <div class="panel-body">
+          @foreach ($test->getQuestions() as $question)
+            <div id="question{{$question->id}}" style="height: 300px; width: 100%;"></div>
+
+            <script type="text/javascript">
+
+              window.addEventListener("load",function(event) {
+                var chart{{$question->id}} = new CanvasJS.Chart("question{{$question->id}}",
+                {
+                  title:{
+                    text: "{{trim(preg_replace('/\s+/', ' ', $question->text))}}"
+                  },
+                  legend: {
+                    maxWidth: 350,
+                    itemWidth: 120
+                  },
+                  data: [
+                  {
+                    type: "pie",
+                    showInLegend: true,
+                    legendText: "{indexLabel}",
+                    dataPoints: [
+                      @foreach ($question->options as $option)
+                        { y:         {{$option->countTimesAnswered()}}, 
+                          indexLabel: "{{trim(preg_replace('/\s+/', ' ', $option->text))}}" },
+                        {{-- expr --}}
+                      @endforeach
+                    ]
+                  }
+                  ]
+                });
+                chart{{$question->id}}.render();
+              },false);
+            </script>
+          @endforeach
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 

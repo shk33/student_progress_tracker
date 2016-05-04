@@ -89,6 +89,64 @@
             </div>
           </div>
         </div>
+
+        <div class="col-md-12 col-lg-12">
+          <div class="panel">
+            <div class="bord-top">
+              <div class="panel">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    Resultados
+                    <a href="{{ Request::url() }}">
+                      <button class="btn btn-success mar-lft">
+                        Actualizar Resultados
+                      </button>
+                    </a>
+                    <a href="{{ Url::route('tests.presentations.reset',[$test->id, $questionIndex]) }}">
+                      <button type="button" class="btn btn-info">
+                        Otra Oportunidad
+                      </button>
+                    </a>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <div id="question{{$question->id}}" style="height: 300px; width: 100%;"></div>
+                  <script type="text/javascript">
+
+                    window.addEventListener("load",function(event) {
+                      var chart{{$question->id}} = new CanvasJS.Chart("question{{$question->id}}",
+                      {
+                        title:{
+                          text: "{{trim(preg_replace('/\s+/', ' ', $question->text))}}"
+                        },
+                        legend: {
+                          maxWidth: 350,
+                          itemWidth: 120
+                        },
+                        data: [
+                        {
+                          type: "pie",
+                          showInLegend: true,
+                          legendText: "{indexLabel}",
+                          dataPoints: [
+                            @foreach ($question->options as $option)
+                              { y:         {{$option->countTimesAnswered()}}, 
+                                indexLabel: "{{trim(preg_replace('/\s+/', ' ', $option->text))}}" },
+                              {{-- expr --}}
+                            @endforeach
+                          ]
+                        }
+                        ]
+                      });
+                      chart{{$question->id}}.render();
+                    },false);
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       @endif
     </div>
   </div>
