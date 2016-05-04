@@ -13,6 +13,12 @@ class StudentsController extends \BaseController {
     return \View::make('tutor.students.index',compact('users'));
 	}
 
+	public function ordered()
+	{
+		$users = \User::getStudents()->orderBy('last_name','ASC')->paginate(10);
+    return \View::make('tutor.students.index',compact('users'));
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /students/create

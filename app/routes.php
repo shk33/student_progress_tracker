@@ -27,6 +27,7 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
   Route::group(['before' => 'auth|tutorGroup'], function()
   {
     // Students Managment Routes
+    Route::get('/students/name-ordered', array('as' => 'tutor.students.ordered' ,'uses' => 'StudentsController@ordered'));
     Route::resource('students', 'StudentsController');
 
     // Tests Managments
@@ -40,6 +41,7 @@ Route::group(array('prefix' => 'tutor', 'namespace' => 'tutor'), function()
     Route::resource('tests.questions', 'QuestionsController');
     // Start Presentation
     Route::resource('tests.presentations', 'PresentationsController');
+    Route::get('tests/{tests}/presentation/ended', array('as' => 'tests.presentations.ended' ,'uses' => 'PresentationsController@ended'));
   });
 
 });

@@ -25,12 +25,22 @@ class PresentationsController extends \BaseController {
 	{
 		$test = \StudentTest::find($testId);
 		if ($questionIndex > $test->questions()->count() ) {
-			return \Redirect::route('general.taken-tests.completed',$takenTestId)
-							->with('success','Examen Completado');
+			return \Redirect::route('tests.presentations.ended',$testId)
+							->with('success','Presentación Completado');
 		}
 		
 		$question  = $test->questions[$questionIndex -1];
 		return \View::make('tutor.tests.presentations.show', compact('test','question','questionIndex'));
+	}
+
+	public function ended($testId)
+	{
+		$test  = \StudentTest::find($testId);
+		$takenTests = $test->getTakenTestsOrderedByScore();
+		$maxScore   = $test->questions()->count();
+
+		return \View::make('general.taken-tests.completed',
+						compact('test','takenTests','maxScore'));
 	}
 
 }

@@ -14,7 +14,12 @@
               Estudiantes
               <a href="{{ URL::route('tutor.students.create') }}">
                 <button class="btn btn-success mar-lft">
-                  Nuevo
+                  Crear Nuevo Estudiante
+                </button>
+              </a>
+              <a href="{{ URL::route('tutor.students.ordered') }}">
+                <button class="btn btn-success mar-lft">
+                  Ordenar Alfabéticamente
                 </button>
               </a>
             </h3>
