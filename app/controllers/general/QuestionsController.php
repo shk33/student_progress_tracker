@@ -48,7 +48,7 @@ class QuestionsController extends \BaseController {
 		}
 
 
-		return \Redirect::route('general.taken-tests.questions.show',[$takenTest->id, $questionIndex + 1]);
+		return \Redirect::route('general.taken-tests.questions.show',[$takenTest->id, $questionIndex]);
 	}
 
 }

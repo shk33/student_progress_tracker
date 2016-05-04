@@ -64,7 +64,10 @@
             <div class="panel">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  Opciones
+                  Opciones 
+                  @if ($takenTest->getAnsweredQuestion($question))
+                    <b>Tu Respuesta Actual: {{$takenTest->getAnsweredQuestion($question)->selected_option->text}}</b>
+                  @endif
                 </h3>
               </div>
 
@@ -72,7 +75,7 @@
               <!--===================================================-->
               <form class="form-horizontal" method="POST" action={{route('general.taken-tests.questions.answer',[$takenTest->id,$questionIndex])}}>
                 <div class="panel-body">
-                  <div class="form-group pad-ver">
+                  <div class="form-group">
                     <div class="col-md-offset-1 col-md-11">
                       <div class="col-md-6 pad-no">
 
