@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-04-2016 a las 10:45:10
+-- Tiempo de generación: 04-05-2016 a las 10:11:20
 -- Versión del servidor: 5.6.28-0ubuntu0.15.10.1
 -- Versión de PHP: 5.6.11-1ubuntu3.1
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `question_id` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `answers`
@@ -45,7 +45,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (4, 0, 8, 3, '2016-03-10 06:46:00', '2016-03-29 02:38:04', 2),
 (5, 1, 8, 7, '2016-03-10 06:46:06', '2016-03-29 02:38:07', 3),
 (6, 1, 8, 9, '2016-03-10 06:46:59', '2016-03-29 02:38:10', 4),
-(7, 0, 8, 13, '2016-03-10 06:47:05', '2016-03-29 02:38:13', 5),
 (8, 0, 8, 17, '2016-03-10 06:53:15', '2016-03-29 02:38:16', 10),
 (9, 0, 8, 21, '2016-03-10 06:53:42', '2016-03-29 02:38:18', 11),
 (10, 0, 8, 33, '2016-03-10 06:53:49', '2016-03-29 02:38:23', 15),
@@ -53,7 +52,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (12, 1, 9, 5, '2016-03-10 10:08:37', '2016-03-10 10:08:37', 2),
 (13, 1, 9, 7, '2016-03-10 10:08:43', '2016-03-10 10:08:43', 3),
 (14, 0, 9, 10, '2016-03-10 10:08:49', '2016-03-10 10:08:49', 4),
-(15, 1, 9, 14, '2016-03-10 10:09:23', '2016-03-10 10:09:23', 5),
 (16, 1, 9, 18, '2016-03-10 10:09:27', '2016-03-10 10:09:27', 10),
 (17, 1, 9, 22, '2016-03-10 10:09:31', '2016-03-10 10:09:31', 11),
 (18, 0, 9, 33, '2016-03-10 10:09:36', '2016-03-10 10:09:36', 15),
@@ -61,7 +59,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (20, 0, 10, 4, '2016-03-10 10:10:40', '2016-03-10 10:10:40', 2),
 (21, 0, 10, 6, '2016-03-10 10:10:44', '2016-03-10 10:10:44', 3),
 (22, 0, 10, 10, '2016-03-10 10:10:48', '2016-03-10 10:10:48', 4),
-(23, 0, 10, 13, '2016-03-10 10:10:53', '2016-03-10 10:10:53', 5),
 (24, 0, 10, 17, '2016-03-10 10:10:57', '2016-03-10 10:10:57', 10),
 (25, 0, 10, 21, '2016-03-10 10:11:00', '2016-03-10 10:11:00', 11),
 (26, 0, 10, 33, '2016-03-10 10:11:04', '2016-03-10 10:11:04', 15),
@@ -69,7 +66,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (28, 0, 11, 4, '2016-03-10 10:27:42', '2016-03-10 10:27:42', 2),
 (29, 0, 11, 6, '2016-03-10 10:27:46', '2016-03-10 10:27:46', 3),
 (30, 0, 11, 10, '2016-03-10 10:27:50', '2016-03-10 10:27:50', 4),
-(31, 0, 11, 12, '2016-03-10 10:27:53', '2016-03-10 10:27:53', 5),
 (32, 1, 11, 18, '2016-03-10 10:27:56', '2016-03-10 10:27:56', 10),
 (33, 0, 11, 21, '2016-03-10 10:27:59', '2016-03-10 10:27:59', 11),
 (34, 1, 11, 32, '2016-03-10 10:28:02', '2016-03-10 10:28:02', 15),
@@ -77,7 +73,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (36, 1, 12, 5, '2016-03-10 11:14:43', '2016-03-10 11:14:43', 2),
 (37, 0, 12, 6, '2016-03-10 11:14:47', '2016-03-10 11:14:47', 3),
 (38, 1, 12, 9, '2016-03-10 11:14:54', '2016-03-10 11:14:54', 4),
-(39, 1, 12, 14, '2016-03-10 11:14:58', '2016-03-10 11:14:58', 5),
 (40, 1, 12, 18, '2016-03-10 11:15:00', '2016-03-10 11:15:00', 10),
 (41, 0, 12, 21, '2016-03-10 11:15:05', '2016-03-10 11:15:05', 11),
 (42, 1, 12, 32, '2016-03-10 11:15:08', '2016-03-10 11:15:08', 15),
@@ -85,7 +80,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (44, 1, 13, 5, '2016-03-10 11:15:37', '2016-03-10 11:15:37', 2),
 (45, 1, 13, 7, '2016-03-10 11:15:40', '2016-03-10 11:15:40', 3),
 (46, 1, 13, 9, '2016-03-10 11:15:44', '2016-03-10 11:15:44', 4),
-(47, 1, 13, 14, '2016-03-10 11:15:48', '2016-03-10 11:15:48', 5),
 (48, 1, 13, 18, '2016-03-10 11:15:52', '2016-03-10 11:15:52', 10),
 (49, 1, 13, 22, '2016-03-10 11:15:56', '2016-03-10 11:15:56', 11),
 (50, 1, 13, 32, '2016-03-10 11:16:00', '2016-03-10 11:16:00', 15),
@@ -93,7 +87,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (52, 1, 14, 5, '2016-03-10 11:52:13', '2016-03-10 11:52:13', 2),
 (53, 0, 14, 8, '2016-03-10 11:52:17', '2016-03-10 11:52:17', 3),
 (54, 0, 14, 11, '2016-03-10 11:52:21', '2016-03-10 11:52:21', 4),
-(55, 0, 14, 13, '2016-03-10 11:52:24', '2016-03-10 11:52:24', 5),
 (56, 0, 14, 17, '2016-03-10 11:52:28', '2016-03-10 11:52:28', 10),
 (57, 0, 14, 21, '2016-03-10 11:52:34', '2016-03-10 11:52:34', 11),
 (58, 0, 14, 34, '2016-03-10 11:52:38', '2016-03-10 11:52:38', 15),
@@ -101,7 +94,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (60, 1, 15, 5, '2016-03-10 11:53:22', '2016-03-10 11:53:22', 2),
 (61, 1, 15, 7, '2016-03-10 11:53:26', '2016-03-10 11:53:26', 3),
 (62, 0, 15, 11, '2016-03-10 11:53:30', '2016-03-10 11:53:30', 4),
-(63, 0, 15, 13, '2016-03-10 11:53:33', '2016-03-10 11:53:33', 5),
 (64, 0, 15, 17, '2016-03-10 11:53:37', '2016-03-10 11:53:37', 10),
 (65, 0, 15, 21, '2016-03-10 11:53:43', '2016-03-10 11:53:43', 11),
 (66, 0, 15, 34, '2016-03-10 11:53:46', '2016-03-10 11:53:46', 15),
@@ -109,7 +101,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (68, 0, 16, 3, '2016-03-10 21:50:43', '2016-03-10 22:11:36', 2),
 (69, 1, 16, 7, '2016-03-10 21:50:47', '2016-03-10 22:11:39', 3),
 (70, 1, 16, 9, '2016-03-10 21:50:52', '2016-03-10 22:11:45', 4),
-(71, 0, 16, 13, '2016-03-10 21:50:56', '2016-03-10 22:11:48', 5),
 (72, 0, 16, 17, '2016-03-10 21:51:01', '2016-03-10 22:11:51', 10),
 (73, 0, 16, 21, '2016-03-10 21:51:06', '2016-03-10 22:11:54', 11),
 (74, 1, 16, 32, '2016-03-10 21:51:10', '2016-03-10 22:11:57', 15),
@@ -117,7 +108,6 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (76, 0, 17, 3, '2016-03-11 03:47:33', '2016-03-11 03:47:33', 2),
 (77, 1, 17, 7, '2016-03-11 03:47:36', '2016-03-11 03:47:36', 3),
 (78, 1, 17, 9, '2016-03-11 03:47:40', '2016-03-11 03:47:40', 4),
-(79, 0, 17, 13, '2016-03-11 03:47:42', '2016-03-11 03:47:42', 5),
 (80, 0, 17, 17, '2016-03-11 03:47:45', '2016-03-11 03:47:45', 10),
 (81, 0, 17, 21, '2016-03-11 03:47:48', '2016-03-11 03:47:48', 11),
 (82, 1, 17, 32, '2016-03-11 03:47:50', '2016-03-11 03:47:50', 15),
@@ -126,7 +116,13 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (85, 1, 18, 49, '2016-03-29 04:38:47', '2016-03-29 04:46:18', 20),
 (86, 1, 18, 50, '2016-03-29 04:38:50', '2016-03-29 04:46:23', 21),
 (87, 1, 18, 54, '2016-03-29 04:38:54', '2016-03-29 04:46:26', 22),
-(88, 1, 18, 57, '2016-03-29 04:46:31', '2016-03-29 04:46:31', 23);
+(88, 1, 18, 57, '2016-03-29 04:46:31', '2016-03-29 04:46:31', 23),
+(89, 1, 19, 69, '2016-04-18 21:04:55', '2016-04-18 21:04:55', 27),
+(90, 0, 19, 74, '2016-04-18 21:05:00', '2016-04-18 21:05:00', 28),
+(91, 1, 20, 69, '2016-04-18 21:05:32', '2016-04-18 21:05:32', 27),
+(92, 1, 20, 72, '2016-04-18 21:05:37', '2016-04-18 21:05:37', 28),
+(94, 1, 8, 14, '2016-05-04 11:54:24', '2016-05-04 11:54:24', 5),
+(95, 0, 10, 13, '2016-05-04 11:54:49', '2016-05-04 11:54:49', 5);
 
 -- --------------------------------------------------------
 
@@ -158,7 +154,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_03_03_010154_change_index_of_student_tests_table', 5),
 ('2016_03_03_214004_add_is_active_to_test_student_tests_table', 6),
 ('2016_03_10_002507_add_question_index_to_answers', 7),
-('2016_04_13_030111_add_presentation_to_student_test_table', 8);
+('2016_04_13_030111_add_presentation_to_student_test_table', 8),
+('2016_04_27_174728_add_slide_text_and_slide_image_to_questions', 9);
 
 -- --------------------------------------------------------
 
@@ -174,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `options` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `options`
@@ -201,9 +198,6 @@ INSERT INTO `options` (`id`, `text`, `is_correct`, `question_id`, `created_at`, 
 (20, 'Spring', 0, 1, '2016-03-03 06:17:28', '2016-03-16 22:12:32', 'C'),
 (21, 'No', 0, 11, '2016-03-03 06:18:17', '2016-04-13 11:30:43', 'A'),
 (22, 'Si', 1, 11, '2016-03-03 06:18:17', '2016-04-13 11:30:43', 'B'),
-(23, 'Ratzonak', 0, 12, '2016-03-04 00:38:55', '2016-03-04 00:39:04', 'A'),
-(24, 'Hola', 1, 12, '2016-03-04 00:38:55', '2016-03-04 00:39:04', 'B'),
-(25, 'Adios', 0, 12, '2016-03-04 00:38:55', '2016-03-04 00:39:04', 'C'),
 (32, 'AA', 1, 15, '2016-03-04 03:08:36', '2016-04-13 11:31:34', 'A'),
 (33, 'HJ', 0, 15, '2016-03-04 03:08:36', '2016-04-13 11:31:34', 'B'),
 (34, 'Scotts', 0, 15, '2016-03-04 03:08:36', '2016-04-13 11:31:34', 'C'),
@@ -226,9 +220,18 @@ INSERT INTO `options` (`id`, `text`, `is_correct`, `question_id`, `created_at`, 
 (57, 'Platano', 1, 23, '2016-03-29 04:46:02', '2016-03-29 04:46:02', 'B'),
 (58, 'Manzana', 0, 23, '2016-03-29 04:46:02', '2016-03-29 04:46:02', 'C'),
 (59, '', 0, 11, '2016-04-13 11:30:43', '2016-04-13 11:30:43', 'C'),
-(60, 'Si', 1, 24, '2016-04-13 20:33:31', '2016-04-13 20:33:50', 'A'),
-(61, 'No', 0, 24, '2016-04-13 20:33:31', '2016-04-13 20:33:50', 'B'),
-(62, '', 0, 24, '2016-04-13 20:33:50', '2016-04-13 20:33:50', 'C');
+(66, 'Sí', 0, 26, '2016-04-18 21:01:03', '2016-04-18 21:01:03', 'A'),
+(67, 'No', 1, 26, '2016-04-18 21:01:03', '2016-04-18 21:01:03', 'B'),
+(68, 'NOsé', 0, 26, '2016-04-18 21:01:03', '2016-04-18 21:01:03', 'C'),
+(69, '3', 1, 27, '2016-04-18 21:03:41', '2016-04-18 21:03:41', 'A'),
+(70, '4', 0, 27, '2016-04-18 21:03:41', '2016-04-18 21:03:41', 'B'),
+(71, '5', 0, 27, '2016-04-18 21:03:41', '2016-04-18 21:03:41', 'C'),
+(72, '5', 1, 28, '2016-04-18 21:04:01', '2016-04-18 21:04:01', 'A'),
+(73, '6', 0, 28, '2016-04-18 21:04:01', '2016-04-18 21:04:01', 'B'),
+(74, '7', 0, 28, '2016-04-18 21:04:01', '2016-04-18 21:04:01', 'C'),
+(82, 'Un general bizantino', 1, 41, '2016-05-02 03:01:32', '2016-05-02 03:01:32', 'A'),
+(83, 'Un Bizantino', 0, 41, '2016-05-02 03:01:32', '2016-05-02 03:01:32', 'B'),
+(84, 'Un hebreo', 0, 41, '2016-05-02 03:01:33', '2016-05-02 03:01:33', 'C');
 
 -- --------------------------------------------------------
 
@@ -243,30 +246,36 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `student_test_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slide_text` text COLLATE utf8_unicode_ci NOT NULL,
+  `slide_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `questions`
 --
 
-INSERT INTO `questions` (`id`, `name`, `text`, `student_test_id`, `created_at`, `updated_at`, `image`) VALUES
-(1, '', 'Según la Figura mostrada arriba,\r\nY siguiendo \r\n¿Cuál de todos los juegos es mejor?', 1, '2016-03-02 12:34:21', '2016-03-16 22:12:32', 'images/questions/1457507139.png'),
-(2, '', '¿ Con quién estaríamos mejor? ', 1, '2016-03-02 12:46:10', '2016-03-02 12:46:10', ''),
-(3, '', '¿Qué me robe de ti?', 1, '2016-03-02 12:47:09', '2016-03-02 12:47:09', ''),
-(4, '', '¿2+2?', 1, '2016-03-02 12:48:54', '2016-03-02 12:48:54', ''),
-(5, '', '¿Quién es el padre de Linux?', 1, '2016-03-03 04:32:55', '2016-03-03 04:32:55', ''),
-(10, '', 'What does the fox say?', 1, '2016-03-03 06:06:45', '2016-03-03 06:06:45', ''),
-(11, '', '¿Test?', 1, '2016-03-03 06:18:17', '2016-03-03 06:18:17', ''),
-(12, '', 'Drozzz', 2, '2016-03-04 00:38:55', '2016-03-04 00:38:55', ''),
-(15, '', '¿cuál es el mejor restaurante?', 1, '2016-03-04 03:08:36', '2016-04-13 11:31:34', 'images/questions/1457040359.png'),
-(18, '', '¿Cómo pueden ser las entrevistas según las preguntas que se estructuran? ', 3, '2016-03-29 04:29:16', '2016-03-29 04:29:16', ''),
-(19, '', '¿cuántos alumnos tienen como mascota un hamster?', 3, '2016-03-29 04:32:12', '2016-03-29 04:32:12', 'images/questions/1459204332.png'),
-(20, '', '¿Cómo se llama el ciclo descrito en la imagen?', 3, '2016-03-29 04:34:17', '2016-03-29 04:34:18', 'images/questions/1459204458.png'),
-(21, '', '¿Qué clase de alimentos se muestran en la figura?\r\n', 3, '2016-03-29 04:35:32', '2016-03-29 04:35:32', 'images/questions/1459204532.gif'),
-(22, '', 'El resultado de la operación es:', 3, '2016-03-29 04:36:58', '2016-03-29 04:36:59', 'images/questions/1459204619.png'),
-(23, '', '¿Qué fruta es la siguiente?', 3, '2016-03-29 04:46:02', '2016-03-29 04:46:02', 'images/questions/1459205162.jpg'),
-(24, '', '¿es culpa de windows que falle todo?', 8, '2016-04-13 20:33:31', '2016-04-13 20:33:50', 'images/questions/1460561630.jpg');
+INSERT INTO `questions` (`id`, `name`, `text`, `student_test_id`, `created_at`, `updated_at`, `image`, `slide_text`, `slide_image`) VALUES
+(1, '', 'Según la Figura mostrada arriba,\r\nY siguiendo \r\n¿Cuál de todos los juegos es mejor?', 1, '2016-03-02 12:34:21', '2016-03-16 22:12:32', 'images/questions/1457507139.png', '', ''),
+(2, '', '¿ Con quién estaríamos mejor? ', 1, '2016-03-02 12:46:10', '2016-03-02 12:46:10', '', '', ''),
+(3, '', '¿Qué me robe de ti?', 1, '2016-03-02 12:47:09', '2016-03-02 12:47:09', '', '', ''),
+(4, '', '¿2+2?', 1, '2016-03-02 12:48:54', '2016-03-02 12:48:54', '', '', ''),
+(5, '', '¿Quién es el padre de Linux?', 1, '2016-03-03 04:32:55', '2016-03-03 04:32:55', '', '', ''),
+(10, '', 'What does the fox say?', 1, '2016-03-03 06:06:45', '2016-03-03 06:06:45', '', '', ''),
+(11, '', '¿Test?', 1, '2016-03-03 06:18:17', '2016-03-03 06:18:17', '', '', ''),
+(15, '', '¿cuál es el mejor restaurante?', 1, '2016-03-04 03:08:36', '2016-04-13 11:31:34', 'images/questions/1457040359.png', '', ''),
+(18, '', '¿Cómo pueden ser las entrevistas según las preguntas que se estructuran? ', 3, '2016-03-29 04:29:16', '2016-03-29 04:29:16', '', '', ''),
+(19, '', '¿cuántos alumnos tienen como mascota un hamster?', 3, '2016-03-29 04:32:12', '2016-03-29 04:32:12', 'images/questions/1459204332.png', '', ''),
+(20, '', '¿Cómo se llama el ciclo descrito en la imagen?', 3, '2016-03-29 04:34:17', '2016-03-29 04:34:18', 'images/questions/1459204458.png', '', ''),
+(21, '', '¿Qué clase de alimentos se muestran en la figura?\r\n', 3, '2016-03-29 04:35:32', '2016-03-29 04:35:32', 'images/questions/1459204532.gif', '', ''),
+(22, '', 'El resultado de la operación es:', 3, '2016-03-29 04:36:58', '2016-03-29 04:36:59', 'images/questions/1459204619.png', '', ''),
+(23, '', '¿Qué fruta es la siguiente?', 3, '2016-03-29 04:46:02', '2016-03-29 04:46:02', 'images/questions/1459205162.jpg', '', ''),
+(26, '', '¿Windows es bueno?', 3, '2016-04-18 21:01:03', '2016-04-18 21:01:03', 'images/questions/1460995263.png', '', ''),
+(27, '', '1+2', 7, '2016-04-18 21:03:41', '2016-04-18 21:03:41', 'images/questions/1460995421.png', '', ''),
+(28, '', '2+3', 7, '2016-04-18 21:04:01', '2016-04-18 21:04:01', '', '', ''),
+(40, '', '', 10, '2016-05-02 02:59:11', '2016-05-02 02:59:11', '', 'El AH-64 Apache es un helicóptero de ataque de origen estadounidense. Se trata de un aparato bimotor con rotores principal y de cola de cuatro palas que cuenta con una cabina biplaza en tándem para dos tripulantes.', 'images/questions/1462139951S.png'),
+(41, '', '¿Quién fue Besas?\r\n', 10, '2016-05-02 03:01:32', '2016-05-02 03:01:33', 'images/questions/1462140093.png', 'Besas (antes de 480-después de 554) fue un general bizantino de origen godo y nacido en Tracia, principalmente conocido por su participación en las guerras de Justiniano I.', 'images/questions/1462140093S.png'),
+(42, '', '', 10, '2016-05-02 03:07:38', '2016-05-02 03:07:38', '', 'Además de los centros habituales de osificación del cráneo, otros pueden ocurrir; dando lugar a los huesos aislados irregulares denominados huesos suturales o wormianos', 'images/questions/1462140458S.jpg');
 
 -- --------------------------------------------------------
 
@@ -303,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `student_tests` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `presentation` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `student_tests`
@@ -311,10 +320,9 @@ CREATE TABLE IF NOT EXISTS `student_tests` (
 
 INSERT INTO `student_tests` (`id`, `name`, `type`, `created_at`, `updated_at`, `is_active`, `presentation`) VALUES
 (1, 'Examen Bloque 2', 'Image', '2016-03-02 11:32:23', '2016-03-04 04:05:28', 1, ''),
-(2, 'Examen Sorpresa JHajaja', 'Image', '2016-03-04 00:38:34', '2016-03-04 04:03:47', 0, ''),
-(3, 'Examen Bueno', 'Image', '2016-03-29 04:20:23', '2016-04-13 10:47:18', 1, ''),
-(7, 'Examen con Presentacion', 'Image', '2016-04-13 09:19:13', '2016-04-13 10:47:26', 0, 'tests/presentations/1460525778.pdf'),
-(8, 'Test', 'Image', '2016-04-13 20:13:12', '2016-04-13 20:13:12', 0, 'tests/presentations/1460560392.pdf');
+(3, 'Examen Bueno', 'Image', '2016-03-29 04:20:23', '2016-04-27 22:35:03', 0, ''),
+(7, 'Examen con Presentacion', 'Image', '2016-04-13 09:19:13', '2016-04-27 22:35:05', 0, 'tests/presentations/1460995296.pdf'),
+(10, 'Diapositivas', 'Image', '2016-05-02 02:58:11', '2016-05-02 02:58:15', 1, '');
 
 -- --------------------------------------------------------
 
@@ -328,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `taken_tests` (
   `user_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `taken_tests`
@@ -345,7 +353,11 @@ INSERT INTO `taken_tests` (`id`, `student_test_id`, `user_id`, `created_at`, `up
 (15, 1, 11, '2016-03-10 11:53:16', '2016-03-10 11:53:16'),
 (16, 1, 12, '2016-03-10 21:50:13', '2016-03-10 21:50:13'),
 (17, 1, 13, '2016-03-11 03:47:16', '2016-03-11 03:47:16'),
-(18, 3, 1, '2016-03-29 04:37:36', '2016-03-29 04:37:36');
+(18, 3, 1, '2016-03-29 04:37:36', '2016-03-29 04:37:36'),
+(19, 7, 1, '2016-04-18 21:04:43', '2016-04-18 21:04:43'),
+(20, 7, 5, '2016-04-18 21:05:26', '2016-04-18 21:05:26'),
+(21, 10, 1, '2016-05-04 10:05:12', '2016-05-04 10:05:12'),
+(22, 10, 5, '2016-05-04 11:58:37', '2016-05-04 11:58:37');
 
 -- --------------------------------------------------------
 
@@ -365,18 +377,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `first_name`, `last_name`, `remember_token`, `enrollment_number`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'student@student.com', '$2y$10$s7mCbnuNQ2jhGHwNQeINLuSZ7kfJsOAOscuZeU9VR3fX8dF4F97Su', 'student', 'Adrian', 'Ferrara de Gouchi', 'jCitqCxhX9VD8Sf3L45PfiHWcAxUNcMpis12rs0eW1PlWQ0FZ4Rl7fVCDkXw', NULL, 2, '2016-02-25 04:02:40', '2016-03-29 02:38:43'),
-(2, 'tutor@tutor.com', '$2y$10$E7ROpHQLlSWLmusXq6qUuOkHJPSsbwKYxY070Z0R1CkItry36KaSi', 'tutor', 'Jhon Doe', 'Blue White', 'TdFY2j2zkx4ghZWmpTEfCl4GzHwhiQt8jb7cDq8ldJSdCEoRoXPAphZkeK85', NULL, 1, '2016-02-25 04:02:40', '2016-03-29 02:36:22'),
+(1, 'student@student.com', '$2y$10$s7mCbnuNQ2jhGHwNQeINLuSZ7kfJsOAOscuZeU9VR3fX8dF4F97Su', 'student', 'Adrian', 'Ferrara de Gouchi', 'qZX3iM939eE3FnDsLaH9dreoTYFNWugiuCTRnB6eXhYWN6nyGnbwCxQ8bTQT', NULL, 2, '2016-02-25 04:02:40', '2016-05-04 11:54:32'),
+(2, 'tutor@tutor.com', '$2y$10$E7ROpHQLlSWLmusXq6qUuOkHJPSsbwKYxY070Z0R1CkItry36KaSi', 'tutor', 'Jhon Doe', 'Blue White', 'fhvlYRB0C3sQc4xSGVV62Hrt0X1wZJlTHiEO2aHzuG1truv4O32KASMhESYh', NULL, 1, '2016-02-25 04:02:40', '2016-04-18 21:04:09'),
 (3, 'student0@student0.com', '$2y$10$yiYvPM88rlCOcVaMoOWo1u0xC/9FT6GhEpOoN94TAiq9xZ2LY4q/2', 'student0', 'Stevie', 'Grimes', '', NULL, 2, '2016-02-25 04:02:40', '2016-02-25 04:02:40'),
 (4, 'student1@student1.com', '$2y$10$xNLFSd6UlitR05Up9X/7z.evHVfv52V6EVT4MF0VhSn9LuSDmtR96', 'student1', 'Tracey', 'Ullrich', '7YMrsn3GQqO9eiNkABPtscVdg9nhpdXZL7y4UMl4jmeGBtl0DgyFwPWAqglw', NULL, 2, '2016-02-25 04:02:40', '2016-03-10 10:10:19'),
-(5, 'student2@student2.com', '$2y$10$4F0fXtpk7NUpDL3kUogNpew.hidMB9EGKcUWABbTb2s58wP3kJMjq', 'student2', 'Kira', 'Roberts', 'lNATQbtxR3Kr1baRH1KEef9PJMZJS0z9m6nNcxBOY86Bypt4EUrJ2GWeUYP3', NULL, 2, '2016-02-25 04:02:40', '2016-03-10 10:12:19'),
+(5, 'student2@student2.com', '$2y$10$4F0fXtpk7NUpDL3kUogNpew.hidMB9EGKcUWABbTb2s58wP3kJMjq', 'student2', 'Kira', 'Roberts', 'R0Ws4XRWrGd33nhbiHGKH4BGozONe0aGWNKCsfUXV1C2B7HkcyEZ3z1iVlDS', NULL, 2, '2016-02-25 04:02:40', '2016-05-04 12:03:07'),
 (6, 'student3@student3.com', '$2y$10$C1.ZQok5S7Yvr6jqEYYenuBUEoHmjJZXU.Y7HJvhboJLNC9cn8zXS', 'student3', 'Sabryna', 'Beahan', 'zIv1tLrDntS44JQUhDg1uFFpB6FnsYhmnf1VOZMccW8PvVfiWs2D330ulyR9', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:14:04'),
 (7, 'student4@student4.com', '$2y$10$N/AEsZ37.Gs3lFx4N6wdxe/XBXMK5NRkUWK8.RkovYD/IFdFKC9y.', 'student4', 'Mercedes', 'Rosenbaum', 'Ta4uUhdyVlUVhBpUHKDKTNG9cKfwAtV5CLbfzk1ylzKnw7hVAi8i6aiXsn8M', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:15:11'),
 (8, 'student5@student5.com', '$2y$10$.E2SVUmC.vFsq3FQXwlP/.i.NTZ3NE/f.wcga0eOpIZxLlBpvlDGy', 'student5', 'Maryjane', 'Bogan', 'TD7Azrn6e3VfDmwsc47SxdxXdq0d7uHSNOzRsoeNXFoUlaDWhXrRtQTgthJd', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:16:03'),
@@ -474,7 +486,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `username`, `first_name`, `last_
 (100, 'student97@student97.com', '$2y$10$S.sj5od/TJjfb5GnN8ztZe7LOeWpo7pNn3mFDr9vrDThluRFPOO32', 'student97', 'Paula', 'Wilkinson', '', NULL, 2, '2016-02-25 04:02:53', '2016-02-25 04:02:53'),
 (101, 'student98@student98.com', '$2y$10$aBNxjPBCdxL6T9BWHI3xb.leC3QTPNc3fkVxE6fol0S3a8aG9trOq', 'student98', 'Adah', 'Mayer', '', NULL, 2, '2016-02-25 04:02:53', '2016-02-25 04:02:53'),
 (102, 'student99@student99.com', '$2y$10$fFcvf/stxaLq9PICMjiI..nIHsR.o8ewZfBO4pxwBai7Q3.Zzg6.i', 'student99', 'Shanel', 'Crona', '', NULL, 2, '2016-02-25 04:02:53', '2016-02-25 04:02:53'),
-(103, 'Colorado@gmail.com', 'password', 'colorado', 'Colorado', 'Colorado', '', '537252345', 2, '2016-04-13 20:12:11', '2016-04-13 20:12:11');
+(103, 'Colorado@gmail.com', 'password', 'colorado', 'Colorado', 'Colorado', '', '537252345', 2, '2016-04-13 20:12:11', '2016-04-13 20:12:11'),
+(104, '', 'password', 'alex', 'Alejandro', 'Flores', '', '', 2, '2016-04-18 20:58:59', '2016-04-18 20:58:59');
 
 --
 -- Índices para tablas volcadas
@@ -539,17 +552,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=89;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=96;
 --
 -- AUTO_INCREMENT de la tabla `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT de la tabla `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
@@ -559,17 +572,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `student_tests`
 --
 ALTER TABLE `student_tests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `taken_tests`
 --
 ALTER TABLE `taken_tests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=104;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
 --
 -- Restricciones para tablas volcadas
 --
