@@ -7,7 +7,11 @@
     <!-- BRAND LOGO & TEXT -->
     <!--===================================================-->
     <div class="navbar-header">
-      <a href="index.html" class="navbar-brand">
+        @if ( Auth::user()->role_id==1)
+          <a href="{{route('tutor.students.index')}}" class="navbar-brand">
+        @else
+          <a href="{{route('general.tests.index')}}" class="navbar-brand">
+        @endif
         {{ HTML::image("images/logo.png", "Nifty Admin",  $attributes = array('class' => 'brand-icon')) }}
         <span class="brand-title">
           <span class="brand-text">Sistema</span>
