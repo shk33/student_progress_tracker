@@ -23,12 +23,6 @@
         <a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href='{{ URL::route("tutor.students.edit", $user->id) }}'data-original-title="Editar" data-container="body">
           <i class="fa fa-pencil fa-2x"></i>
         </a>
-        <!-- Delete Link -->
-        {{ Form::open(array("route" => array("tutor.students.destroy",$user->id), 'method' => 'DELETE','class' => 'inline')) }}
-          <button type="submit" class="btn btn-xs btn-danger add-tooltip" data-toggle="tooltip" data-original-title="Eliminar" data-container="body">
-            <i class="fa fa-times fa-2x"></i>
-          </button>
-        {{ Form::close() }}
       </td>
     </tr>
     @endforeach
