@@ -1,5 +1,44 @@
 # Sistema de progreso educativo basado en un entorno virtual colaborativo inteligente (Descriptor tabla registro ) alias &tapacoso
 
+## Instalación en los servidores del servicio social
+Los servidores no tienen instalado la extensión Phpmycrypt, para instarla  usar el comando:
+``` 
+  sudo apt-get install php5-mcrypt
+```
+
+Luego hay que crear manualmente una base de datos en mysql
+``` 
+  mysql -u root -p
+```
+Y luego:
+``` 
+  mysql> CREATE DATABASE 'ss'; (Ojo el mysql> no se escirbe jajaja)
+```
+
+Con eso ya se creó la base de datos, entonces ahora hay que exportar el archivo ss.sql(Lo acabo de actualizar en el repositorio ya tiene la clase de Dalila)
+``` 
+  mysql> use ss;
+  mysql> source path/to/ss.sql;
+```
+Listo ya con eso se exportó la base de datos.
+
+Ahora actualice el repositorio para que tengas las imágenes de la clase de Dalila,
+está se encuentra en 'public/images/questions', copien esa carpeta en su código y ya.
+
+Ahora obvio configurar Laravel en Apache2 es un dolor de cabeza, así que usaremos un php artisan serve, esto lo puedes ejecutar en la raíz de la carpeta del código. (ya no es necesario mover el código a etc/www y pelerase con permisos etc.)
+
+``` 
+  php artisan serve --host=0.0.0.0
+```
+Entonces para acceder al sistema desde el mismo server visita:
+``` 
+  localhost:8000
+```
+Para acceder desde los clientes:
+``` 
+  ip_del_server:8000
+```
+
 ## Instalación
 
 Asegurarse de tener instalado Composer.

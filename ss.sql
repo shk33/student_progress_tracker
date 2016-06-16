@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-05-2016 a las 10:11:20
--- Versión del servidor: 5.6.28-0ubuntu0.15.10.1
--- Versión de PHP: 5.6.11-1ubuntu3.1
+-- Tiempo de generación: 16-06-2016 a las 13:07:48
+-- Versión del servidor: 5.6.30-0ubuntu0.15.10.1
+-- Versión de PHP: 5.6.11-1ubuntu3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,18 +34,18 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `question_id` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `answers`
 --
 
 INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `created_at`, `updated_at`, `question_id`) VALUES
-(3, 0, 8, 20, '2016-03-10 06:37:07', '2016-03-29 02:38:00', 1),
-(4, 0, 8, 3, '2016-03-10 06:46:00', '2016-03-29 02:38:04', 2),
+(3, 0, 8, 20, '2016-03-10 06:37:07', '2016-05-06 20:28:24', 1),
+(4, 1, 8, 5, '2016-03-10 06:46:00', '2016-05-06 20:28:31', 2),
 (5, 1, 8, 7, '2016-03-10 06:46:06', '2016-03-29 02:38:07', 3),
-(6, 1, 8, 9, '2016-03-10 06:46:59', '2016-03-29 02:38:10', 4),
-(8, 0, 8, 17, '2016-03-10 06:53:15', '2016-03-29 02:38:16', 10),
+(6, 0, 8, 11, '2016-03-10 06:46:59', '2016-05-06 20:28:38', 4),
+(8, 0, 8, 19, '2016-03-10 06:53:15', '2016-05-06 20:28:45', 10),
 (9, 0, 8, 21, '2016-03-10 06:53:42', '2016-03-29 02:38:18', 11),
 (10, 0, 8, 33, '2016-03-10 06:53:49', '2016-03-29 02:38:23', 15),
 (11, 1, 9, 2, '2016-03-10 10:08:32', '2016-03-10 10:08:32', 1),
@@ -121,8 +121,98 @@ INSERT INTO `answers` (`id`, `is_correct`, `taken_test_id`, `option_id`, `create
 (90, 0, 19, 74, '2016-04-18 21:05:00', '2016-04-18 21:05:00', 28),
 (91, 1, 20, 69, '2016-04-18 21:05:32', '2016-04-18 21:05:32', 27),
 (92, 1, 20, 72, '2016-04-18 21:05:37', '2016-04-18 21:05:37', 28),
-(94, 1, 8, 14, '2016-05-04 11:54:24', '2016-05-04 11:54:24', 5),
-(95, 0, 10, 13, '2016-05-04 11:54:49', '2016-05-04 11:54:49', 5);
+(94, 1, 8, 14, '2016-05-04 11:54:24', '2016-05-06 20:28:42', 5),
+(95, 0, 10, 13, '2016-05-04 11:54:49', '2016-05-04 11:54:49', 5),
+(96, 1, 21, 82, '2016-05-06 21:00:43', '2016-05-06 21:00:43', 41),
+(97, 1, 21, 85, '2016-05-06 21:01:36', '2016-05-06 21:01:36', 43),
+(107, 1, 24, 88, '2016-05-23 21:36:52', '2016-05-23 21:36:52', 45),
+(108, 0, 29, 89, '2016-05-23 21:36:58', '2016-05-23 21:36:58', 45),
+(109, 1, 28, 88, '2016-05-23 21:36:58', '2016-05-23 21:36:58', 45),
+(110, 0, 26, 89, '2016-05-23 21:36:58', '2016-05-23 21:36:58', 45),
+(111, 1, 25, 88, '2016-05-23 21:36:59', '2016-05-23 21:36:59', 45),
+(112, 1, 27, 88, '2016-05-23 21:37:03', '2016-05-23 21:37:03', 45),
+(119, 0, 25, 93, '2016-05-23 21:41:28', '2016-05-23 21:41:28', 46),
+(120, 1, 24, 92, '2016-05-23 21:41:28', '2016-05-23 21:41:28', 46),
+(121, 0, 29, 93, '2016-05-23 21:41:30', '2016-05-23 21:41:30', 46),
+(122, 1, 26, 92, '2016-05-23 21:41:36', '2016-05-23 21:41:36', 46),
+(123, 1, 27, 92, '2016-05-23 21:41:36', '2016-05-23 21:41:36', 46),
+(124, 1, 28, 92, '2016-05-23 21:41:38', '2016-05-23 21:41:38', 46),
+(128, 1, 24, 94, '2016-05-23 21:43:48', '2016-05-23 21:43:48', 47),
+(129, 1, 29, 94, '2016-05-23 21:43:50', '2016-05-23 21:43:50', 47),
+(130, 1, 26, 94, '2016-05-23 21:43:52', '2016-05-23 21:43:52', 47),
+(131, 1, 25, 94, '2016-05-23 21:44:00', '2016-05-23 21:44:00', 47),
+(132, 1, 28, 94, '2016-05-23 21:44:00', '2016-05-23 21:44:00', 47),
+(133, 1, 30, 94, '2016-05-23 21:44:08', '2016-05-23 21:44:08', 47),
+(135, 0, 30, 99, '2016-05-23 21:45:29', '2016-05-23 21:45:29', 48),
+(136, 1, 24, 97, '2016-05-23 21:45:29', '2016-05-23 21:45:29', 48),
+(137, 0, 26, 99, '2016-05-23 21:45:30', '2016-05-23 21:45:30', 48),
+(138, 1, 28, 97, '2016-05-23 21:45:34', '2016-05-23 21:45:34', 48),
+(139, 0, 29, 98, '2016-05-23 21:45:41', '2016-05-23 21:45:41', 48),
+(140, 0, 25, 98, '2016-05-23 21:45:41', '2016-05-23 21:45:41', 48),
+(141, 1, 27, 97, '2016-05-23 21:45:47', '2016-05-23 21:45:47', 48),
+(149, 1, 25, 102, '2016-05-23 21:48:16', '2016-05-23 21:48:16', 49),
+(150, 1, 26, 102, '2016-05-23 21:48:17', '2016-05-23 21:48:17', 49),
+(151, 1, 28, 102, '2016-05-23 21:48:18', '2016-05-23 21:48:18', 49),
+(152, 0, 30, 100, '2016-05-23 21:48:18', '2016-05-23 21:48:18', 49),
+(153, 1, 29, 102, '2016-05-23 21:48:19', '2016-05-23 21:48:19', 49),
+(154, 1, 27, 102, '2016-05-23 21:48:19', '2016-05-23 21:48:19', 49),
+(155, 1, 24, 102, '2016-05-23 21:48:20', '2016-05-23 21:48:20', 49),
+(156, 1, 24, 108, '2016-05-23 21:50:06', '2016-05-23 21:50:06', 50),
+(157, 1, 27, 108, '2016-05-23 21:50:06', '2016-05-23 21:50:06', 50),
+(158, 1, 26, 108, '2016-05-23 21:50:07', '2016-05-23 21:50:07', 50),
+(159, 0, 30, 106, '2016-05-23 21:50:10', '2016-05-23 21:50:10', 50),
+(160, 0, 25, 106, '2016-05-23 21:50:12', '2016-05-23 21:50:12', 50),
+(161, 1, 28, 108, '2016-05-23 21:50:12', '2016-05-23 21:50:12', 50),
+(162, 1, 29, 108, '2016-05-23 21:50:15', '2016-05-23 21:50:15', 50),
+(164, 1, 27, 110, '2016-05-23 21:51:33', '2016-05-23 21:51:33', 51),
+(165, 1, 26, 110, '2016-05-23 21:51:35', '2016-05-23 21:51:35', 51),
+(166, 1, 28, 110, '2016-05-23 21:51:36', '2016-05-23 21:51:36', 51),
+(167, 0, 24, 111, '2016-05-23 21:51:37', '2016-05-23 21:51:37', 51),
+(168, 0, 30, 111, '2016-05-23 21:51:39', '2016-05-23 21:51:39', 51),
+(169, 1, 25, 110, '2016-05-23 21:51:41', '2016-05-23 21:51:41', 51),
+(170, 0, 29, 111, '2016-05-23 21:51:46', '2016-05-23 21:51:46', 51),
+(178, 0, 27, 113, '2016-05-23 21:54:52', '2016-05-23 21:54:52', 52),
+(179, 1, 30, 112, '2016-05-23 21:54:54', '2016-05-23 21:54:54', 52),
+(180, 1, 28, 112, '2016-05-23 21:54:54', '2016-05-23 21:54:54', 52),
+(181, 1, 25, 112, '2016-05-23 21:54:58', '2016-05-23 21:54:58', 52),
+(182, 1, 29, 112, '2016-05-23 21:54:59', '2016-05-23 21:54:59', 52),
+(183, 1, 24, 112, '2016-05-23 21:54:59', '2016-05-23 21:54:59', 52),
+(184, 1, 26, 112, '2016-05-23 21:55:24', '2016-05-23 21:55:24', 52),
+(185, 1, 24, 117, '2016-05-23 21:56:44', '2016-05-23 21:56:44', 53),
+(186, 0, 30, 115, '2016-05-23 21:56:44', '2016-05-23 21:56:44', 53),
+(187, 1, 25, 117, '2016-05-23 21:56:45', '2016-05-23 21:56:45', 53),
+(188, 1, 28, 117, '2016-05-23 21:56:46', '2016-05-23 21:56:46', 53),
+(189, 1, 29, 117, '2016-05-23 21:56:47', '2016-05-23 21:56:47', 53),
+(190, 1, 26, 117, '2016-05-23 21:56:48', '2016-05-23 21:56:48', 53),
+(191, 1, 27, 117, '2016-05-23 21:56:51', '2016-05-23 21:56:51', 53),
+(192, 1, 24, 118, '2016-05-23 21:58:04', '2016-05-23 21:58:04', 54),
+(193, 1, 25, 118, '2016-05-23 21:58:08', '2016-05-23 21:58:18', 54),
+(194, 0, 29, 119, '2016-05-23 21:58:09', '2016-05-23 21:58:09', 54),
+(195, 0, 30, 119, '2016-05-23 21:58:10', '2016-05-23 21:58:10', 54),
+(196, 1, 28, 118, '2016-05-23 21:58:11', '2016-05-23 21:58:12', 54),
+(197, 0, 27, 120, '2016-05-23 21:58:25', '2016-05-23 21:58:25', 54),
+(198, 0, 26, 120, '2016-05-23 21:58:51', '2016-05-23 21:58:51', 54),
+(199, 0, 30, 121, '2016-05-23 22:00:51', '2016-05-23 22:01:04', 55),
+(200, 1, 27, 122, '2016-05-23 22:00:57', '2016-05-23 22:00:57', 55),
+(201, 1, 25, 122, '2016-05-23 22:00:58', '2016-05-23 22:00:58', 55),
+(202, 1, 29, 122, '2016-05-23 22:00:59', '2016-05-23 22:00:59', 55),
+(203, 1, 26, 122, '2016-05-23 22:00:59', '2016-05-23 22:00:59', 55),
+(204, 1, 24, 122, '2016-05-23 22:01:04', '2016-05-23 22:01:04', 55),
+(205, 1, 28, 122, '2016-05-23 22:01:11', '2016-05-23 22:01:11', 55),
+(206, 1, 24, 126, '2016-05-23 22:02:40', '2016-05-23 22:02:40', 56),
+(207, 1, 26, 126, '2016-05-23 22:02:41', '2016-05-23 22:02:41', 56),
+(208, 0, 30, 125, '2016-05-23 22:02:41', '2016-05-23 22:02:41', 56),
+(209, 1, 25, 126, '2016-05-23 22:02:41', '2016-05-23 22:02:41', 56),
+(210, 1, 28, 126, '2016-05-23 22:02:42', '2016-05-23 22:02:42', 56),
+(211, 1, 27, 126, '2016-05-23 22:02:44', '2016-05-23 22:02:44', 56),
+(212, 1, 29, 126, '2016-05-23 22:02:44', '2016-05-23 22:02:44', 56),
+(213, 1, 26, 127, '2016-05-23 22:04:00', '2016-05-23 22:04:00', 57),
+(214, 0, 29, 129, '2016-05-23 22:04:00', '2016-05-23 22:04:00', 57),
+(215, 0, 30, 128, '2016-05-23 22:04:01', '2016-05-23 22:04:01', 57),
+(216, 1, 24, 127, '2016-05-23 22:04:01', '2016-05-23 22:04:01', 57),
+(217, 1, 28, 127, '2016-05-23 22:04:01', '2016-05-23 22:04:01', 57),
+(218, 1, 25, 127, '2016-05-23 22:04:03', '2016-05-23 22:04:03', 57),
+(219, 0, 27, 128, '2016-05-23 22:04:07', '2016-05-23 22:04:07', 57);
 
 -- --------------------------------------------------------
 
@@ -171,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `options` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `options`
@@ -231,7 +321,52 @@ INSERT INTO `options` (`id`, `text`, `is_correct`, `question_id`, `created_at`, 
 (74, '7', 0, 28, '2016-04-18 21:04:01', '2016-04-18 21:04:01', 'C'),
 (82, 'Un general bizantino', 1, 41, '2016-05-02 03:01:32', '2016-05-02 03:01:32', 'A'),
 (83, 'Un Bizantino', 0, 41, '2016-05-02 03:01:32', '2016-05-02 03:01:32', 'B'),
-(84, 'Un hebreo', 0, 41, '2016-05-02 03:01:33', '2016-05-02 03:01:33', 'C');
+(84, 'Un hebreo', 0, 41, '2016-05-02 03:01:33', '2016-05-02 03:01:33', 'C'),
+(85, 'Porque si', 1, 43, '2016-05-06 20:59:28', '2016-05-06 20:59:28', 'A'),
+(86, 'No', 0, 43, '2016-05-06 20:59:28', '2016-05-06 20:59:28', 'B'),
+(87, 'Ninguna', 0, 43, '2016-05-06 20:59:28', '2016-05-06 20:59:28', 'C'),
+(88, 'Triángulos', 1, 45, '2016-05-06 22:24:53', '2016-05-23 20:07:50', 'A'),
+(89, 'Rectángulos', 0, 45, '2016-05-06 22:24:53', '2016-05-23 20:07:50', 'B'),
+(90, 'Círculos', 0, 45, '2016-05-06 22:24:53', '2016-05-23 20:07:50', 'C'),
+(91, 'Todos son iguales', 0, 46, '2016-05-06 22:25:59', '2016-05-23 20:08:00', 'A'),
+(92, 'Dos son iguales', 1, 46, '2016-05-06 22:25:59', '2016-05-23 20:08:00', 'B'),
+(93, 'Todos son diferentes', 0, 46, '2016-05-06 22:25:59', '2016-05-23 20:08:00', 'C'),
+(94, 'Isósceles', 1, 47, '2016-05-06 22:28:20', '2016-05-23 20:08:16', 'A'),
+(95, 'Equiángulo', 0, 47, '2016-05-06 22:28:20', '2016-05-23 20:08:16', 'B'),
+(96, 'Equilatero', 0, 47, '2016-05-06 22:28:20', '2016-05-23 20:08:16', 'C'),
+(97, 'Todos son iguales', 1, 48, '2016-05-06 22:37:00', '2016-05-23 20:08:29', 'A'),
+(98, 'Dos son iguales', 0, 48, '2016-05-06 22:37:00', '2016-05-23 20:08:30', 'B'),
+(99, 'Todos son diferentes', 0, 48, '2016-05-06 22:37:00', '2016-05-23 20:08:30', 'C'),
+(100, 'Isósceles', 0, 49, '2016-05-06 22:38:38', '2016-05-23 20:08:40', 'A'),
+(101, 'Equiángulo', 0, 49, '2016-05-06 22:38:38', '2016-05-23 20:08:40', 'B'),
+(102, 'Equilatero', 1, 49, '2016-05-06 22:38:38', '2016-05-23 20:08:40', 'C'),
+(106, 'Todos son iguales', 0, 50, '2016-05-19 02:06:26', '2016-05-23 20:09:25', 'A'),
+(107, 'Dos son iguales', 0, 50, '2016-05-19 02:06:26', '2016-05-23 20:09:25', 'B'),
+(108, 'Todos son diferentes', 1, 50, '2016-05-19 02:06:26', '2016-05-23 20:09:25', 'C'),
+(109, 'Isósceles', 0, 51, '2016-05-19 02:08:51', '2016-05-23 20:09:43', 'A'),
+(110, 'Escaleno', 1, 51, '2016-05-19 02:08:52', '2016-05-23 20:09:43', 'B'),
+(111, 'Equilatero', 0, 51, '2016-05-19 02:08:52', '2016-05-23 20:09:43', 'C'),
+(112, 'A, C , D', 1, 52, '2016-05-19 02:10:14', '2016-05-23 20:14:41', 'A'),
+(113, 'A, E', 0, 52, '2016-05-19 02:10:14', '2016-05-23 20:14:41', 'B'),
+(114, 'B', 0, 52, '2016-05-19 02:10:14', '2016-05-23 20:14:41', 'C'),
+(115, 'A, B, C', 0, 53, '2016-05-19 02:15:16', '2016-05-23 20:15:15', 'A'),
+(116, 'B y C', 0, 53, '2016-05-19 02:15:17', '2016-05-23 20:15:15', 'B'),
+(117, 'B', 1, 53, '2016-05-19 02:15:17', '2016-05-23 20:15:15', 'C'),
+(118, 'E', 1, 54, '2016-05-19 02:16:53', '2016-05-23 20:17:22', 'A'),
+(119, 'B y E', 0, 54, '2016-05-19 02:16:53', '2016-05-23 20:17:23', 'B'),
+(120, 'A, C, D', 0, 54, '2016-05-19 02:16:53', '2016-05-23 20:17:23', 'C'),
+(121, 'Ninguna de ', 0, 55, '2016-05-19 02:18:39', '2016-05-23 20:11:09', 'A'),
+(122, 'Todas de', 1, 55, '2016-05-19 02:18:39', '2016-05-23 20:11:09', 'B'),
+(123, 'Dos de', 0, 55, '2016-05-19 02:18:39', '2016-05-23 20:11:09', 'C'),
+(124, 'Isósceles', 0, 56, '2016-05-19 02:22:13', '2016-05-23 20:11:36', 'A'),
+(125, 'Equilátero', 0, 56, '2016-05-19 02:22:13', '2016-05-23 20:11:36', 'B'),
+(126, 'Escaleno', 1, 56, '2016-05-19 02:22:13', '2016-05-23 20:11:36', 'C'),
+(127, 'Isósceles', 1, 57, '2016-05-19 02:23:41', '2016-05-23 20:11:50', 'A'),
+(128, 'Equilátero', 0, 57, '2016-05-19 02:23:41', '2016-05-23 20:11:50', 'B'),
+(129, 'Escaleno', 0, 57, '2016-05-19 02:23:41', '2016-05-23 20:11:50', 'C'),
+(130, '', 0, 44, '2016-05-23 20:07:24', '2016-05-23 20:07:24', 'A'),
+(131, '', 0, 44, '2016-05-23 20:07:24', '2016-05-23 20:07:24', 'B'),
+(132, '', 0, 44, '2016-05-23 20:07:24', '2016-05-23 20:07:24', 'C');
 
 -- --------------------------------------------------------
 
@@ -249,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `slide_text` text COLLATE utf8_unicode_ci NOT NULL,
   `slide_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `questions`
@@ -275,7 +410,22 @@ INSERT INTO `questions` (`id`, `name`, `text`, `student_test_id`, `created_at`, 
 (28, '', '2+3', 7, '2016-04-18 21:04:01', '2016-04-18 21:04:01', '', '', ''),
 (40, '', '', 10, '2016-05-02 02:59:11', '2016-05-02 02:59:11', '', 'El AH-64 Apache es un helicóptero de ataque de origen estadounidense. Se trata de un aparato bimotor con rotores principal y de cola de cuatro palas que cuenta con una cabina biplaza en tándem para dos tripulantes.', 'images/questions/1462139951S.png'),
 (41, '', '¿Quién fue Besas?\r\n', 10, '2016-05-02 03:01:32', '2016-05-02 03:01:33', 'images/questions/1462140093.png', 'Besas (antes de 480-después de 554) fue un general bizantino de origen godo y nacido en Tracia, principalmente conocido por su participación en las guerras de Justiniano I.', 'images/questions/1462140093S.png'),
-(42, '', '', 10, '2016-05-02 03:07:38', '2016-05-02 03:07:38', '', 'Además de los centros habituales de osificación del cráneo, otros pueden ocurrir; dando lugar a los huesos aislados irregulares denominados huesos suturales o wormianos', 'images/questions/1462140458S.jpg');
+(42, '', '', 10, '2016-05-02 03:07:38', '2016-05-02 03:07:38', '', 'Además de los centros habituales de osificación del cráneo, otros pueden ocurrir; dando lugar a los huesos aislados irregulares denominados huesos suturales o wormianos', 'images/questions/1462140458S.jpg'),
+(43, '', 'Por qué?', 10, '2016-05-06 20:59:28', '2016-05-06 20:59:28', '', 'Ejemplo de diapośitiva', 'images/questions/1462550368S.png'),
+(44, '', '', 11, '2016-05-06 22:23:04', '2016-05-23 20:07:24', '', 'Clasificación de los triángulos', 'images/questions/1464016044S.JPG'),
+(45, '', '¿Qué figuras geométricas se pueden observar en las imagenes?', 11, '2016-05-06 22:24:52', '2016-05-23 20:07:50', '', 'Pregunta 1', 'images/questions/1464016070S.JPG'),
+(46, '', '¿Cómo son las medidas de los lados del tríangulo verde?', 11, '2016-05-06 22:25:58', '2016-05-23 20:08:01', '', 'Pregunta 2', 'images/questions/1464016081S.JPG'),
+(47, '', '¿Qué nombre recibe el triángulo  verde según la clasificación de sus lados?', 11, '2016-05-06 22:28:20', '2016-05-23 20:08:16', '', 'Pregunta 3', 'images/questions/1464016096S.JPG'),
+(48, '', '¿Cómo son las medidas de los lados del triángulo rojo?', 11, '2016-05-06 22:37:00', '2016-05-23 20:08:30', '', ' Pregunta 4', 'images/questions/1464016110S.JPG'),
+(49, '', '¿Qué nombre recibe el triángulo rojo según la clasificación por la medida de sus lados?', 11, '2016-05-06 22:38:38', '2016-05-23 20:08:40', '', 'Pregunta 5', 'images/questions/1464016120S.JPG'),
+(50, '', '¿Cómo son las medidas de los lados del triángulo azul?', 11, '2016-05-19 02:06:26', '2016-05-23 20:09:25', '', 'Pregunta 6', 'images/questions/1464016165S.JPG'),
+(51, '', '¿Qué nombre recibe el triángulo azul según la clasificación por la medida de sus lados?', 11, '2016-05-19 02:08:51', '2016-05-23 20:09:43', '', 'Pregunta 7', 'images/questions/1464016183S.JPG'),
+(52, '', '¿Qué triángulos pertenecen a la primera columna de la tabla?', 11, '2016-05-19 02:10:14', '2016-05-23 20:14:41', '', 'Pregunta 8', 'images/questions/1464016481S.JPG'),
+(53, '', '¿Qué triángulo(s) pertenecen a la segunda columna?', 11, '2016-05-19 02:15:16', '2016-05-23 20:15:15', '', 'Pregunta 9', 'images/questions/1464016515S.JPG'),
+(54, '', '¿Qué triángulos debe estar en la tercera columna?', 11, '2016-05-19 02:16:53', '2016-05-23 20:17:23', '', 'Pregunta 10', 'images/questions/1464016643S.JPG'),
+(55, '', 'Completa escogiendo la opción correcta:\r\nUn triángulo equilatero es aquel que tiene _________ las medidas de sus lados iguales.', 11, '2016-05-19 02:18:39', '2016-05-23 20:11:10', '', 'Repasando 1', 'images/questions/1464016270S.JPG'),
+(56, '', 'Completa escogiendo la opción correcta:\r\nUn triángulo ___________ es aquel que tiene diferentes las medidas de todos sus lados.', 11, '2016-05-19 02:22:13', '2016-05-23 20:11:36', '', 'Repasando 2', 'images/questions/1464016296S.JPG'),
+(57, '', 'Completa escogiendo la opción correcta:\r\nUn triángulo __________ es aquel que tiene dos de las medidas de sus lados iguales.', 11, '2016-05-19 02:23:41', '2016-05-23 20:11:50', '', 'Repasando 3', 'images/questions/1464016310S.JPG');
 
 -- --------------------------------------------------------
 
@@ -312,17 +462,18 @@ CREATE TABLE IF NOT EXISTS `student_tests` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `is_active` tinyint(1) NOT NULL DEFAULT '0',
   `presentation` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `student_tests`
 --
 
 INSERT INTO `student_tests` (`id`, `name`, `type`, `created_at`, `updated_at`, `is_active`, `presentation`) VALUES
-(1, 'Examen Bloque 2', 'Image', '2016-03-02 11:32:23', '2016-03-04 04:05:28', 1, ''),
+(1, 'Examen Bloque 2', 'Image', '2016-03-02 11:32:23', '2016-05-06 22:42:48', 0, ''),
 (3, 'Examen Bueno', 'Image', '2016-03-29 04:20:23', '2016-04-27 22:35:03', 0, ''),
 (7, 'Examen con Presentacion', 'Image', '2016-04-13 09:19:13', '2016-04-27 22:35:05', 0, 'tests/presentations/1460995296.pdf'),
-(10, 'Diapositivas', 'Image', '2016-05-02 02:58:11', '2016-05-02 02:58:15', 1, '');
+(10, 'Diapositivas', 'Image', '2016-05-02 02:58:11', '2016-05-06 22:42:42', 0, ''),
+(11, 'Triangulos Repaso', 'Image', '2016-05-06 22:18:14', '2016-05-19 01:42:54', 1, '');
 
 -- --------------------------------------------------------
 
@@ -336,7 +487,7 @@ CREATE TABLE IF NOT EXISTS `taken_tests` (
   `user_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `taken_tests`
@@ -357,7 +508,15 @@ INSERT INTO `taken_tests` (`id`, `student_test_id`, `user_id`, `created_at`, `up
 (19, 7, 1, '2016-04-18 21:04:43', '2016-04-18 21:04:43'),
 (20, 7, 5, '2016-04-18 21:05:26', '2016-04-18 21:05:26'),
 (21, 10, 1, '2016-05-04 10:05:12', '2016-05-04 10:05:12'),
-(22, 10, 5, '2016-05-04 11:58:37', '2016-05-04 11:58:37');
+(22, 10, 5, '2016-05-04 11:58:37', '2016-05-04 11:58:37'),
+(23, 11, 1, '2016-05-06 22:43:44', '2016-05-06 22:43:44'),
+(24, 11, 5, '2016-05-18 21:55:21', '2016-05-18 21:55:21'),
+(25, 11, 7, '2016-05-23 21:34:00', '2016-05-23 21:34:00'),
+(26, 11, 8, '2016-05-23 21:34:07', '2016-05-23 21:34:07'),
+(27, 11, 9, '2016-05-23 21:34:11', '2016-05-23 21:34:11'),
+(28, 11, 4, '2016-05-23 21:34:12', '2016-05-23 21:34:12'),
+(29, 11, 6, '2016-05-23 21:34:12', '2016-05-23 21:34:12'),
+(30, 11, 19, '2016-05-23 21:43:41', '2016-05-23 21:43:41');
 
 -- --------------------------------------------------------
 
@@ -377,21 +536,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `username`, `first_name`, `last_name`, `remember_token`, `enrollment_number`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'student@student.com', '$2y$10$s7mCbnuNQ2jhGHwNQeINLuSZ7kfJsOAOscuZeU9VR3fX8dF4F97Su', 'student', 'Adrian', 'Ferrara de Gouchi', 'qZX3iM939eE3FnDsLaH9dreoTYFNWugiuCTRnB6eXhYWN6nyGnbwCxQ8bTQT', NULL, 2, '2016-02-25 04:02:40', '2016-05-04 11:54:32'),
-(2, 'tutor@tutor.com', '$2y$10$E7ROpHQLlSWLmusXq6qUuOkHJPSsbwKYxY070Z0R1CkItry36KaSi', 'tutor', 'Jhon Doe', 'Blue White', 'fhvlYRB0C3sQc4xSGVV62Hrt0X1wZJlTHiEO2aHzuG1truv4O32KASMhESYh', NULL, 1, '2016-02-25 04:02:40', '2016-04-18 21:04:09'),
+(1, 'student@student.com', '$2y$10$s7mCbnuNQ2jhGHwNQeINLuSZ7kfJsOAOscuZeU9VR3fX8dF4F97Su', 'student', 'Adrian', 'Ferrara de Gouchi', 'zfmqf8DkDfyBfwrUYaRJ59CDRxz8QYyvVPDyfVnFLB3YRF6cpUonM0y1y73w', NULL, 2, '2016-02-25 04:02:40', '2016-05-23 21:33:07'),
+(2, 'tutor@tutor.com', '$2y$10$E7ROpHQLlSWLmusXq6qUuOkHJPSsbwKYxY070Z0R1CkItry36KaSi', 'tutor', 'Jhon Doe', 'Blue White', '5KnSdkyMDiwCOxr3TtK30UelAYrVD2gHaHLA55c3k9yn2SaaTzduuyXvauoN', NULL, 1, '2016-02-25 04:02:40', '2016-05-24 08:31:29'),
 (3, 'student0@student0.com', '$2y$10$yiYvPM88rlCOcVaMoOWo1u0xC/9FT6GhEpOoN94TAiq9xZ2LY4q/2', 'student0', 'Stevie', 'Grimes', '', NULL, 2, '2016-02-25 04:02:40', '2016-02-25 04:02:40'),
 (4, 'student1@student1.com', '$2y$10$xNLFSd6UlitR05Up9X/7z.evHVfv52V6EVT4MF0VhSn9LuSDmtR96', 'student1', 'Tracey', 'Ullrich', '7YMrsn3GQqO9eiNkABPtscVdg9nhpdXZL7y4UMl4jmeGBtl0DgyFwPWAqglw', NULL, 2, '2016-02-25 04:02:40', '2016-03-10 10:10:19'),
-(5, 'student2@student2.com', '$2y$10$4F0fXtpk7NUpDL3kUogNpew.hidMB9EGKcUWABbTb2s58wP3kJMjq', 'student2', 'Kira', 'Roberts', 'R0Ws4XRWrGd33nhbiHGKH4BGozONe0aGWNKCsfUXV1C2B7HkcyEZ3z1iVlDS', NULL, 2, '2016-02-25 04:02:40', '2016-05-04 12:03:07'),
+(5, 'student2@student2.com', '$2y$10$4F0fXtpk7NUpDL3kUogNpew.hidMB9EGKcUWABbTb2s58wP3kJMjq', 'student2', 'Kira', 'Roberts', 'WzK7DcXURBbRRdQqr46d1C8DT6PixCuF4jCjyc2mIOxBsBIC8omRDX0g266V', NULL, 2, '2016-02-25 04:02:40', '2016-05-23 22:06:35'),
 (6, 'student3@student3.com', '$2y$10$C1.ZQok5S7Yvr6jqEYYenuBUEoHmjJZXU.Y7HJvhboJLNC9cn8zXS', 'student3', 'Sabryna', 'Beahan', 'zIv1tLrDntS44JQUhDg1uFFpB6FnsYhmnf1VOZMccW8PvVfiWs2D330ulyR9', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:14:04'),
 (7, 'student4@student4.com', '$2y$10$N/AEsZ37.Gs3lFx4N6wdxe/XBXMK5NRkUWK8.RkovYD/IFdFKC9y.', 'student4', 'Mercedes', 'Rosenbaum', 'Ta4uUhdyVlUVhBpUHKDKTNG9cKfwAtV5CLbfzk1ylzKnw7hVAi8i6aiXsn8M', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:15:11'),
-(8, 'student5@student5.com', '$2y$10$.E2SVUmC.vFsq3FQXwlP/.i.NTZ3NE/f.wcga0eOpIZxLlBpvlDGy', 'student5', 'Maryjane', 'Bogan', 'TD7Azrn6e3VfDmwsc47SxdxXdq0d7uHSNOzRsoeNXFoUlaDWhXrRtQTgthJd', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:16:03'),
+(8, 'student5@student5.com', '$2y$10$.E2SVUmC.vFsq3FQXwlP/.i.NTZ3NE/f.wcga0eOpIZxLlBpvlDGy', 'student5', 'Maryjane', 'Bogan', 'u0iYUau9PRPeJXDsqf4UJn0nhDPM3nPbSQ6mjklNGRJnaeqictFsS0Rq3JZz', NULL, 2, '2016-02-25 04:02:41', '2016-05-23 22:09:45'),
 (9, 'student6@student6.com', '$2y$10$mkvJxW5ZZalMtoK4vrBd3e0n4f7h8Ulh944LpB4t9OY4VOVYp3tpS', 'student6', 'Madeline', 'Abernathy', '', NULL, 2, '2016-02-25 04:02:41', '2016-02-25 04:02:41'),
 (10, 'student7@student7.com', '$2y$10$JMAejjfJiQs6kTdcMhATQuvnJiIOQhM9Jl7l5j6f.01jpmB5bj17K', 'student7', 'Jayne', 'Schoen', '2DN0aikggYDQBcgONsVcVnjeYmDicBRuMTnnsiEU06FlxRi08sB8QhCAZvlm', NULL, 2, '2016-02-25 04:02:41', '2016-03-10 11:53:03'),
 (11, 'student8@student8.com', '$2y$10$FtDHW.kn1Ah1Bi3uRTKK4.Ksd7Dy5/8pQhAGCPeGwKVQmc7SSpc9S', 'student8', 'Kyleigh', 'Parisian', '', NULL, 2, '2016-02-25 04:02:41', '2016-02-25 04:02:41'),
@@ -487,7 +646,12 @@ INSERT INTO `users` (`id`, `email`, `password`, `username`, `first_name`, `last_
 (101, 'student98@student98.com', '$2y$10$aBNxjPBCdxL6T9BWHI3xb.leC3QTPNc3fkVxE6fol0S3a8aG9trOq', 'student98', 'Adah', 'Mayer', '', NULL, 2, '2016-02-25 04:02:53', '2016-02-25 04:02:53'),
 (102, 'student99@student99.com', '$2y$10$fFcvf/stxaLq9PICMjiI..nIHsR.o8ewZfBO4pxwBai7Q3.Zzg6.i', 'student99', 'Shanel', 'Crona', '', NULL, 2, '2016-02-25 04:02:53', '2016-02-25 04:02:53'),
 (103, 'Colorado@gmail.com', 'password', 'colorado', 'Colorado', 'Colorado', '', '537252345', 2, '2016-04-13 20:12:11', '2016-04-13 20:12:11'),
-(104, '', 'password', 'alex', 'Alejandro', 'Flores', '', '', 2, '2016-04-18 20:58:59', '2016-04-18 20:58:59');
+(104, '', 'password', 'alex', 'Alejandro', 'Flores', '', '', 2, '2016-04-18 20:58:59', '2016-04-18 20:58:59'),
+(105, '', '12345', 'alumno1', 'alumno', '1', '', '', 2, '2016-05-23 21:30:06', '2016-05-23 21:30:06'),
+(106, '', '12345', 'alumno2', 'alumno', '2', '', '', 2, '2016-05-23 21:30:53', '2016-05-23 21:30:53'),
+(107, '', '12345', 'estudiante1', 'estudiante', '1', '', '', 2, '2016-05-23 21:32:10', '2016-05-23 21:32:10'),
+(108, '', '$2y$10$6zcq7RDMiCocfho9hWhYi.Aw7l8vi4VlBJ86fjVeOSSYNzb/SndAC', 'prueba', 'bbdshdagsh', 'hdgsjhgasjdgas', '', '', 2, '2016-05-24 08:31:23', '2016-05-24 08:31:23'),
+(109, '', '$2y$10$BNNRbMfYtw3o7i20KAwReuJ/Kq/PtvHkxERwwx3i/16TTUKvSDOPC', 'hola', 'dshkdah', 'hdshkhsdhakjs', '', '', 2, '2016-06-02 21:11:47', '2016-06-02 21:11:47');
 
 --
 -- Índices para tablas volcadas
@@ -552,17 +716,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=96;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=220;
 --
 -- AUTO_INCREMENT de la tabla `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=133;
 --
 -- AUTO_INCREMENT de la tabla `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
@@ -572,17 +736,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `student_tests`
 --
 ALTER TABLE `student_tests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `taken_tests`
 --
 ALTER TABLE `taken_tests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=110;
 --
 -- Restricciones para tablas volcadas
 --
